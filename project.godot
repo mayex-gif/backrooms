@@ -52,6 +52,16 @@ agachar={
 ]
 }
 
+[layer_names]
+
+3d_render/layer_1="Jugador"
+3d_render/layer_2="Enemigos"
+3d_render/layer_3="Interactuables"
+3d_render/layer_4="Paredes"
+3d_render/layer_5="Sonido"
+3d_render/layer_6="Luz"
+3d_render/layer_7="Decoración"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

@@ -37,7 +37,8 @@ func _ready():
 		raycast.enabled = true
 		raycast.exclude_parent = true
 		# IMPORTANTE: Configurá la máscara de colisión del raycast para que SOLO choque con el mapa (Paredes)
-		raycast.collision_mask = 1 
+		raycast.collision_mask = 0
+		raycast.set_collision_mask_value(4, true)
 
 	# 5. Iniciar ciclo eléctrico si es visible
 	if is_visible_in_tree():
@@ -112,16 +113,27 @@ func _physics_process(delta: float) -> void:
 func _calcular_occlusion_acustica():
 	# Convertimos la posición global del jugador al espacio local de nuestra lámpara
 	# Apuntamos a la cabeza del jugador (aproximadamente a la altura de sus ojos)
-	var posicion_objetivo = raycast.to_local(jugador.global_position + Vector3(0, 1.55, 0))
+	var posicion_objetivo = raycast.to_local(
+		jugador.global_position + Vector3(0,1.55,0)
+	)
+
 	raycast.target_position = posicion_objetivo
-	
 	# Forzamos la actualización inmediata del cálculo físico del rayo
 	raycast.force_raycast_update()
-	
+
 	if raycast.is_colliding():
 		# ¡Hay una pared en el medio! Aplicamos el filtro de volumen amortiguado (Oclusión)
 		# Atenuamos considerablemente el volumen restando decibelios
-		audio_zumbido.volume_db = lerp(audio_zumbido.volume_db, volumen_base_db - 20.0, 0.1)
+		var obj = raycast.get_collider()
+		print(
+			"Nombre:", obj.name,
+			" Tipo:", obj.get_class(),
+			" Capa:", obj.collision_layer
+		)
+		audio_zumbido.volume_db = volumen_base_db - 20
+		
 	else:
 		# Línea de visión directa y limpia. Sonido nítido original.
-		audio_zumbido.volume_db = lerp(audio_zumbido.volume_db, volumen_base_db, 0.0)
+		print("SIN COLISION")
+
+		audio_zumbido.volume_db = volumen_base_db

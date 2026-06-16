@@ -43,7 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 11)
 [node name="PlacaTecho" parent="Techo2" unique_id=472328615 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="SpotLight3D" parent="Techo2/PlacaTecho" index="0" unique_id=1739712542 node_paths=PackedStringArray("malla_placa_techo")]
+[node name="SpotLight3D" parent="Techo2/PlacaTecho/Modulo_LuzTecho" parent_id_path=PackedInt32Array(472328615, 1688122384) index="2" unique_id=1739712542 node_paths=PackedStringArray("malla_placa_techo")]
 parpadear = true
 malla_placa_techo = NodePath("../Luz")
 
@@ -51,675 +51,675 @@ malla_placa_techo = NodePath("../Luz")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 3)
 visible = false
 
-[node name="SpotLight3D" parent="Techo2/PlacaTecho2" index="0" unique_id=1739712542]
+[node name="SpotLight3D" parent="Techo2/PlacaTecho2/Modulo_LuzTecho" parent_id_path=PackedInt32Array(322287145, 1688122384) index="2" unique_id=1739712542]
 visible = false
 
-[node name="Luz" parent="Techo2/PlacaTecho2" index="1" unique_id=1295079293]
+[node name="Luz" parent="Techo2/PlacaTecho2/Modulo_LuzTecho" parent_id_path=PackedInt32Array(322287145, 1688122384) index="3" unique_id=1295079293]
 visible = false
 
-[node name="MeshInstance3D2" parent="Techo2/PlacaTecho2" index="2" unique_id=613040824]
+[node name="MeshInstance3D2" parent="Techo2/PlacaTecho2" index="1" unique_id=613040824]
 visible = false
 
-[node name="MeshInstance3D5" parent="Techo2/PlacaTecho2" index="3" unique_id=1187159523]
+[node name="MeshInstance3D5" parent="Techo2/PlacaTecho2" index="2" unique_id=1187159523]
 visible = false
 
-[node name="MeshInstance3D11" parent="Techo2/PlacaTecho2" index="4" unique_id=530024732]
+[node name="MeshInstance3D11" parent="Techo2/PlacaTecho2" index="3" unique_id=530024732]
 visible = false
 
-[node name="MeshInstance3D12" parent="Techo2/PlacaTecho2" index="5" unique_id=2087632283]
+[node name="MeshInstance3D12" parent="Techo2/PlacaTecho2" index="4" unique_id=2087632283]
 visible = false
 
-[node name="MeshInstance3D14" parent="Techo2/PlacaTecho2" index="7" unique_id=1558822687]
+[node name="MeshInstance3D14" parent="Techo2/PlacaTecho2" index="6" unique_id=1558822687]
 visible = false
 
-[node name="MeshInstance3D16" parent="Techo2/PlacaTecho2" index="9" unique_id=2121150572]
+[node name="MeshInstance3D16" parent="Techo2/PlacaTecho2" index="8" unique_id=2121150572]
 visible = false
 
-[node name="MeshInstance3D19" parent="Techo2/PlacaTecho2" index="11" unique_id=1688983951]
+[node name="MeshInstance3D19" parent="Techo2/PlacaTecho2" index="10" unique_id=1688983951]
 visible = false
 
-[node name="MeshInstance3D22" parent="Techo2/PlacaTecho2" index="12" unique_id=735690159]
+[node name="MeshInstance3D22" parent="Techo2/PlacaTecho2" index="11" unique_id=735690159]
 visible = false
 
-[node name="MeshInstance3D23" parent="Techo2/PlacaTecho2" index="13" unique_id=1314811099]
+[node name="MeshInstance3D23" parent="Techo2/PlacaTecho2" index="12" unique_id=1314811099]
 visible = false
 
-[node name="MeshInstance3D25" parent="Techo2/PlacaTecho2" index="15" unique_id=1960685713]
+[node name="MeshInstance3D25" parent="Techo2/PlacaTecho2" index="14" unique_id=1960685713]
 visible = false
 
-[node name="MeshInstance3D26" parent="Techo2/PlacaTecho2" index="16" unique_id=1405542428]
+[node name="MeshInstance3D26" parent="Techo2/PlacaTecho2" index="15" unique_id=1405542428]
 visible = false
 
-[node name="MeshInstance3D30" parent="Techo2/PlacaTecho2" index="21" unique_id=242400468]
+[node name="MeshInstance3D30" parent="Techo2/PlacaTecho2" index="20" unique_id=242400468]
 visible = false
 
-[node name="MeshInstance3D31" parent="Techo2/PlacaTecho2" index="22" unique_id=2018549182]
+[node name="MeshInstance3D31" parent="Techo2/PlacaTecho2" index="21" unique_id=2018549182]
 visible = false
 
-[node name="MeshInstance3D6" parent="Techo2/PlacaTecho2" index="23" unique_id=30792559]
+[node name="MeshInstance3D6" parent="Techo2/PlacaTecho2" index="22" unique_id=30792559]
 visible = false
 
-[node name="MeshInstance3D7" parent="Techo2/PlacaTecho2" index="24" unique_id=699095196]
+[node name="MeshInstance3D7" parent="Techo2/PlacaTecho2" index="23" unique_id=699095196]
 visible = false
 
-[node name="MeshInstance3D8" parent="Techo2/PlacaTecho2" index="25" unique_id=1437171443]
+[node name="MeshInstance3D8" parent="Techo2/PlacaTecho2" index="24" unique_id=1437171443]
 visible = false
 
-[node name="MeshInstance3D9" parent="Techo2/PlacaTecho2" index="26" unique_id=205688273]
+[node name="MeshInstance3D9" parent="Techo2/PlacaTecho2" index="25" unique_id=205688273]
 visible = false
 
-[node name="MeshInstance3D18" parent="Techo2/PlacaTecho2" index="28" unique_id=1226865963]
+[node name="MeshInstance3D18" parent="Techo2/PlacaTecho2" index="27" unique_id=1226865963]
 visible = false
 
-[node name="MeshInstance3D21" parent="Techo2/PlacaTecho2" index="29" unique_id=1368375140]
+[node name="MeshInstance3D21" parent="Techo2/PlacaTecho2" index="28" unique_id=1368375140]
 visible = false
 
-[node name="MeshInstance3D33" parent="Techo2/PlacaTecho2" index="31" unique_id=2028123399]
+[node name="MeshInstance3D33" parent="Techo2/PlacaTecho2" index="30" unique_id=2028123399]
 visible = false
 
-[node name="MeshInstance3D34" parent="Techo2/PlacaTecho2" index="32" unique_id=1652370633]
+[node name="MeshInstance3D34" parent="Techo2/PlacaTecho2" index="31" unique_id=1652370633]
 visible = false
 
-[node name="MeshInstance3D35" parent="Techo2/PlacaTecho2" index="33" unique_id=1998295884]
+[node name="MeshInstance3D35" parent="Techo2/PlacaTecho2" index="32" unique_id=1998295884]
 visible = false
 
 [node name="PlacaTecho3" parent="Techo2" unique_id=829622582 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.986207, 1.5, 3)
 visible = false
 
-[node name="SpotLight3D" parent="Techo2/PlacaTecho3" index="0" unique_id=1739712542]
+[node name="SpotLight3D" parent="Techo2/PlacaTecho3/Modulo_LuzTecho" parent_id_path=PackedInt32Array(829622582, 1688122384) index="2" unique_id=1739712542]
 visible = false
 
-[node name="Luz" parent="Techo2/PlacaTecho3" index="1" unique_id=1295079293]
+[node name="Luz" parent="Techo2/PlacaTecho3/Modulo_LuzTecho" parent_id_path=PackedInt32Array(829622582, 1688122384) index="3" unique_id=1295079293]
 visible = false
 
-[node name="MeshInstance3D2" parent="Techo2/PlacaTecho3" index="2" unique_id=613040824]
+[node name="MeshInstance3D2" parent="Techo2/PlacaTecho3" index="1" unique_id=613040824]
 visible = false
 
-[node name="MeshInstance3D5" parent="Techo2/PlacaTecho3" index="3" unique_id=1187159523]
+[node name="MeshInstance3D5" parent="Techo2/PlacaTecho3" index="2" unique_id=1187159523]
 visible = false
 
-[node name="MeshInstance3D11" parent="Techo2/PlacaTecho3" index="4" unique_id=530024732]
+[node name="MeshInstance3D11" parent="Techo2/PlacaTecho3" index="3" unique_id=530024732]
 visible = false
 
-[node name="MeshInstance3D12" parent="Techo2/PlacaTecho3" index="5" unique_id=2087632283]
+[node name="MeshInstance3D12" parent="Techo2/PlacaTecho3" index="4" unique_id=2087632283]
 visible = false
 
-[node name="MeshInstance3D13" parent="Techo2/PlacaTecho3" index="6" unique_id=1777927543]
+[node name="MeshInstance3D13" parent="Techo2/PlacaTecho3" index="5" unique_id=1777927543]
 visible = false
 
-[node name="MeshInstance3D14" parent="Techo2/PlacaTecho3" index="7" unique_id=1558822687]
+[node name="MeshInstance3D14" parent="Techo2/PlacaTecho3" index="6" unique_id=1558822687]
 visible = false
 
-[node name="MeshInstance3D16" parent="Techo2/PlacaTecho3" index="9" unique_id=2121150572]
+[node name="MeshInstance3D16" parent="Techo2/PlacaTecho3" index="8" unique_id=2121150572]
 visible = false
 
-[node name="MeshInstance3D17" parent="Techo2/PlacaTecho3" index="10" unique_id=684753668]
+[node name="MeshInstance3D17" parent="Techo2/PlacaTecho3" index="9" unique_id=684753668]
 visible = false
 
-[node name="MeshInstance3D19" parent="Techo2/PlacaTecho3" index="11" unique_id=1688983951]
+[node name="MeshInstance3D19" parent="Techo2/PlacaTecho3" index="10" unique_id=1688983951]
 visible = false
 
-[node name="MeshInstance3D22" parent="Techo2/PlacaTecho3" index="12" unique_id=735690159]
+[node name="MeshInstance3D22" parent="Techo2/PlacaTecho3" index="11" unique_id=735690159]
 visible = false
 
-[node name="MeshInstance3D23" parent="Techo2/PlacaTecho3" index="13" unique_id=1314811099]
+[node name="MeshInstance3D23" parent="Techo2/PlacaTecho3" index="12" unique_id=1314811099]
 visible = false
 
-[node name="MeshInstance3D25" parent="Techo2/PlacaTecho3" index="15" unique_id=1960685713]
+[node name="MeshInstance3D25" parent="Techo2/PlacaTecho3" index="14" unique_id=1960685713]
 visible = false
 
-[node name="MeshInstance3D26" parent="Techo2/PlacaTecho3" index="16" unique_id=1405542428]
+[node name="MeshInstance3D26" parent="Techo2/PlacaTecho3" index="15" unique_id=1405542428]
 visible = false
 
-[node name="MeshInstance3D20" parent="Techo2/PlacaTecho3" index="17" unique_id=1658490556]
+[node name="MeshInstance3D20" parent="Techo2/PlacaTecho3" index="16" unique_id=1658490556]
 visible = false
 
-[node name="MeshInstance3D27" parent="Techo2/PlacaTecho3" index="18" unique_id=1170797201]
+[node name="MeshInstance3D27" parent="Techo2/PlacaTecho3" index="17" unique_id=1170797201]
 visible = false
 
-[node name="MeshInstance3D29" parent="Techo2/PlacaTecho3" index="20" unique_id=405479010]
+[node name="MeshInstance3D29" parent="Techo2/PlacaTecho3" index="19" unique_id=405479010]
 visible = false
 
-[node name="MeshInstance3D30" parent="Techo2/PlacaTecho3" index="21" unique_id=242400468]
+[node name="MeshInstance3D30" parent="Techo2/PlacaTecho3" index="20" unique_id=242400468]
 visible = false
 
-[node name="MeshInstance3D31" parent="Techo2/PlacaTecho3" index="22" unique_id=2018549182]
+[node name="MeshInstance3D31" parent="Techo2/PlacaTecho3" index="21" unique_id=2018549182]
 visible = false
 
-[node name="MeshInstance3D6" parent="Techo2/PlacaTecho3" index="23" unique_id=30792559]
+[node name="MeshInstance3D6" parent="Techo2/PlacaTecho3" index="22" unique_id=30792559]
 visible = false
 
-[node name="MeshInstance3D7" parent="Techo2/PlacaTecho3" index="24" unique_id=699095196]
+[node name="MeshInstance3D7" parent="Techo2/PlacaTecho3" index="23" unique_id=699095196]
 visible = false
 
-[node name="MeshInstance3D8" parent="Techo2/PlacaTecho3" index="25" unique_id=1437171443]
+[node name="MeshInstance3D8" parent="Techo2/PlacaTecho3" index="24" unique_id=1437171443]
 visible = false
 
-[node name="MeshInstance3D9" parent="Techo2/PlacaTecho3" index="26" unique_id=205688273]
+[node name="MeshInstance3D9" parent="Techo2/PlacaTecho3" index="25" unique_id=205688273]
 transform = Transform3D(0.059997264, -0.0002452111, 0.008196323, 0.00029327552, 0.049999304, 0.0020083124, -0.0004923631, -9.840911e-05, 0.9999644, 0.5, 0, 1)
 visible = false
 
-[node name="MeshInstance3D10" parent="Techo2/PlacaTecho3" index="27" unique_id=712670781]
+[node name="MeshInstance3D10" parent="Techo2/PlacaTecho3" index="26" unique_id=712670781]
 visible = false
 
-[node name="MeshInstance3D18" parent="Techo2/PlacaTecho3" index="28" unique_id=1226865963]
+[node name="MeshInstance3D18" parent="Techo2/PlacaTecho3" index="27" unique_id=1226865963]
 visible = false
 
-[node name="MeshInstance3D21" parent="Techo2/PlacaTecho3" index="29" unique_id=1368375140]
+[node name="MeshInstance3D21" parent="Techo2/PlacaTecho3" index="28" unique_id=1368375140]
 visible = false
 
-[node name="MeshInstance3D32" parent="Techo2/PlacaTecho3" index="30" unique_id=1526658370]
+[node name="MeshInstance3D32" parent="Techo2/PlacaTecho3" index="29" unique_id=1526658370]
 visible = false
 
-[node name="MeshInstance3D33" parent="Techo2/PlacaTecho3" index="31" unique_id=2028123399]
+[node name="MeshInstance3D33" parent="Techo2/PlacaTecho3" index="30" unique_id=2028123399]
 visible = false
 
-[node name="MeshInstance3D34" parent="Techo2/PlacaTecho3" index="32" unique_id=1652370633]
+[node name="MeshInstance3D34" parent="Techo2/PlacaTecho3" index="31" unique_id=1652370633]
 visible = false
 
-[node name="MeshInstance3D35" parent="Techo2/PlacaTecho3" index="33" unique_id=1998295884]
+[node name="MeshInstance3D35" parent="Techo2/PlacaTecho3" index="32" unique_id=1998295884]
 visible = false
 
 [node name="PlacaTecho4" parent="Techo2" unique_id=1810820209 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, 3)
 visible = false
 
-[node name="SpotLight3D" parent="Techo2/PlacaTecho4" index="0" unique_id=1739712542]
+[node name="SpotLight3D" parent="Techo2/PlacaTecho4/Modulo_LuzTecho" parent_id_path=PackedInt32Array(1810820209, 1688122384) index="2" unique_id=1739712542]
 visible = false
 
-[node name="Luz" parent="Techo2/PlacaTecho4" index="1" unique_id=1295079293]
+[node name="Luz" parent="Techo2/PlacaTecho4/Modulo_LuzTecho" parent_id_path=PackedInt32Array(1810820209, 1688122384) index="3" unique_id=1295079293]
 visible = false
 
-[node name="MeshInstance3D2" parent="Techo2/PlacaTecho4" index="2" unique_id=613040824]
+[node name="MeshInstance3D2" parent="Techo2/PlacaTecho4" index="1" unique_id=613040824]
 visible = false
 
-[node name="MeshInstance3D5" parent="Techo2/PlacaTecho4" index="3" unique_id=1187159523]
+[node name="MeshInstance3D5" parent="Techo2/PlacaTecho4" index="2" unique_id=1187159523]
 visible = false
 
-[node name="MeshInstance3D11" parent="Techo2/PlacaTecho4" index="4" unique_id=530024732]
+[node name="MeshInstance3D11" parent="Techo2/PlacaTecho4" index="3" unique_id=530024732]
 visible = false
 
-[node name="MeshInstance3D12" parent="Techo2/PlacaTecho4" index="5" unique_id=2087632283]
+[node name="MeshInstance3D12" parent="Techo2/PlacaTecho4" index="4" unique_id=2087632283]
 visible = false
 
-[node name="MeshInstance3D13" parent="Techo2/PlacaTecho4" index="6" unique_id=1777927543]
+[node name="MeshInstance3D13" parent="Techo2/PlacaTecho4" index="5" unique_id=1777927543]
 visible = false
 
-[node name="MeshInstance3D14" parent="Techo2/PlacaTecho4" index="7" unique_id=1558822687]
+[node name="MeshInstance3D14" parent="Techo2/PlacaTecho4" index="6" unique_id=1558822687]
 visible = false
 
-[node name="MeshInstance3D15" parent="Techo2/PlacaTecho4" index="8" unique_id=472792999]
+[node name="MeshInstance3D15" parent="Techo2/PlacaTecho4" index="7" unique_id=472792999]
 visible = false
 
-[node name="MeshInstance3D16" parent="Techo2/PlacaTecho4" index="9" unique_id=2121150572]
+[node name="MeshInstance3D16" parent="Techo2/PlacaTecho4" index="8" unique_id=2121150572]
 visible = false
 
-[node name="MeshInstance3D19" parent="Techo2/PlacaTecho4" index="11" unique_id=1688983951]
+[node name="MeshInstance3D19" parent="Techo2/PlacaTecho4" index="10" unique_id=1688983951]
 visible = false
 
-[node name="MeshInstance3D22" parent="Techo2/PlacaTecho4" index="12" unique_id=735690159]
+[node name="MeshInstance3D22" parent="Techo2/PlacaTecho4" index="11" unique_id=735690159]
 visible = false
 
-[node name="MeshInstance3D23" parent="Techo2/PlacaTecho4" index="13" unique_id=1314811099]
+[node name="MeshInstance3D23" parent="Techo2/PlacaTecho4" index="12" unique_id=1314811099]
 visible = false
 
-[node name="MeshInstance3D24" parent="Techo2/PlacaTecho4" index="14" unique_id=991339921]
+[node name="MeshInstance3D24" parent="Techo2/PlacaTecho4" index="13" unique_id=991339921]
 visible = false
 
-[node name="MeshInstance3D25" parent="Techo2/PlacaTecho4" index="15" unique_id=1960685713]
+[node name="MeshInstance3D25" parent="Techo2/PlacaTecho4" index="14" unique_id=1960685713]
 visible = false
 
-[node name="MeshInstance3D26" parent="Techo2/PlacaTecho4" index="16" unique_id=1405542428]
+[node name="MeshInstance3D26" parent="Techo2/PlacaTecho4" index="15" unique_id=1405542428]
 visible = false
 
-[node name="MeshInstance3D20" parent="Techo2/PlacaTecho4" index="17" unique_id=1658490556]
+[node name="MeshInstance3D20" parent="Techo2/PlacaTecho4" index="16" unique_id=1658490556]
 visible = false
 
-[node name="MeshInstance3D28" parent="Techo2/PlacaTecho4" index="19" unique_id=1126820017]
+[node name="MeshInstance3D28" parent="Techo2/PlacaTecho4" index="18" unique_id=1126820017]
 visible = false
 
-[node name="MeshInstance3D30" parent="Techo2/PlacaTecho4" index="21" unique_id=242400468]
+[node name="MeshInstance3D30" parent="Techo2/PlacaTecho4" index="20" unique_id=242400468]
 visible = false
 
-[node name="MeshInstance3D31" parent="Techo2/PlacaTecho4" index="22" unique_id=2018549182]
+[node name="MeshInstance3D31" parent="Techo2/PlacaTecho4" index="21" unique_id=2018549182]
 visible = false
 
-[node name="MeshInstance3D6" parent="Techo2/PlacaTecho4" index="23" unique_id=30792559]
+[node name="MeshInstance3D6" parent="Techo2/PlacaTecho4" index="22" unique_id=30792559]
 visible = false
 
-[node name="MeshInstance3D7" parent="Techo2/PlacaTecho4" index="24" unique_id=699095196]
+[node name="MeshInstance3D7" parent="Techo2/PlacaTecho4" index="23" unique_id=699095196]
 visible = false
 
-[node name="MeshInstance3D8" parent="Techo2/PlacaTecho4" index="25" unique_id=1437171443]
+[node name="MeshInstance3D8" parent="Techo2/PlacaTecho4" index="24" unique_id=1437171443]
 visible = false
 
-[node name="MeshInstance3D9" parent="Techo2/PlacaTecho4" index="26" unique_id=205688273]
+[node name="MeshInstance3D9" parent="Techo2/PlacaTecho4" index="25" unique_id=205688273]
 visible = false
 
-[node name="MeshInstance3D10" parent="Techo2/PlacaTecho4" index="27" unique_id=712670781]
+[node name="MeshInstance3D10" parent="Techo2/PlacaTecho4" index="26" unique_id=712670781]
 visible = false
 
-[node name="MeshInstance3D18" parent="Techo2/PlacaTecho4" index="28" unique_id=1226865963]
+[node name="MeshInstance3D18" parent="Techo2/PlacaTecho4" index="27" unique_id=1226865963]
 visible = false
 
-[node name="MeshInstance3D21" parent="Techo2/PlacaTecho4" index="29" unique_id=1368375140]
+[node name="MeshInstance3D21" parent="Techo2/PlacaTecho4" index="28" unique_id=1368375140]
 visible = false
 
-[node name="MeshInstance3D33" parent="Techo2/PlacaTecho4" index="31" unique_id=2028123399]
+[node name="MeshInstance3D33" parent="Techo2/PlacaTecho4" index="30" unique_id=2028123399]
 visible = false
 
-[node name="MeshInstance3D34" parent="Techo2/PlacaTecho4" index="32" unique_id=1652370633]
+[node name="MeshInstance3D34" parent="Techo2/PlacaTecho4" index="31" unique_id=1652370633]
 visible = false
 
-[node name="MeshInstance3D35" parent="Techo2/PlacaTecho4" index="33" unique_id=1998295884]
+[node name="MeshInstance3D35" parent="Techo2/PlacaTecho4" index="32" unique_id=1998295884]
 visible = false
 
 [node name="PlacaTecho5" parent="Techo2" unique_id=1276367844 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -3)
 
-[node name="SpotLight3D" parent="Techo2/PlacaTecho5" index="0" unique_id=1739712542]
+[node name="SpotLight3D" parent="Techo2/PlacaTecho5/Modulo_LuzTecho" parent_id_path=PackedInt32Array(1276367844, 1688122384) index="2" unique_id=1739712542]
 visible = false
 
-[node name="Luz" parent="Techo2/PlacaTecho5" index="1" unique_id=1295079293]
+[node name="Luz" parent="Techo2/PlacaTecho5/Modulo_LuzTecho" parent_id_path=PackedInt32Array(1276367844, 1688122384) index="3" unique_id=1295079293]
 visible = false
 
-[node name="MeshInstance3D2" parent="Techo2/PlacaTecho5" index="2" unique_id=613040824]
+[node name="MeshInstance3D2" parent="Techo2/PlacaTecho5" index="1" unique_id=613040824]
 visible = false
 
-[node name="MeshInstance3D5" parent="Techo2/PlacaTecho5" index="3" unique_id=1187159523]
+[node name="MeshInstance3D5" parent="Techo2/PlacaTecho5" index="2" unique_id=1187159523]
 visible = false
 
-[node name="MeshInstance3D11" parent="Techo2/PlacaTecho5" index="4" unique_id=530024732]
+[node name="MeshInstance3D11" parent="Techo2/PlacaTecho5" index="3" unique_id=530024732]
 visible = false
 
-[node name="MeshInstance3D13" parent="Techo2/PlacaTecho5" index="6" unique_id=1777927543]
+[node name="MeshInstance3D13" parent="Techo2/PlacaTecho5" index="5" unique_id=1777927543]
 visible = false
 
-[node name="MeshInstance3D15" parent="Techo2/PlacaTecho5" index="8" unique_id=472792999]
+[node name="MeshInstance3D15" parent="Techo2/PlacaTecho5" index="7" unique_id=472792999]
 visible = false
 
-[node name="MeshInstance3D17" parent="Techo2/PlacaTecho5" index="10" unique_id=684753668]
+[node name="MeshInstance3D17" parent="Techo2/PlacaTecho5" index="9" unique_id=684753668]
 visible = false
 
-[node name="MeshInstance3D24" parent="Techo2/PlacaTecho5" index="14" unique_id=991339921]
+[node name="MeshInstance3D24" parent="Techo2/PlacaTecho5" index="13" unique_id=991339921]
 visible = false
 
-[node name="MeshInstance3D25" parent="Techo2/PlacaTecho5" index="15" unique_id=1960685713]
+[node name="MeshInstance3D25" parent="Techo2/PlacaTecho5" index="14" unique_id=1960685713]
 visible = false
 
-[node name="MeshInstance3D20" parent="Techo2/PlacaTecho5" index="17" unique_id=1658490556]
+[node name="MeshInstance3D20" parent="Techo2/PlacaTecho5" index="16" unique_id=1658490556]
 visible = false
 
-[node name="MeshInstance3D27" parent="Techo2/PlacaTecho5" index="18" unique_id=1170797201]
+[node name="MeshInstance3D27" parent="Techo2/PlacaTecho5" index="17" unique_id=1170797201]
 visible = false
 
-[node name="MeshInstance3D28" parent="Techo2/PlacaTecho5" index="19" unique_id=1126820017]
+[node name="MeshInstance3D28" parent="Techo2/PlacaTecho5" index="18" unique_id=1126820017]
 visible = false
 
-[node name="MeshInstance3D29" parent="Techo2/PlacaTecho5" index="20" unique_id=405479010]
+[node name="MeshInstance3D29" parent="Techo2/PlacaTecho5" index="19" unique_id=405479010]
 visible = false
 
-[node name="MeshInstance3D30" parent="Techo2/PlacaTecho5" index="21" unique_id=242400468]
+[node name="MeshInstance3D30" parent="Techo2/PlacaTecho5" index="20" unique_id=242400468]
 visible = false
 
-[node name="MeshInstance3D6" parent="Techo2/PlacaTecho5" index="23" unique_id=30792559]
+[node name="MeshInstance3D6" parent="Techo2/PlacaTecho5" index="22" unique_id=30792559]
 visible = false
 
-[node name="MeshInstance3D7" parent="Techo2/PlacaTecho5" index="24" unique_id=699095196]
+[node name="MeshInstance3D7" parent="Techo2/PlacaTecho5" index="23" unique_id=699095196]
 visible = false
 
-[node name="MeshInstance3D8" parent="Techo2/PlacaTecho5" index="25" unique_id=1437171443]
+[node name="MeshInstance3D8" parent="Techo2/PlacaTecho5" index="24" unique_id=1437171443]
 visible = false
 
-[node name="MeshInstance3D10" parent="Techo2/PlacaTecho5" index="27" unique_id=712670781]
+[node name="MeshInstance3D10" parent="Techo2/PlacaTecho5" index="26" unique_id=712670781]
 visible = false
 
-[node name="MeshInstance3D18" parent="Techo2/PlacaTecho5" index="28" unique_id=1226865963]
+[node name="MeshInstance3D18" parent="Techo2/PlacaTecho5" index="27" unique_id=1226865963]
 visible = false
 
-[node name="MeshInstance3D32" parent="Techo2/PlacaTecho5" index="30" unique_id=1526658370]
+[node name="MeshInstance3D32" parent="Techo2/PlacaTecho5" index="29" unique_id=1526658370]
 visible = false
 
-[node name="MeshInstance3D33" parent="Techo2/PlacaTecho5" index="31" unique_id=2028123399]
+[node name="MeshInstance3D33" parent="Techo2/PlacaTecho5" index="30" unique_id=2028123399]
 visible = false
 
-[node name="MeshInstance3D34" parent="Techo2/PlacaTecho5" index="32" unique_id=1652370633]
+[node name="MeshInstance3D34" parent="Techo2/PlacaTecho5" index="31" unique_id=1652370633]
 visible = false
 
-[node name="MeshInstance3D35" parent="Techo2/PlacaTecho5" index="33" unique_id=1998295884]
+[node name="MeshInstance3D35" parent="Techo2/PlacaTecho5" index="32" unique_id=1998295884]
 visible = false
 
 [node name="PlacaTecho6" parent="Techo2" unique_id=800460820 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, -3)
 visible = false
 
-[node name="SpotLight3D" parent="Techo2/PlacaTecho6" index="0" unique_id=1739712542]
+[node name="SpotLight3D" parent="Techo2/PlacaTecho6/Modulo_LuzTecho" parent_id_path=PackedInt32Array(800460820, 1688122384) index="2" unique_id=1739712542]
 visible = false
 
-[node name="Luz" parent="Techo2/PlacaTecho6" index="1" unique_id=1295079293]
+[node name="Luz" parent="Techo2/PlacaTecho6/Modulo_LuzTecho" parent_id_path=PackedInt32Array(800460820, 1688122384) index="3" unique_id=1295079293]
 visible = false
 
-[node name="MeshInstance3D2" parent="Techo2/PlacaTecho6" index="2" unique_id=613040824]
+[node name="MeshInstance3D2" parent="Techo2/PlacaTecho6" index="1" unique_id=613040824]
 visible = false
 
-[node name="MeshInstance3D5" parent="Techo2/PlacaTecho6" index="3" unique_id=1187159523]
+[node name="MeshInstance3D5" parent="Techo2/PlacaTecho6" index="2" unique_id=1187159523]
 visible = false
 
-[node name="MeshInstance3D11" parent="Techo2/PlacaTecho6" index="4" unique_id=530024732]
+[node name="MeshInstance3D11" parent="Techo2/PlacaTecho6" index="3" unique_id=530024732]
 visible = false
 
-[node name="MeshInstance3D12" parent="Techo2/PlacaTecho6" index="5" unique_id=2087632283]
+[node name="MeshInstance3D12" parent="Techo2/PlacaTecho6" index="4" unique_id=2087632283]
 visible = false
 
-[node name="MeshInstance3D13" parent="Techo2/PlacaTecho6" index="6" unique_id=1777927543]
+[node name="MeshInstance3D13" parent="Techo2/PlacaTecho6" index="5" unique_id=1777927543]
 visible = false
 
-[node name="MeshInstance3D15" parent="Techo2/PlacaTecho6" index="8" unique_id=472792999]
+[node name="MeshInstance3D15" parent="Techo2/PlacaTecho6" index="7" unique_id=472792999]
 visible = false
 
-[node name="MeshInstance3D16" parent="Techo2/PlacaTecho6" index="9" unique_id=2121150572]
+[node name="MeshInstance3D16" parent="Techo2/PlacaTecho6" index="8" unique_id=2121150572]
 visible = false
 
-[node name="MeshInstance3D17" parent="Techo2/PlacaTecho6" index="10" unique_id=684753668]
+[node name="MeshInstance3D17" parent="Techo2/PlacaTecho6" index="9" unique_id=684753668]
 visible = false
 
-[node name="MeshInstance3D19" parent="Techo2/PlacaTecho6" index="11" unique_id=1688983951]
+[node name="MeshInstance3D19" parent="Techo2/PlacaTecho6" index="10" unique_id=1688983951]
 visible = false
 
-[node name="MeshInstance3D22" parent="Techo2/PlacaTecho6" index="12" unique_id=735690159]
+[node name="MeshInstance3D22" parent="Techo2/PlacaTecho6" index="11" unique_id=735690159]
 visible = false
 
-[node name="MeshInstance3D24" parent="Techo2/PlacaTecho6" index="14" unique_id=991339921]
+[node name="MeshInstance3D24" parent="Techo2/PlacaTecho6" index="13" unique_id=991339921]
 visible = false
 
-[node name="MeshInstance3D25" parent="Techo2/PlacaTecho6" index="15" unique_id=1960685713]
+[node name="MeshInstance3D25" parent="Techo2/PlacaTecho6" index="14" unique_id=1960685713]
 visible = false
 
-[node name="MeshInstance3D20" parent="Techo2/PlacaTecho6" index="17" unique_id=1658490556]
+[node name="MeshInstance3D20" parent="Techo2/PlacaTecho6" index="16" unique_id=1658490556]
 visible = false
 
-[node name="MeshInstance3D27" parent="Techo2/PlacaTecho6" index="18" unique_id=1170797201]
+[node name="MeshInstance3D27" parent="Techo2/PlacaTecho6" index="17" unique_id=1170797201]
 visible = false
 
-[node name="MeshInstance3D28" parent="Techo2/PlacaTecho6" index="19" unique_id=1126820017]
+[node name="MeshInstance3D28" parent="Techo2/PlacaTecho6" index="18" unique_id=1126820017]
 visible = false
 
-[node name="MeshInstance3D29" parent="Techo2/PlacaTecho6" index="20" unique_id=405479010]
+[node name="MeshInstance3D29" parent="Techo2/PlacaTecho6" index="19" unique_id=405479010]
 visible = false
 
-[node name="MeshInstance3D30" parent="Techo2/PlacaTecho6" index="21" unique_id=242400468]
+[node name="MeshInstance3D30" parent="Techo2/PlacaTecho6" index="20" unique_id=242400468]
 visible = false
 
-[node name="MeshInstance3D31" parent="Techo2/PlacaTecho6" index="22" unique_id=2018549182]
+[node name="MeshInstance3D31" parent="Techo2/PlacaTecho6" index="21" unique_id=2018549182]
 visible = false
 
-[node name="MeshInstance3D6" parent="Techo2/PlacaTecho6" index="23" unique_id=30792559]
+[node name="MeshInstance3D6" parent="Techo2/PlacaTecho6" index="22" unique_id=30792559]
 visible = false
 
-[node name="MeshInstance3D7" parent="Techo2/PlacaTecho6" index="24" unique_id=699095196]
+[node name="MeshInstance3D7" parent="Techo2/PlacaTecho6" index="23" unique_id=699095196]
 visible = false
 
-[node name="MeshInstance3D8" parent="Techo2/PlacaTecho6" index="25" unique_id=1437171443]
+[node name="MeshInstance3D8" parent="Techo2/PlacaTecho6" index="24" unique_id=1437171443]
 visible = false
 
-[node name="MeshInstance3D9" parent="Techo2/PlacaTecho6" index="26" unique_id=205688273]
+[node name="MeshInstance3D9" parent="Techo2/PlacaTecho6" index="25" unique_id=205688273]
 visible = false
 
-[node name="MeshInstance3D10" parent="Techo2/PlacaTecho6" index="27" unique_id=712670781]
+[node name="MeshInstance3D10" parent="Techo2/PlacaTecho6" index="26" unique_id=712670781]
 visible = false
 
-[node name="MeshInstance3D18" parent="Techo2/PlacaTecho6" index="28" unique_id=1226865963]
+[node name="MeshInstance3D18" parent="Techo2/PlacaTecho6" index="27" unique_id=1226865963]
 visible = false
 
-[node name="MeshInstance3D21" parent="Techo2/PlacaTecho6" index="29" unique_id=1368375140]
+[node name="MeshInstance3D21" parent="Techo2/PlacaTecho6" index="28" unique_id=1368375140]
 visible = false
 
-[node name="MeshInstance3D32" parent="Techo2/PlacaTecho6" index="30" unique_id=1526658370]
+[node name="MeshInstance3D32" parent="Techo2/PlacaTecho6" index="29" unique_id=1526658370]
 visible = false
 
-[node name="MeshInstance3D33" parent="Techo2/PlacaTecho6" index="31" unique_id=2028123399]
+[node name="MeshInstance3D33" parent="Techo2/PlacaTecho6" index="30" unique_id=2028123399]
 visible = false
 
-[node name="MeshInstance3D34" parent="Techo2/PlacaTecho6" index="32" unique_id=1652370633]
+[node name="MeshInstance3D34" parent="Techo2/PlacaTecho6" index="31" unique_id=1652370633]
 visible = false
 
-[node name="MeshInstance3D35" parent="Techo2/PlacaTecho6" index="33" unique_id=1998295884]
+[node name="MeshInstance3D35" parent="Techo2/PlacaTecho6" index="32" unique_id=1998295884]
 visible = false
 
 [node name="PlacaTecho7" parent="Techo2" unique_id=721805793 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, -3)
 
-[node name="SpotLight3D" parent="Techo2/PlacaTecho7" index="0" unique_id=1739712542]
+[node name="SpotLight3D" parent="Techo2/PlacaTecho7/Modulo_LuzTecho" parent_id_path=PackedInt32Array(721805793, 1688122384) index="2" unique_id=1739712542]
 visible = false
 
-[node name="Luz" parent="Techo2/PlacaTecho7" index="1" unique_id=1295079293]
+[node name="Luz" parent="Techo2/PlacaTecho7/Modulo_LuzTecho" parent_id_path=PackedInt32Array(721805793, 1688122384) index="3" unique_id=1295079293]
 visible = false
 
-[node name="MeshInstance3D2" parent="Techo2/PlacaTecho7" index="2" unique_id=613040824]
+[node name="MeshInstance3D2" parent="Techo2/PlacaTecho7" index="1" unique_id=613040824]
 visible = false
 
-[node name="MeshInstance3D5" parent="Techo2/PlacaTecho7" index="3" unique_id=1187159523]
+[node name="MeshInstance3D5" parent="Techo2/PlacaTecho7" index="2" unique_id=1187159523]
 visible = false
 
-[node name="MeshInstance3D11" parent="Techo2/PlacaTecho7" index="4" unique_id=530024732]
+[node name="MeshInstance3D11" parent="Techo2/PlacaTecho7" index="3" unique_id=530024732]
 visible = false
 
-[node name="MeshInstance3D12" parent="Techo2/PlacaTecho7" index="5" unique_id=2087632283]
+[node name="MeshInstance3D12" parent="Techo2/PlacaTecho7" index="4" unique_id=2087632283]
 visible = false
 
-[node name="MeshInstance3D13" parent="Techo2/PlacaTecho7" index="6" unique_id=1777927543]
+[node name="MeshInstance3D13" parent="Techo2/PlacaTecho7" index="5" unique_id=1777927543]
 visible = false
 
-[node name="MeshInstance3D14" parent="Techo2/PlacaTecho7" index="7" unique_id=1558822687]
+[node name="MeshInstance3D14" parent="Techo2/PlacaTecho7" index="6" unique_id=1558822687]
 visible = false
 
-[node name="MeshInstance3D15" parent="Techo2/PlacaTecho7" index="8" unique_id=472792999]
+[node name="MeshInstance3D15" parent="Techo2/PlacaTecho7" index="7" unique_id=472792999]
 visible = false
 
-[node name="MeshInstance3D17" parent="Techo2/PlacaTecho7" index="10" unique_id=684753668]
+[node name="MeshInstance3D17" parent="Techo2/PlacaTecho7" index="9" unique_id=684753668]
 visible = false
 
-[node name="MeshInstance3D19" parent="Techo2/PlacaTecho7" index="11" unique_id=1688983951]
+[node name="MeshInstance3D19" parent="Techo2/PlacaTecho7" index="10" unique_id=1688983951]
 visible = false
 
-[node name="MeshInstance3D23" parent="Techo2/PlacaTecho7" index="13" unique_id=1314811099]
+[node name="MeshInstance3D23" parent="Techo2/PlacaTecho7" index="12" unique_id=1314811099]
 visible = false
 
-[node name="MeshInstance3D24" parent="Techo2/PlacaTecho7" index="14" unique_id=991339921]
+[node name="MeshInstance3D24" parent="Techo2/PlacaTecho7" index="13" unique_id=991339921]
 visible = false
 
-[node name="MeshInstance3D25" parent="Techo2/PlacaTecho7" index="15" unique_id=1960685713]
+[node name="MeshInstance3D25" parent="Techo2/PlacaTecho7" index="14" unique_id=1960685713]
 visible = false
 
-[node name="MeshInstance3D26" parent="Techo2/PlacaTecho7" index="16" unique_id=1405542428]
+[node name="MeshInstance3D26" parent="Techo2/PlacaTecho7" index="15" unique_id=1405542428]
 visible = false
 
-[node name="MeshInstance3D20" parent="Techo2/PlacaTecho7" index="17" unique_id=1658490556]
+[node name="MeshInstance3D20" parent="Techo2/PlacaTecho7" index="16" unique_id=1658490556]
 visible = false
 
-[node name="MeshInstance3D27" parent="Techo2/PlacaTecho7" index="18" unique_id=1170797201]
+[node name="MeshInstance3D27" parent="Techo2/PlacaTecho7" index="17" unique_id=1170797201]
 visible = false
 
-[node name="MeshInstance3D28" parent="Techo2/PlacaTecho7" index="19" unique_id=1126820017]
+[node name="MeshInstance3D28" parent="Techo2/PlacaTecho7" index="18" unique_id=1126820017]
 visible = false
 
-[node name="MeshInstance3D29" parent="Techo2/PlacaTecho7" index="20" unique_id=405479010]
+[node name="MeshInstance3D29" parent="Techo2/PlacaTecho7" index="19" unique_id=405479010]
 visible = false
 
-[node name="MeshInstance3D30" parent="Techo2/PlacaTecho7" index="21" unique_id=242400468]
+[node name="MeshInstance3D30" parent="Techo2/PlacaTecho7" index="20" unique_id=242400468]
 visible = false
 
-[node name="MeshInstance3D6" parent="Techo2/PlacaTecho7" index="23" unique_id=30792559]
+[node name="MeshInstance3D6" parent="Techo2/PlacaTecho7" index="22" unique_id=30792559]
 visible = false
 
-[node name="MeshInstance3D7" parent="Techo2/PlacaTecho7" index="24" unique_id=699095196]
+[node name="MeshInstance3D7" parent="Techo2/PlacaTecho7" index="23" unique_id=699095196]
 visible = false
 
-[node name="MeshInstance3D8" parent="Techo2/PlacaTecho7" index="25" unique_id=1437171443]
+[node name="MeshInstance3D8" parent="Techo2/PlacaTecho7" index="24" unique_id=1437171443]
 visible = false
 
-[node name="MeshInstance3D9" parent="Techo2/PlacaTecho7" index="26" unique_id=205688273]
+[node name="MeshInstance3D9" parent="Techo2/PlacaTecho7" index="25" unique_id=205688273]
 visible = false
 
-[node name="MeshInstance3D10" parent="Techo2/PlacaTecho7" index="27" unique_id=712670781]
+[node name="MeshInstance3D10" parent="Techo2/PlacaTecho7" index="26" unique_id=712670781]
 visible = false
 
-[node name="MeshInstance3D18" parent="Techo2/PlacaTecho7" index="28" unique_id=1226865963]
+[node name="MeshInstance3D18" parent="Techo2/PlacaTecho7" index="27" unique_id=1226865963]
 visible = false
 
-[node name="MeshInstance3D32" parent="Techo2/PlacaTecho7" index="30" unique_id=1526658370]
+[node name="MeshInstance3D32" parent="Techo2/PlacaTecho7" index="29" unique_id=1526658370]
 visible = false
 
-[node name="MeshInstance3D33" parent="Techo2/PlacaTecho7" index="31" unique_id=2028123399]
+[node name="MeshInstance3D33" parent="Techo2/PlacaTecho7" index="30" unique_id=2028123399]
 visible = false
 
-[node name="MeshInstance3D34" parent="Techo2/PlacaTecho7" index="32" unique_id=1652370633]
+[node name="MeshInstance3D34" parent="Techo2/PlacaTecho7" index="31" unique_id=1652370633]
 visible = false
 
-[node name="MeshInstance3D35" parent="Techo2/PlacaTecho7" index="33" unique_id=1998295884]
+[node name="MeshInstance3D35" parent="Techo2/PlacaTecho7" index="32" unique_id=1998295884]
 visible = false
 
 [node name="PlacaTecho8" parent="Techo2" unique_id=1887556682 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, 0)
 visible = false
 
-[node name="SpotLight3D" parent="Techo2/PlacaTecho8" index="0" unique_id=1739712542]
+[node name="SpotLight3D" parent="Techo2/PlacaTecho8/Modulo_LuzTecho" parent_id_path=PackedInt32Array(1887556682, 1688122384) index="2" unique_id=1739712542]
 visible = false
 
-[node name="Luz" parent="Techo2/PlacaTecho8" index="1" unique_id=1295079293]
+[node name="Luz" parent="Techo2/PlacaTecho8/Modulo_LuzTecho" parent_id_path=PackedInt32Array(1887556682, 1688122384) index="3" unique_id=1295079293]
 visible = false
 
-[node name="MeshInstance3D5" parent="Techo2/PlacaTecho8" index="3" unique_id=1187159523]
+[node name="MeshInstance3D5" parent="Techo2/PlacaTecho8" index="2" unique_id=1187159523]
 visible = false
 
-[node name="MeshInstance3D11" parent="Techo2/PlacaTecho8" index="4" unique_id=530024732]
+[node name="MeshInstance3D11" parent="Techo2/PlacaTecho8" index="3" unique_id=530024732]
 visible = false
 
-[node name="MeshInstance3D12" parent="Techo2/PlacaTecho8" index="5" unique_id=2087632283]
+[node name="MeshInstance3D12" parent="Techo2/PlacaTecho8" index="4" unique_id=2087632283]
 visible = false
 
-[node name="MeshInstance3D13" parent="Techo2/PlacaTecho8" index="6" unique_id=1777927543]
+[node name="MeshInstance3D13" parent="Techo2/PlacaTecho8" index="5" unique_id=1777927543]
 visible = false
 
-[node name="MeshInstance3D16" parent="Techo2/PlacaTecho8" index="9" unique_id=2121150572]
+[node name="MeshInstance3D16" parent="Techo2/PlacaTecho8" index="8" unique_id=2121150572]
 visible = false
 
-[node name="MeshInstance3D17" parent="Techo2/PlacaTecho8" index="10" unique_id=684753668]
+[node name="MeshInstance3D17" parent="Techo2/PlacaTecho8" index="9" unique_id=684753668]
 visible = false
 
-[node name="MeshInstance3D19" parent="Techo2/PlacaTecho8" index="11" unique_id=1688983951]
+[node name="MeshInstance3D19" parent="Techo2/PlacaTecho8" index="10" unique_id=1688983951]
 visible = false
 
-[node name="MeshInstance3D22" parent="Techo2/PlacaTecho8" index="12" unique_id=735690159]
+[node name="MeshInstance3D22" parent="Techo2/PlacaTecho8" index="11" unique_id=735690159]
 visible = false
 
-[node name="MeshInstance3D20" parent="Techo2/PlacaTecho8" index="17" unique_id=1658490556]
+[node name="MeshInstance3D20" parent="Techo2/PlacaTecho8" index="16" unique_id=1658490556]
 visible = false
 
-[node name="MeshInstance3D27" parent="Techo2/PlacaTecho8" index="18" unique_id=1170797201]
+[node name="MeshInstance3D27" parent="Techo2/PlacaTecho8" index="17" unique_id=1170797201]
 visible = false
 
-[node name="MeshInstance3D29" parent="Techo2/PlacaTecho8" index="20" unique_id=405479010]
+[node name="MeshInstance3D29" parent="Techo2/PlacaTecho8" index="19" unique_id=405479010]
 visible = false
 
-[node name="MeshInstance3D30" parent="Techo2/PlacaTecho8" index="21" unique_id=242400468]
+[node name="MeshInstance3D30" parent="Techo2/PlacaTecho8" index="20" unique_id=242400468]
 visible = false
 
-[node name="MeshInstance3D31" parent="Techo2/PlacaTecho8" index="22" unique_id=2018549182]
+[node name="MeshInstance3D31" parent="Techo2/PlacaTecho8" index="21" unique_id=2018549182]
 visible = false
 
-[node name="MeshInstance3D7" parent="Techo2/PlacaTecho8" index="24" unique_id=699095196]
+[node name="MeshInstance3D7" parent="Techo2/PlacaTecho8" index="23" unique_id=699095196]
 visible = false
 
-[node name="MeshInstance3D8" parent="Techo2/PlacaTecho8" index="25" unique_id=1437171443]
+[node name="MeshInstance3D8" parent="Techo2/PlacaTecho8" index="24" unique_id=1437171443]
 visible = false
 
-[node name="MeshInstance3D9" parent="Techo2/PlacaTecho8" index="26" unique_id=205688273]
+[node name="MeshInstance3D9" parent="Techo2/PlacaTecho8" index="25" unique_id=205688273]
 visible = false
 
-[node name="MeshInstance3D10" parent="Techo2/PlacaTecho8" index="27" unique_id=712670781]
+[node name="MeshInstance3D10" parent="Techo2/PlacaTecho8" index="26" unique_id=712670781]
 visible = false
 
-[node name="MeshInstance3D18" parent="Techo2/PlacaTecho8" index="28" unique_id=1226865963]
+[node name="MeshInstance3D18" parent="Techo2/PlacaTecho8" index="27" unique_id=1226865963]
 visible = false
 
-[node name="MeshInstance3D21" parent="Techo2/PlacaTecho8" index="29" unique_id=1368375140]
+[node name="MeshInstance3D21" parent="Techo2/PlacaTecho8" index="28" unique_id=1368375140]
 visible = false
 
-[node name="MeshInstance3D32" parent="Techo2/PlacaTecho8" index="30" unique_id=1526658370]
+[node name="MeshInstance3D32" parent="Techo2/PlacaTecho8" index="29" unique_id=1526658370]
 visible = false
 
-[node name="MeshInstance3D33" parent="Techo2/PlacaTecho8" index="31" unique_id=2028123399]
+[node name="MeshInstance3D33" parent="Techo2/PlacaTecho8" index="30" unique_id=2028123399]
 visible = false
 
-[node name="MeshInstance3D35" parent="Techo2/PlacaTecho8" index="33" unique_id=1998295884]
+[node name="MeshInstance3D35" parent="Techo2/PlacaTecho8" index="32" unique_id=1998295884]
 visible = false
 
 [node name="PlacaTecho9" parent="Techo2" unique_id=748129895 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, 0)
 
-[node name="SpotLight3D" parent="Techo2/PlacaTecho9" index="0" unique_id=1739712542]
+[node name="SpotLight3D" parent="Techo2/PlacaTecho9/Modulo_LuzTecho" parent_id_path=PackedInt32Array(748129895, 1688122384) index="2" unique_id=1739712542]
 visible = false
 
-[node name="Luz" parent="Techo2/PlacaTecho9" index="1" unique_id=1295079293]
+[node name="Luz" parent="Techo2/PlacaTecho9/Modulo_LuzTecho" parent_id_path=PackedInt32Array(748129895, 1688122384) index="3" unique_id=1295079293]
 visible = false
 
-[node name="MeshInstance3D2" parent="Techo2/PlacaTecho9" index="2" unique_id=613040824]
+[node name="MeshInstance3D2" parent="Techo2/PlacaTecho9" index="1" unique_id=613040824]
 visible = false
 
-[node name="MeshInstance3D5" parent="Techo2/PlacaTecho9" index="3" unique_id=1187159523]
+[node name="MeshInstance3D5" parent="Techo2/PlacaTecho9" index="2" unique_id=1187159523]
 visible = false
 
-[node name="MeshInstance3D12" parent="Techo2/PlacaTecho9" index="5" unique_id=2087632283]
+[node name="MeshInstance3D12" parent="Techo2/PlacaTecho9" index="4" unique_id=2087632283]
 visible = false
 
-[node name="MeshInstance3D13" parent="Techo2/PlacaTecho9" index="6" unique_id=1777927543]
+[node name="MeshInstance3D13" parent="Techo2/PlacaTecho9" index="5" unique_id=1777927543]
 visible = false
 
-[node name="MeshInstance3D14" parent="Techo2/PlacaTecho9" index="7" unique_id=1558822687]
+[node name="MeshInstance3D14" parent="Techo2/PlacaTecho9" index="6" unique_id=1558822687]
 visible = false
 
-[node name="MeshInstance3D15" parent="Techo2/PlacaTecho9" index="8" unique_id=472792999]
+[node name="MeshInstance3D15" parent="Techo2/PlacaTecho9" index="7" unique_id=472792999]
 visible = false
 
-[node name="MeshInstance3D19" parent="Techo2/PlacaTecho9" index="11" unique_id=1688983951]
+[node name="MeshInstance3D19" parent="Techo2/PlacaTecho9" index="10" unique_id=1688983951]
 visible = false
 
-[node name="MeshInstance3D23" parent="Techo2/PlacaTecho9" index="13" unique_id=1314811099]
+[node name="MeshInstance3D23" parent="Techo2/PlacaTecho9" index="12" unique_id=1314811099]
 visible = false
 
-[node name="MeshInstance3D24" parent="Techo2/PlacaTecho9" index="14" unique_id=991339921]
+[node name="MeshInstance3D24" parent="Techo2/PlacaTecho9" index="13" unique_id=991339921]
 visible = false
 
-[node name="MeshInstance3D25" parent="Techo2/PlacaTecho9" index="15" unique_id=1960685713]
+[node name="MeshInstance3D25" parent="Techo2/PlacaTecho9" index="14" unique_id=1960685713]
 visible = false
 
-[node name="MeshInstance3D26" parent="Techo2/PlacaTecho9" index="16" unique_id=1405542428]
+[node name="MeshInstance3D26" parent="Techo2/PlacaTecho9" index="15" unique_id=1405542428]
 visible = false
 
-[node name="MeshInstance3D20" parent="Techo2/PlacaTecho9" index="17" unique_id=1658490556]
+[node name="MeshInstance3D20" parent="Techo2/PlacaTecho9" index="16" unique_id=1658490556]
 visible = false
 
-[node name="MeshInstance3D28" parent="Techo2/PlacaTecho9" index="19" unique_id=1126820017]
+[node name="MeshInstance3D28" parent="Techo2/PlacaTecho9" index="18" unique_id=1126820017]
 visible = false
 
-[node name="MeshInstance3D6" parent="Techo2/PlacaTecho9" index="23" unique_id=30792559]
+[node name="MeshInstance3D6" parent="Techo2/PlacaTecho9" index="22" unique_id=30792559]
 visible = false
 
-[node name="MeshInstance3D8" parent="Techo2/PlacaTecho9" index="25" unique_id=1437171443]
+[node name="MeshInstance3D8" parent="Techo2/PlacaTecho9" index="24" unique_id=1437171443]
 visible = false
 
-[node name="MeshInstance3D9" parent="Techo2/PlacaTecho9" index="26" unique_id=205688273]
+[node name="MeshInstance3D9" parent="Techo2/PlacaTecho9" index="25" unique_id=205688273]
 visible = false
 
-[node name="MeshInstance3D10" parent="Techo2/PlacaTecho9" index="27" unique_id=712670781]
+[node name="MeshInstance3D10" parent="Techo2/PlacaTecho9" index="26" unique_id=712670781]
 visible = false
 
-[node name="MeshInstance3D33" parent="Techo2/PlacaTecho9" index="31" unique_id=2028123399]
+[node name="MeshInstance3D33" parent="Techo2/PlacaTecho9" index="30" unique_id=2028123399]
 visible = false
 
-[node name="MeshInstance3D34" parent="Techo2/PlacaTecho9" index="32" unique_id=1652370633]
+[node name="MeshInstance3D34" parent="Techo2/PlacaTecho9" index="31" unique_id=1652370633]
 visible = false
 
 [node name="Techo3x3" parent="Techo2" unique_id=431011227 instance=ExtResource("5_0gwau")]
@@ -780,17 +780,17 @@ largo = 3.0
 excedente_zocalo = 0.1
 
 [node name="StaticBody3D7" parent="Paredes" unique_id=797071373 instance=ExtResource("2_0gwau")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 7.6)
 largo = 3.0
 excedente_zocalo = 0.1
 
 [node name="StaticBody3D8" parent="Paredes" unique_id=1977415196 instance=ExtResource("2_0gwau")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7, 0, 9.9)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7, 0, 10)
 largo = 5.0
 excedente_zocalo = 0.1
 
 [node name="StaticBody3D9" parent="Paredes" unique_id=367887718 instance=ExtResource("2_0gwau")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 12.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 12.4)
 largo = 3.0
 excedente_zocalo = 0.1
 
@@ -800,7 +800,7 @@ largo = 5.0
 excedente_zocalo = 0.1
 
 [node name="StaticBody3D11" parent="Paredes" unique_id=2058427166 instance=ExtResource("2_0gwau")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, 9.9)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, 10)
 largo = 5.0
 excedente_zocalo = 0.1
 
@@ -827,7 +827,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 2)
 [node name="PlacaTecho3" parent="Techo" unique_id=257801280 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, 2)
 
-[node name="MeshInstance3D9" parent="Techo/PlacaTecho3" index="26" unique_id=205688273]
+[node name="MeshInstance3D9" parent="Techo/PlacaTecho3" index="25" unique_id=205688273]
 transform = Transform3D(0.059997264, -0.0002452111, 0.008196323, 0.00029327552, 0.049999304, 0.0020083124, -0.0004923631, -9.840911e-05, 0.9999644, 0.5, 0, 1)
 
 [node name="PlacaTecho4" parent="Techo" unique_id=414976851 instance=ExtResource("4_6xs3m")]
@@ -836,193 +836,193 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, 2)
 [node name="PlacaTecho5" parent="Techo" unique_id=382677290 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
 
-[node name="MeshInstance3D5" parent="Techo/PlacaTecho5" index="3" unique_id=1187159523]
+[node name="MeshInstance3D5" parent="Techo/PlacaTecho5" index="2" unique_id=1187159523]
 visible = false
 
-[node name="MeshInstance3D12" parent="Techo/PlacaTecho5" index="5" unique_id=2087632283]
+[node name="MeshInstance3D12" parent="Techo/PlacaTecho5" index="4" unique_id=2087632283]
 visible = false
 
-[node name="MeshInstance3D14" parent="Techo/PlacaTecho5" index="7" unique_id=1558822687]
+[node name="MeshInstance3D14" parent="Techo/PlacaTecho5" index="6" unique_id=1558822687]
 visible = false
 
-[node name="MeshInstance3D16" parent="Techo/PlacaTecho5" index="9" unique_id=2121150572]
+[node name="MeshInstance3D16" parent="Techo/PlacaTecho5" index="8" unique_id=2121150572]
 visible = false
 
-[node name="MeshInstance3D19" parent="Techo/PlacaTecho5" index="11" unique_id=1688983951]
+[node name="MeshInstance3D19" parent="Techo/PlacaTecho5" index="10" unique_id=1688983951]
 visible = false
 
-[node name="MeshInstance3D22" parent="Techo/PlacaTecho5" index="12" unique_id=735690159]
+[node name="MeshInstance3D22" parent="Techo/PlacaTecho5" index="11" unique_id=735690159]
 visible = false
 
-[node name="MeshInstance3D23" parent="Techo/PlacaTecho5" index="13" unique_id=1314811099]
+[node name="MeshInstance3D23" parent="Techo/PlacaTecho5" index="12" unique_id=1314811099]
 visible = false
 
-[node name="MeshInstance3D26" parent="Techo/PlacaTecho5" index="16" unique_id=1405542428]
+[node name="MeshInstance3D26" parent="Techo/PlacaTecho5" index="15" unique_id=1405542428]
 visible = false
 
-[node name="MeshInstance3D31" parent="Techo/PlacaTecho5" index="22" unique_id=2018549182]
+[node name="MeshInstance3D31" parent="Techo/PlacaTecho5" index="21" unique_id=2018549182]
 visible = false
 
-[node name="MeshInstance3D6" parent="Techo/PlacaTecho5" index="23" unique_id=30792559]
+[node name="MeshInstance3D6" parent="Techo/PlacaTecho5" index="22" unique_id=30792559]
 visible = false
 
-[node name="MeshInstance3D7" parent="Techo/PlacaTecho5" index="24" unique_id=699095196]
+[node name="MeshInstance3D7" parent="Techo/PlacaTecho5" index="23" unique_id=699095196]
 visible = false
 
-[node name="MeshInstance3D9" parent="Techo/PlacaTecho5" index="26" unique_id=205688273]
+[node name="MeshInstance3D9" parent="Techo/PlacaTecho5" index="25" unique_id=205688273]
 visible = false
 
-[node name="MeshInstance3D21" parent="Techo/PlacaTecho5" index="29" unique_id=1368375140]
+[node name="MeshInstance3D21" parent="Techo/PlacaTecho5" index="28" unique_id=1368375140]
 visible = false
 
 [node name="PlacaTecho6" parent="Techo" unique_id=1098689413 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, -1)
 
-[node name="MeshInstance3D5" parent="Techo/PlacaTecho6" index="3" unique_id=1187159523]
+[node name="MeshInstance3D5" parent="Techo/PlacaTecho6" index="2" unique_id=1187159523]
 visible = false
 
-[node name="MeshInstance3D12" parent="Techo/PlacaTecho6" index="5" unique_id=2087632283]
+[node name="MeshInstance3D12" parent="Techo/PlacaTecho6" index="4" unique_id=2087632283]
 visible = false
 
-[node name="MeshInstance3D14" parent="Techo/PlacaTecho6" index="7" unique_id=1558822687]
+[node name="MeshInstance3D14" parent="Techo/PlacaTecho6" index="6" unique_id=1558822687]
 visible = false
 
-[node name="MeshInstance3D16" parent="Techo/PlacaTecho6" index="9" unique_id=2121150572]
+[node name="MeshInstance3D16" parent="Techo/PlacaTecho6" index="8" unique_id=2121150572]
 visible = false
 
-[node name="MeshInstance3D19" parent="Techo/PlacaTecho6" index="11" unique_id=1688983951]
+[node name="MeshInstance3D19" parent="Techo/PlacaTecho6" index="10" unique_id=1688983951]
 visible = false
 
-[node name="MeshInstance3D22" parent="Techo/PlacaTecho6" index="12" unique_id=735690159]
+[node name="MeshInstance3D22" parent="Techo/PlacaTecho6" index="11" unique_id=735690159]
 visible = false
 
-[node name="MeshInstance3D23" parent="Techo/PlacaTecho6" index="13" unique_id=1314811099]
+[node name="MeshInstance3D23" parent="Techo/PlacaTecho6" index="12" unique_id=1314811099]
 visible = false
 
-[node name="MeshInstance3D26" parent="Techo/PlacaTecho6" index="16" unique_id=1405542428]
+[node name="MeshInstance3D26" parent="Techo/PlacaTecho6" index="15" unique_id=1405542428]
 visible = false
 
-[node name="MeshInstance3D31" parent="Techo/PlacaTecho6" index="22" unique_id=2018549182]
+[node name="MeshInstance3D31" parent="Techo/PlacaTecho6" index="21" unique_id=2018549182]
 visible = false
 
-[node name="MeshInstance3D6" parent="Techo/PlacaTecho6" index="23" unique_id=30792559]
+[node name="MeshInstance3D6" parent="Techo/PlacaTecho6" index="22" unique_id=30792559]
 visible = false
 
-[node name="MeshInstance3D7" parent="Techo/PlacaTecho6" index="24" unique_id=699095196]
+[node name="MeshInstance3D7" parent="Techo/PlacaTecho6" index="23" unique_id=699095196]
 visible = false
 
-[node name="MeshInstance3D9" parent="Techo/PlacaTecho6" index="26" unique_id=205688273]
+[node name="MeshInstance3D9" parent="Techo/PlacaTecho6" index="25" unique_id=205688273]
 visible = false
 
-[node name="MeshInstance3D21" parent="Techo/PlacaTecho6" index="29" unique_id=1368375140]
+[node name="MeshInstance3D21" parent="Techo/PlacaTecho6" index="28" unique_id=1368375140]
 visible = false
 
 [node name="PlacaTecho7" parent="Techo" unique_id=1510592841 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, -1)
 
-[node name="MeshInstance3D5" parent="Techo/PlacaTecho7" index="3" unique_id=1187159523]
+[node name="MeshInstance3D5" parent="Techo/PlacaTecho7" index="2" unique_id=1187159523]
 visible = false
 
-[node name="MeshInstance3D12" parent="Techo/PlacaTecho7" index="5" unique_id=2087632283]
+[node name="MeshInstance3D12" parent="Techo/PlacaTecho7" index="4" unique_id=2087632283]
 visible = false
 
-[node name="MeshInstance3D14" parent="Techo/PlacaTecho7" index="7" unique_id=1558822687]
+[node name="MeshInstance3D14" parent="Techo/PlacaTecho7" index="6" unique_id=1558822687]
 visible = false
 
-[node name="MeshInstance3D16" parent="Techo/PlacaTecho7" index="9" unique_id=2121150572]
+[node name="MeshInstance3D16" parent="Techo/PlacaTecho7" index="8" unique_id=2121150572]
 visible = false
 
-[node name="MeshInstance3D19" parent="Techo/PlacaTecho7" index="11" unique_id=1688983951]
+[node name="MeshInstance3D19" parent="Techo/PlacaTecho7" index="10" unique_id=1688983951]
 visible = false
 
-[node name="MeshInstance3D22" parent="Techo/PlacaTecho7" index="12" unique_id=735690159]
+[node name="MeshInstance3D22" parent="Techo/PlacaTecho7" index="11" unique_id=735690159]
 visible = false
 
-[node name="MeshInstance3D23" parent="Techo/PlacaTecho7" index="13" unique_id=1314811099]
+[node name="MeshInstance3D23" parent="Techo/PlacaTecho7" index="12" unique_id=1314811099]
 visible = false
 
-[node name="MeshInstance3D26" parent="Techo/PlacaTecho7" index="16" unique_id=1405542428]
+[node name="MeshInstance3D26" parent="Techo/PlacaTecho7" index="15" unique_id=1405542428]
 visible = false
 
-[node name="MeshInstance3D31" parent="Techo/PlacaTecho7" index="22" unique_id=2018549182]
+[node name="MeshInstance3D31" parent="Techo/PlacaTecho7" index="21" unique_id=2018549182]
 visible = false
 
-[node name="MeshInstance3D6" parent="Techo/PlacaTecho7" index="23" unique_id=30792559]
+[node name="MeshInstance3D6" parent="Techo/PlacaTecho7" index="22" unique_id=30792559]
 visible = false
 
-[node name="MeshInstance3D7" parent="Techo/PlacaTecho7" index="24" unique_id=699095196]
+[node name="MeshInstance3D7" parent="Techo/PlacaTecho7" index="23" unique_id=699095196]
 visible = false
 
-[node name="MeshInstance3D9" parent="Techo/PlacaTecho7" index="26" unique_id=205688273]
+[node name="MeshInstance3D9" parent="Techo/PlacaTecho7" index="25" unique_id=205688273]
 visible = false
 
-[node name="MeshInstance3D21" parent="Techo/PlacaTecho7" index="29" unique_id=1368375140]
+[node name="MeshInstance3D21" parent="Techo/PlacaTecho7" index="28" unique_id=1368375140]
 visible = false
 
 [node name="PlacaTecho8" parent="Techo" unique_id=1200120273 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, 0)
 
-[node name="MeshInstance3D13" parent="Techo/PlacaTecho8" index="6" unique_id=1777927543]
+[node name="MeshInstance3D13" parent="Techo/PlacaTecho8" index="5" unique_id=1777927543]
 visible = false
 
-[node name="MeshInstance3D15" parent="Techo/PlacaTecho8" index="8" unique_id=472792999]
+[node name="MeshInstance3D15" parent="Techo/PlacaTecho8" index="7" unique_id=472792999]
 visible = false
 
-[node name="MeshInstance3D17" parent="Techo/PlacaTecho8" index="10" unique_id=684753668]
+[node name="MeshInstance3D17" parent="Techo/PlacaTecho8" index="9" unique_id=684753668]
 visible = false
 
-[node name="MeshInstance3D24" parent="Techo/PlacaTecho8" index="14" unique_id=991339921]
+[node name="MeshInstance3D24" parent="Techo/PlacaTecho8" index="13" unique_id=991339921]
 visible = false
 
-[node name="MeshInstance3D20" parent="Techo/PlacaTecho8" index="17" unique_id=1658490556]
+[node name="MeshInstance3D20" parent="Techo/PlacaTecho8" index="16" unique_id=1658490556]
 visible = false
 
-[node name="MeshInstance3D27" parent="Techo/PlacaTecho8" index="18" unique_id=1170797201]
+[node name="MeshInstance3D27" parent="Techo/PlacaTecho8" index="17" unique_id=1170797201]
 visible = false
 
-[node name="MeshInstance3D28" parent="Techo/PlacaTecho8" index="19" unique_id=1126820017]
+[node name="MeshInstance3D28" parent="Techo/PlacaTecho8" index="18" unique_id=1126820017]
 visible = false
 
-[node name="MeshInstance3D29" parent="Techo/PlacaTecho8" index="20" unique_id=405479010]
+[node name="MeshInstance3D29" parent="Techo/PlacaTecho8" index="19" unique_id=405479010]
 visible = false
 
-[node name="MeshInstance3D10" parent="Techo/PlacaTecho8" index="27" unique_id=712670781]
+[node name="MeshInstance3D10" parent="Techo/PlacaTecho8" index="26" unique_id=712670781]
 visible = false
 
-[node name="MeshInstance3D32" parent="Techo/PlacaTecho8" index="30" unique_id=1526658370]
+[node name="MeshInstance3D32" parent="Techo/PlacaTecho8" index="29" unique_id=1526658370]
 visible = false
 
 [node name="PlacaTecho9" parent="Techo" unique_id=1338005892 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, 0)
 
-[node name="MeshInstance3D13" parent="Techo/PlacaTecho9" index="6" unique_id=1777927543]
+[node name="MeshInstance3D13" parent="Techo/PlacaTecho9" index="5" unique_id=1777927543]
 visible = false
 
-[node name="MeshInstance3D15" parent="Techo/PlacaTecho9" index="8" unique_id=472792999]
+[node name="MeshInstance3D15" parent="Techo/PlacaTecho9" index="7" unique_id=472792999]
 visible = false
 
-[node name="MeshInstance3D17" parent="Techo/PlacaTecho9" index="10" unique_id=684753668]
+[node name="MeshInstance3D17" parent="Techo/PlacaTecho9" index="9" unique_id=684753668]
 visible = false
 
-[node name="MeshInstance3D24" parent="Techo/PlacaTecho9" index="14" unique_id=991339921]
+[node name="MeshInstance3D24" parent="Techo/PlacaTecho9" index="13" unique_id=991339921]
 visible = false
 
-[node name="MeshInstance3D20" parent="Techo/PlacaTecho9" index="17" unique_id=1658490556]
+[node name="MeshInstance3D20" parent="Techo/PlacaTecho9" index="16" unique_id=1658490556]
 visible = false
 
-[node name="MeshInstance3D27" parent="Techo/PlacaTecho9" index="18" unique_id=1170797201]
+[node name="MeshInstance3D27" parent="Techo/PlacaTecho9" index="17" unique_id=1170797201]
 visible = false
 
-[node name="MeshInstance3D28" parent="Techo/PlacaTecho9" index="19" unique_id=1126820017]
+[node name="MeshInstance3D28" parent="Techo/PlacaTecho9" index="18" unique_id=1126820017]
 visible = false
 
-[node name="MeshInstance3D29" parent="Techo/PlacaTecho9" index="20" unique_id=405479010]
+[node name="MeshInstance3D29" parent="Techo/PlacaTecho9" index="19" unique_id=405479010]
 visible = false
 
-[node name="MeshInstance3D10" parent="Techo/PlacaTecho9" index="27" unique_id=712670781]
+[node name="MeshInstance3D10" parent="Techo/PlacaTecho9" index="26" unique_id=712670781]
 visible = false
 
-[node name="MeshInstance3D32" parent="Techo/PlacaTecho9" index="30" unique_id=1526658370]
+[node name="MeshInstance3D32" parent="Techo/PlacaTecho9" index="29" unique_id=1526658370]
 visible = false
 
 [node name="PlacaTecho11" parent="Techo" unique_id=511892317 instance=ExtResource("4_6xs3m")]
@@ -1037,7 +1037,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
 [node name="PlacaTecho14" parent="Techo" unique_id=1149914711 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, 5)
 
-[node name="MeshInstance3D9" parent="Techo/PlacaTecho14" index="26" unique_id=205688273]
+[node name="MeshInstance3D9" parent="Techo/PlacaTecho14" index="25" unique_id=205688273]
 transform = Transform3D(0.059997264, -0.0002452111, 0.008196323, 0.00029327552, 0.049999304, 0.0020083124, -0.0004923631, -9.840911e-05, 0.9999644, 0.5, 0, 1)
 
 [node name="PlacaTecho15" parent="Techo" unique_id=1783543726 instance=ExtResource("4_6xs3m")]
@@ -1049,76 +1049,76 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, 2)
 [node name="PlacaTecho17" parent="Techo" unique_id=1658236326 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, -1)
 
-[node name="MeshInstance3D5" parent="Techo/PlacaTecho17" index="3" unique_id=1187159523]
+[node name="MeshInstance3D5" parent="Techo/PlacaTecho17" index="2" unique_id=1187159523]
 visible = false
 
-[node name="MeshInstance3D12" parent="Techo/PlacaTecho17" index="5" unique_id=2087632283]
+[node name="MeshInstance3D12" parent="Techo/PlacaTecho17" index="4" unique_id=2087632283]
 visible = false
 
-[node name="MeshInstance3D14" parent="Techo/PlacaTecho17" index="7" unique_id=1558822687]
+[node name="MeshInstance3D14" parent="Techo/PlacaTecho17" index="6" unique_id=1558822687]
 visible = false
 
-[node name="MeshInstance3D16" parent="Techo/PlacaTecho17" index="9" unique_id=2121150572]
+[node name="MeshInstance3D16" parent="Techo/PlacaTecho17" index="8" unique_id=2121150572]
 visible = false
 
-[node name="MeshInstance3D19" parent="Techo/PlacaTecho17" index="11" unique_id=1688983951]
+[node name="MeshInstance3D19" parent="Techo/PlacaTecho17" index="10" unique_id=1688983951]
 visible = false
 
-[node name="MeshInstance3D22" parent="Techo/PlacaTecho17" index="12" unique_id=735690159]
+[node name="MeshInstance3D22" parent="Techo/PlacaTecho17" index="11" unique_id=735690159]
 visible = false
 
-[node name="MeshInstance3D23" parent="Techo/PlacaTecho17" index="13" unique_id=1314811099]
+[node name="MeshInstance3D23" parent="Techo/PlacaTecho17" index="12" unique_id=1314811099]
 visible = false
 
-[node name="MeshInstance3D26" parent="Techo/PlacaTecho17" index="16" unique_id=1405542428]
+[node name="MeshInstance3D26" parent="Techo/PlacaTecho17" index="15" unique_id=1405542428]
 visible = false
 
-[node name="MeshInstance3D31" parent="Techo/PlacaTecho17" index="22" unique_id=2018549182]
+[node name="MeshInstance3D31" parent="Techo/PlacaTecho17" index="21" unique_id=2018549182]
 visible = false
 
-[node name="MeshInstance3D6" parent="Techo/PlacaTecho17" index="23" unique_id=30792559]
+[node name="MeshInstance3D6" parent="Techo/PlacaTecho17" index="22" unique_id=30792559]
 visible = false
 
-[node name="MeshInstance3D7" parent="Techo/PlacaTecho17" index="24" unique_id=699095196]
+[node name="MeshInstance3D7" parent="Techo/PlacaTecho17" index="23" unique_id=699095196]
 visible = false
 
-[node name="MeshInstance3D9" parent="Techo/PlacaTecho17" index="26" unique_id=205688273]
+[node name="MeshInstance3D9" parent="Techo/PlacaTecho17" index="25" unique_id=205688273]
 visible = false
 
-[node name="MeshInstance3D21" parent="Techo/PlacaTecho17" index="29" unique_id=1368375140]
+[node name="MeshInstance3D21" parent="Techo/PlacaTecho17" index="28" unique_id=1368375140]
 visible = false
 
 [node name="PlacaTecho18" parent="Techo" unique_id=1393631953 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, 0)
 
-[node name="MeshInstance3D13" parent="Techo/PlacaTecho18" index="6" unique_id=1777927543]
+[node name="MeshInstance3D13" parent="Techo/PlacaTecho18" index="5" unique_id=1777927543]
 visible = false
 
-[node name="MeshInstance3D15" parent="Techo/PlacaTecho18" index="8" unique_id=472792999]
+[node name="MeshInstance3D15" parent="Techo/PlacaTecho18" index="7" unique_id=472792999]
 visible = false
 
-[node name="MeshInstance3D17" parent="Techo/PlacaTecho18" index="10" unique_id=684753668]
+[node name="MeshInstance3D17" parent="Techo/PlacaTecho18" index="9" unique_id=684753668]
 visible = false
 
-[node name="MeshInstance3D24" parent="Techo/PlacaTecho18" index="14" unique_id=991339921]
+[node name="MeshInstance3D24" parent="Techo/PlacaTecho18" index="13" unique_id=991339921]
 visible = false
 
-[node name="MeshInstance3D20" parent="Techo/PlacaTecho18" index="17" unique_id=1658490556]
+[node name="MeshInstance3D20" parent="Techo/PlacaTecho18" index="16" unique_id=1658490556]
 visible = false
 
-[node name="MeshInstance3D27" parent="Techo/PlacaTecho18" index="18" unique_id=1170797201]
+[node name="MeshInstance3D27" parent="Techo/PlacaTecho18" index="17" unique_id=1170797201]
 visible = false
 
-[node name="MeshInstance3D28" parent="Techo/PlacaTecho18" index="19" unique_id=1126820017]
+[node name="MeshInstance3D28" parent="Techo/PlacaTecho18" index="18" unique_id=1126820017]
 visible = false
 
-[node name="MeshInstance3D29" parent="Techo/PlacaTecho18" index="20" unique_id=405479010]
+[node name="MeshInstance3D29" parent="Techo/PlacaTecho18" index="19" unique_id=405479010]
 visible = false
 
-[node name="MeshInstance3D10" parent="Techo/PlacaTecho18" index="27" unique_id=712670781]
+[node name="MeshInstance3D10" parent="Techo/PlacaTecho18" index="26" unique_id=712670781]
 visible = false
 
-[node name="MeshInstance3D32" parent="Techo/PlacaTecho18" index="30" unique_id=1526658370]
+[node name="MeshInstance3D32" parent="Techo/PlacaTecho18" index="29" unique_id=1526658370]
 visible = false
 
 [node name="PlacaTecho19" parent="Techo" unique_id=2089726008 instance=ExtResource("4_6xs3m")]
@@ -1133,76 +1133,76 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, 2)
 [node name="PlacaTecho22" parent="Techo" unique_id=1314141031 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, -1)
 
-[node name="MeshInstance3D5" parent="Techo/PlacaTecho22" index="3" unique_id=1187159523]
+[node name="MeshInstance3D5" parent="Techo/PlacaTecho22" index="2" unique_id=1187159523]
 visible = false
 
-[node name="MeshInstance3D12" parent="Techo/PlacaTecho22" index="5" unique_id=2087632283]
+[node name="MeshInstance3D12" parent="Techo/PlacaTecho22" index="4" unique_id=2087632283]
 visible = false
 
-[node name="MeshInstance3D14" parent="Techo/PlacaTecho22" index="7" unique_id=1558822687]
+[node name="MeshInstance3D14" parent="Techo/PlacaTecho22" index="6" unique_id=1558822687]
 visible = false
 
-[node name="MeshInstance3D16" parent="Techo/PlacaTecho22" index="9" unique_id=2121150572]
+[node name="MeshInstance3D16" parent="Techo/PlacaTecho22" index="8" unique_id=2121150572]
 visible = false
 
-[node name="MeshInstance3D19" parent="Techo/PlacaTecho22" index="11" unique_id=1688983951]
+[node name="MeshInstance3D19" parent="Techo/PlacaTecho22" index="10" unique_id=1688983951]
 visible = false
 
-[node name="MeshInstance3D22" parent="Techo/PlacaTecho22" index="12" unique_id=735690159]
+[node name="MeshInstance3D22" parent="Techo/PlacaTecho22" index="11" unique_id=735690159]
 visible = false
 
-[node name="MeshInstance3D23" parent="Techo/PlacaTecho22" index="13" unique_id=1314811099]
+[node name="MeshInstance3D23" parent="Techo/PlacaTecho22" index="12" unique_id=1314811099]
 visible = false
 
-[node name="MeshInstance3D26" parent="Techo/PlacaTecho22" index="16" unique_id=1405542428]
+[node name="MeshInstance3D26" parent="Techo/PlacaTecho22" index="15" unique_id=1405542428]
 visible = false
 
-[node name="MeshInstance3D31" parent="Techo/PlacaTecho22" index="22" unique_id=2018549182]
+[node name="MeshInstance3D31" parent="Techo/PlacaTecho22" index="21" unique_id=2018549182]
 visible = false
 
-[node name="MeshInstance3D6" parent="Techo/PlacaTecho22" index="23" unique_id=30792559]
+[node name="MeshInstance3D6" parent="Techo/PlacaTecho22" index="22" unique_id=30792559]
 visible = false
 
-[node name="MeshInstance3D7" parent="Techo/PlacaTecho22" index="24" unique_id=699095196]
+[node name="MeshInstance3D7" parent="Techo/PlacaTecho22" index="23" unique_id=699095196]
 visible = false
 
-[node name="MeshInstance3D9" parent="Techo/PlacaTecho22" index="26" unique_id=205688273]
+[node name="MeshInstance3D9" parent="Techo/PlacaTecho22" index="25" unique_id=205688273]
 visible = false
 
-[node name="MeshInstance3D21" parent="Techo/PlacaTecho22" index="29" unique_id=1368375140]
+[node name="MeshInstance3D21" parent="Techo/PlacaTecho22" index="28" unique_id=1368375140]
 visible = false
 
 [node name="PlacaTecho23" parent="Techo" unique_id=790584400 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, 0)
 
-[node name="MeshInstance3D13" parent="Techo/PlacaTecho23" index="6" unique_id=1777927543]
+[node name="MeshInstance3D13" parent="Techo/PlacaTecho23" index="5" unique_id=1777927543]
 visible = false
 
-[node name="MeshInstance3D15" parent="Techo/PlacaTecho23" index="8" unique_id=472792999]
+[node name="MeshInstance3D15" parent="Techo/PlacaTecho23" index="7" unique_id=472792999]
 visible = false
 
-[node name="MeshInstance3D17" parent="Techo/PlacaTecho23" index="10" unique_id=684753668]
+[node name="MeshInstance3D17" parent="Techo/PlacaTecho23" index="9" unique_id=684753668]
 visible = false
 
-[node name="MeshInstance3D24" parent="Techo/PlacaTecho23" index="14" unique_id=991339921]
+[node name="MeshInstance3D24" parent="Techo/PlacaTecho23" index="13" unique_id=991339921]
 visible = false
 
-[node name="MeshInstance3D20" parent="Techo/PlacaTecho23" index="17" unique_id=1658490556]
+[node name="MeshInstance3D20" parent="Techo/PlacaTecho23" index="16" unique_id=1658490556]
 visible = false
 
-[node name="MeshInstance3D27" parent="Techo/PlacaTecho23" index="18" unique_id=1170797201]
+[node name="MeshInstance3D27" parent="Techo/PlacaTecho23" index="17" unique_id=1170797201]
 visible = false
 
-[node name="MeshInstance3D28" parent="Techo/PlacaTecho23" index="19" unique_id=1126820017]
+[node name="MeshInstance3D28" parent="Techo/PlacaTecho23" index="18" unique_id=1126820017]
 visible = false
 
-[node name="MeshInstance3D29" parent="Techo/PlacaTecho23" index="20" unique_id=405479010]
+[node name="MeshInstance3D29" parent="Techo/PlacaTecho23" index="19" unique_id=405479010]
 visible = false
 
-[node name="MeshInstance3D10" parent="Techo/PlacaTecho23" index="27" unique_id=712670781]
+[node name="MeshInstance3D10" parent="Techo/PlacaTecho23" index="26" unique_id=712670781]
 visible = false
 
-[node name="MeshInstance3D32" parent="Techo/PlacaTecho23" index="30" unique_id=1526658370]
+[node name="MeshInstance3D32" parent="Techo/PlacaTecho23" index="29" unique_id=1526658370]
 visible = false
 
 [node name="PlacaTecho24" parent="Techo" unique_id=1495257191 instance=ExtResource("4_6xs3m")]
@@ -1214,35 +1214,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, 5)
 [node name="PlacaTecho26" parent="Techo" unique_id=575387768 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="MeshInstance3D13" parent="Techo/PlacaTecho26" index="6" unique_id=1777927543]
+[node name="MeshInstance3D13" parent="Techo/PlacaTecho26" index="5" unique_id=1777927543]
 visible = false
 
-[node name="MeshInstance3D15" parent="Techo/PlacaTecho26" index="8" unique_id=472792999]
+[node name="MeshInstance3D15" parent="Techo/PlacaTecho26" index="7" unique_id=472792999]
 transform = Transform3D(0.9398858, 0, 0.01465005, 0, 0.05, 0, -0.01465005, 0, 0.9398858, 1, 0, -1)
 visible = false
 
-[node name="MeshInstance3D17" parent="Techo/PlacaTecho26" index="10" unique_id=684753668]
+[node name="MeshInstance3D17" parent="Techo/PlacaTecho26" index="9" unique_id=684753668]
 visible = false
 
-[node name="MeshInstance3D24" parent="Techo/PlacaTecho26" index="14" unique_id=991339921]
+[node name="MeshInstance3D24" parent="Techo/PlacaTecho26" index="13" unique_id=991339921]
 visible = false
 
-[node name="MeshInstance3D20" parent="Techo/PlacaTecho26" index="17" unique_id=1658490556]
+[node name="MeshInstance3D20" parent="Techo/PlacaTecho26" index="16" unique_id=1658490556]
 visible = false
 
-[node name="MeshInstance3D27" parent="Techo/PlacaTecho26" index="18" unique_id=1170797201]
+[node name="MeshInstance3D27" parent="Techo/PlacaTecho26" index="17" unique_id=1170797201]
 visible = false
 
-[node name="MeshInstance3D28" parent="Techo/PlacaTecho26" index="19" unique_id=1126820017]
+[node name="MeshInstance3D28" parent="Techo/PlacaTecho26" index="18" unique_id=1126820017]
 visible = false
 
-[node name="MeshInstance3D29" parent="Techo/PlacaTecho26" index="20" unique_id=405479010]
+[node name="MeshInstance3D29" parent="Techo/PlacaTecho26" index="19" unique_id=405479010]
 visible = false
 
-[node name="MeshInstance3D10" parent="Techo/PlacaTecho26" index="27" unique_id=712670781]
+[node name="MeshInstance3D10" parent="Techo/PlacaTecho26" index="26" unique_id=712670781]
 visible = false
 
-[node name="MeshInstance3D32" parent="Techo/PlacaTecho26" index="30" unique_id=1526658370]
+[node name="MeshInstance3D32" parent="Techo/PlacaTecho26" index="29" unique_id=1526658370]
 visible = false
 
 [node name="PlacaTecho27" parent="Techo" unique_id=1682991103 instance=ExtResource("4_6xs3m")]
@@ -1254,76 +1254,76 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, 2)
 [node name="PlacaTecho29" parent="Techo" unique_id=1943593035 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, -1)
 
-[node name="MeshInstance3D5" parent="Techo/PlacaTecho29" index="3" unique_id=1187159523]
+[node name="MeshInstance3D5" parent="Techo/PlacaTecho29" index="2" unique_id=1187159523]
 visible = false
 
-[node name="MeshInstance3D12" parent="Techo/PlacaTecho29" index="5" unique_id=2087632283]
+[node name="MeshInstance3D12" parent="Techo/PlacaTecho29" index="4" unique_id=2087632283]
 visible = false
 
-[node name="MeshInstance3D14" parent="Techo/PlacaTecho29" index="7" unique_id=1558822687]
+[node name="MeshInstance3D14" parent="Techo/PlacaTecho29" index="6" unique_id=1558822687]
 visible = false
 
-[node name="MeshInstance3D16" parent="Techo/PlacaTecho29" index="9" unique_id=2121150572]
+[node name="MeshInstance3D16" parent="Techo/PlacaTecho29" index="8" unique_id=2121150572]
 visible = false
 
-[node name="MeshInstance3D19" parent="Techo/PlacaTecho29" index="11" unique_id=1688983951]
+[node name="MeshInstance3D19" parent="Techo/PlacaTecho29" index="10" unique_id=1688983951]
 visible = false
 
-[node name="MeshInstance3D22" parent="Techo/PlacaTecho29" index="12" unique_id=735690159]
+[node name="MeshInstance3D22" parent="Techo/PlacaTecho29" index="11" unique_id=735690159]
 visible = false
 
-[node name="MeshInstance3D23" parent="Techo/PlacaTecho29" index="13" unique_id=1314811099]
+[node name="MeshInstance3D23" parent="Techo/PlacaTecho29" index="12" unique_id=1314811099]
 visible = false
 
-[node name="MeshInstance3D26" parent="Techo/PlacaTecho29" index="16" unique_id=1405542428]
+[node name="MeshInstance3D26" parent="Techo/PlacaTecho29" index="15" unique_id=1405542428]
 visible = false
 
-[node name="MeshInstance3D31" parent="Techo/PlacaTecho29" index="22" unique_id=2018549182]
+[node name="MeshInstance3D31" parent="Techo/PlacaTecho29" index="21" unique_id=2018549182]
 visible = false
 
-[node name="MeshInstance3D6" parent="Techo/PlacaTecho29" index="23" unique_id=30792559]
+[node name="MeshInstance3D6" parent="Techo/PlacaTecho29" index="22" unique_id=30792559]
 visible = false
 
-[node name="MeshInstance3D7" parent="Techo/PlacaTecho29" index="24" unique_id=699095196]
+[node name="MeshInstance3D7" parent="Techo/PlacaTecho29" index="23" unique_id=699095196]
 visible = false
 
-[node name="MeshInstance3D9" parent="Techo/PlacaTecho29" index="26" unique_id=205688273]
+[node name="MeshInstance3D9" parent="Techo/PlacaTecho29" index="25" unique_id=205688273]
 visible = false
 
-[node name="MeshInstance3D21" parent="Techo/PlacaTecho29" index="29" unique_id=1368375140]
+[node name="MeshInstance3D21" parent="Techo/PlacaTecho29" index="28" unique_id=1368375140]
 visible = false
 
 [node name="PlacaTecho30" parent="Techo" unique_id=1523698342 instance=ExtResource("4_6xs3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, 0)
 
-[node name="MeshInstance3D13" parent="Techo/PlacaTecho30" index="6" unique_id=1777927543]
+[node name="MeshInstance3D13" parent="Techo/PlacaTecho30" index="5" unique_id=1777927543]
 visible = false
 
-[node name="MeshInstance3D15" parent="Techo/PlacaTecho30" index="8" unique_id=472792999]
+[node name="MeshInstance3D15" parent="Techo/PlacaTecho30" index="7" unique_id=472792999]
 visible = false
 
-[node name="MeshInstance3D17" parent="Techo/PlacaTecho30" index="10" unique_id=684753668]
+[node name="MeshInstance3D17" parent="Techo/PlacaTecho30" index="9" unique_id=684753668]
 visible = false
 
-[node name="MeshInstance3D24" parent="Techo/PlacaTecho30" index="14" unique_id=991339921]
+[node name="MeshInstance3D24" parent="Techo/PlacaTecho30" index="13" unique_id=991339921]
 visible = false
 
-[node name="MeshInstance3D20" parent="Techo/PlacaTecho30" index="17" unique_id=1658490556]
+[node name="MeshInstance3D20" parent="Techo/PlacaTecho30" index="16" unique_id=1658490556]
 visible = false
 
-[node name="MeshInstance3D27" parent="Techo/PlacaTecho30" index="18" unique_id=1170797201]
+[node name="MeshInstance3D27" parent="Techo/PlacaTecho30" index="17" unique_id=1170797201]
 visible = false
 
-[node name="MeshInstance3D28" parent="Techo/PlacaTecho30" index="19" unique_id=1126820017]
+[node name="MeshInstance3D28" parent="Techo/PlacaTecho30" index="18" unique_id=1126820017]
 visible = false
 
-[node name="MeshInstance3D29" parent="Techo/PlacaTecho30" index="20" unique_id=405479010]
+[node name="MeshInstance3D29" parent="Techo/PlacaTecho30" index="19" unique_id=405479010]
 visible = false
 
-[node name="MeshInstance3D10" parent="Techo/PlacaTecho30" index="27" unique_id=712670781]
+[node name="MeshInstance3D10" parent="Techo/PlacaTecho30" index="26" unique_id=712670781]
 visible = false
 
-[node name="MeshInstance3D32" parent="Techo/PlacaTecho30" index="30" unique_id=1526658370]
+[node name="MeshInstance3D32" parent="Techo/PlacaTecho30" index="29" unique_id=1526658370]
 visible = false
 
 [node name="PlacaTecho31" parent="Techo" unique_id=1890609632 instance=ExtResource("4_6xs3m")]
