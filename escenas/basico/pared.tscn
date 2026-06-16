@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ce70ekwfshld4"]
+
+[ext_resource type="Material" uid="uid://b4cnvw3gygbxl" path="res://materials/hessian_380_2k/hessian_380_2k.tres" id="1_sprrk"]
+[ext_resource type="Script" uid="uid://f4tupk4fbwc5" path="res://scritps/pared.gd" id="1_yqpeh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_loq36"]
+resource_local_to_scene = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_sprrk"]
+resource_local_to_scene = true
+size = Vector3(1, 3.1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_loq36"]
+resource_local_to_scene = true
+size = Vector3(1.02, 1, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=2120901367]
+script = ExtResource("1_yqpeh")
+excedente_zocalo = 0.02
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=468175099]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("BoxShape3D_loq36")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2014674729]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.2, 0, 0, 0)
+material_override = ExtResource("1_sprrk")
+mesh = SubResource("BoxMesh_sprrk")
+
+[node name="MeshInstance3D_Zocalo" type="MeshInstance3D" parent="." unique_id=789826738]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.3, 0, -1.25, 0)
+material_override = ExtResource("1_sprrk")
+mesh = SubResource("BoxMesh_loq36")

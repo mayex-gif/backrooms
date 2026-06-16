@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://c1d485re0df8t"]
+
+[ext_resource type="PackedScene" uid="uid://cpmkbwbafpb8" path="res://escenas/basico/techo/3x3_luz/PlacaTecho.tscn" id="1_k0fks"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yv2hr"]
+
+[node name="Techo5x5" type="Node3D" unique_id=823785288]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1506067107]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1077781741]
+transform = Transform3D(15, 0, 0, 0, 0.2, 0, 0, 0, 15, 0, 0, 0)
+shape = SubResource("BoxShape3D_yv2hr")
+
+[node name="PlacaTecho" parent="StaticBody3D" unique_id=472328615 instance=ExtResource("1_k0fks")]
+
+[node name="PlacaTecho2" parent="StaticBody3D" unique_id=1688114114 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="PlacaTecho3" parent="StaticBody3D" unique_id=365811432 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="PlacaTecho4" parent="StaticBody3D" unique_id=638867156 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="PlacaTecho5" parent="StaticBody3D" unique_id=691342452 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="PlacaTecho6" parent="StaticBody3D" unique_id=1003801075 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="PlacaTecho7" parent="StaticBody3D" unique_id=786244518 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+
+[node name="PlacaTecho8" parent="StaticBody3D" unique_id=402454465 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 3)
+
+[node name="PlacaTecho9" parent="StaticBody3D" unique_id=870047282 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3)
+
+[node name="PlacaTecho10" parent="StaticBody3D" unique_id=328946495 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3)
+
+[node name="PlacaTecho11" parent="StaticBody3D" unique_id=1719505055 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="PlacaTecho12" parent="StaticBody3D" unique_id=255267594 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 6)
+
+[node name="PlacaTecho13" parent="StaticBody3D" unique_id=433043964 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6)
+
+[node name="PlacaTecho14" parent="StaticBody3D" unique_id=1497432132 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 6)
+
+[node name="PlacaTecho15" parent="StaticBody3D" unique_id=879813248 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 6)
+
+[node name="PlacaTecho16" parent="StaticBody3D" unique_id=229909342 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="PlacaTecho17" parent="StaticBody3D" unique_id=1650548388 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+
+[node name="PlacaTecho18" parent="StaticBody3D" unique_id=1094165055 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3)
+
+[node name="PlacaTecho19" parent="StaticBody3D" unique_id=1925051290 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
+
+[node name="PlacaTecho20" parent="StaticBody3D" unique_id=1338507583 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+
+[node name="PlacaTecho21" parent="StaticBody3D" unique_id=2051925403 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="PlacaTecho22" parent="StaticBody3D" unique_id=1377575176 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6)
+
+[node name="PlacaTecho23" parent="StaticBody3D" unique_id=780592197 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -6)
+
+[node name="PlacaTecho24" parent="StaticBody3D" unique_id=2111224173 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -6)
+
+[node name="PlacaTecho25" parent="StaticBody3D" unique_id=1518544653 instance=ExtResource("1_k0fks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)

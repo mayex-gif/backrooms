@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dwg5smhyiqw0p"]
+
+[ext_resource type="Texture2D" uid="uid://qgjb52jqvd2l" path="res://materials/knitted_fleece_2k/textures/knitted_fleece_diff_2k.png" id="1_bmilf"]
+[ext_resource type="Texture2D" uid="uid://byg6a23qjsmsr" path="res://materials/knitted_fleece_2k/textures/knitted_fleece_ao_2k.png" id="2_lvxg0"]
+[ext_resource type="Texture2D" uid="uid://cerbfiby8fnce" path="res://materials/knitted_fleece_2k/textures/knitted_fleece_disp_2k.png" id="3_iwq2y"]
+[ext_resource type="Texture2D" uid="uid://cilry5rf80qly" path="res://materials/knitted_fleece_2k/textures/knitted_fleece_nor_gl_2k.png" id="4_rkame"]
+[ext_resource type="Texture2D" uid="uid://bicvo4x2kj8yf" path="res://materials/knitted_fleece_2k/textures/knitted_fleece_rough_2k.png" id="5_e8dyq"]
+
+[resource]
+albedo_texture = ExtResource("1_bmilf")
+roughness_texture = ExtResource("5_e8dyq")
+normal_enabled = true
+normal_texture = ExtResource("4_rkame")
+ao_enabled = true
+ao_texture = ExtResource("2_lvxg0")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_iwq2y")
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_triplanar = true
+uv1_world_triplanar = true

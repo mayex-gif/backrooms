@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cf7wcpcejtsar"]
+
+[ext_resource type="PackedScene" uid="uid://dmsaf5uxlvkdh" path="res://jugador/jugador.tscn" id="2_jumxm"]
+[ext_resource type="PackedScene" uid="uid://c2vs0yy04ojmd" path="res://escenas/nivel_1.tscn" id="4_dkga6"]
+
+[sub_resource type="Environment" id="Environment_0kxa1"]
+background_mode = 1
+background_color = Color(0.17077166, 0.1903213, 0.11969974, 1)
+background_energy_multiplier = 0.25
+tonemap_mode = 3
+tonemap_exposure = 0.85
+ssao_enabled = true
+ssao_radius = 2.5
+ssao_intensity = 7.5
+ssao_light_affect = 1.0
+ssil_enabled = true
+ssil_radius = 0.25
+ssil_intensity = 1.5
+sdfgi_enabled = true
+sdfgi_cascades = 8
+sdfgi_min_cell_size = 4.296875
+sdfgi_energy = 0.25
+glow_enabled = true
+glow_levels/1 = 1.0
+glow_levels/2 = 1.0
+glow_levels/3 = 1.0
+glow_levels/4 = 1.0
+glow_levels/5 = 1.0
+glow_levels/6 = 1.0
+glow_levels/7 = 1.0
+glow_normalized = true
+glow_intensity = 0.75
+glow_strength = 0.75
+glow_blend_mode = 0
+fog_light_energy = 0.03
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+
+[node name="Main" type="Node3D" unique_id=956734948]
+
+[node name="Jugador" parent="." unique_id=459916517 instance=ExtResource("2_jumxm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+BOB_FRECUENCIA_CAMINAR = null
+BOB_AMPLITUD_CAMINAR = null
+BOB_FRECUENCIA_CORRER = null
+BOB_AMPLITUD_CORRER = null
+BOB_FRECUENCIA_AGACHAR = null
+BOB_AMPLITUD_AGACHAR = null
+MOUSE_SENSITIVITY = null
+
+[node name="SOL" type="DirectionalLight3D" parent="." unique_id=1009781631]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 25, 0)
+light_color = Color(0, 0, 0, 1)
+shadow_enabled = true
+sky_mode = 2
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2028778789]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 30)
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="." unique_id=970501917]
+environment = SubResource("Environment_0kxa1")
+
+[node name="Nivel1" parent="." unique_id=826973286 instance=ExtResource("4_dkga6")]

@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b4cnvw3gygbxl"]
+
+[ext_resource type="Texture2D" uid="uid://bx583r0xw35ar" path="res://materials/hessian_380_2k/textures/hessian_380_diff_2k.png" id="1_p13t2"]
+[ext_resource type="Texture2D" uid="uid://ds5c8q5xcrveb" path="res://materials/hessian_380_2k/textures/hessian_380_ao_2k.png" id="2_fv5n0"]
+[ext_resource type="Texture2D" uid="uid://cg6lq2vq5nucq" path="res://materials/hessian_380_2k/textures/hessian_380_disp_2k.png" id="3_v3rki"]
+[ext_resource type="Texture2D" uid="uid://dxe0b3dvwa6w" path="res://materials/hessian_380_2k/textures/hessian_380_nor_gl_2k.png" id="4_bhufs"]
+[ext_resource type="Texture2D" uid="uid://brxhgllxu0g4x" path="res://materials/hessian_380_2k/textures/hessian_380_rough_2k.png" id="5_r04dt"]
+
+[resource]
+albedo_texture = ExtResource("1_p13t2")
+roughness_texture = ExtResource("5_r04dt")
+normal_enabled = true
+normal_texture = ExtResource("4_bhufs")
+ao_enabled = true
+ao_texture = ExtResource("2_fv5n0")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_v3rki")
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_triplanar = true
+uv1_world_triplanar = true

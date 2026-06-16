@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://d14qpxmqi25sc"]
+
+[ext_resource type="PackedScene" uid="uid://ce70ekwfshld4" path="res://escenas/basico/pared.tscn" id="1_3op05"]
+[ext_resource type="PackedScene" uid="uid://g7ya7r3y1htw" path="res://escenas/pasillo/Techo3x3.tscn" id="1_qa1y2"]
+[ext_resource type="Material" uid="uid://dwg5smhyiqw0p" path="res://materials/knitted_fleece_2k/knitted_fleece_2k.tres" id="3_qtt8d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gtnuv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ekku8"]
+
+[node name="Pasillo" type="Node3D" unique_id=1884168572]
+
+[node name="Pared" parent="." unique_id=1221825532 instance=ExtResource("1_3op05")]
+transform = Transform3D(1.15, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.25)
+
+[node name="Techo3x3" parent="." unique_id=242227004 instance=ExtResource("1_qa1y2")]
+transform = Transform3D(1.95, 0, 0, 0, 1.95, 0, 0, 0, 1.95, 0, 2.5, 0)
+
+[node name="Pared2" parent="." unique_id=1296107026 instance=ExtResource("1_3op05")]
+transform = Transform3D(1.15, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.25)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1697206502]
+transform = Transform3D(1.15, 0, 0, 0, 1, 0, 0, 0, 2, 0, -2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1784179746]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("BoxShape3D_gtnuv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1969455081]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
+material_override = ExtResource("3_qtt8d")
+mesh = SubResource("BoxMesh_ekku8")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dwodan7u5g4fm"
+path="res://.godot/imported/Fluorescent light hum.wav-b1f3758cdd122aad4abd9f1e36539a7c.sample"
+
+[deps]
+
+source_file="res://escenas/basico/techo/3x3_luz/Fluorescent light hum.wav"
+dest_files=["res://.godot/imported/Fluorescent light hum.wav-b1f3758cdd122aad4abd9f1e36539a7c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

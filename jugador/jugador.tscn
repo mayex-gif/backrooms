@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dmsaf5uxlvkdh"]
+
+[ext_resource type="Script" uid="uid://ber4aeqowenyd" path="res://jugador/jugador.gd" id="1_feffl"]
+[ext_resource type="PackedScene" uid="uid://cbw3of0gqedg" path="res://jugador/ready_player_me_male_avatar__vrchatgame_ready.glb" id="3_im34r"]
+[ext_resource type="Script" uid="uid://cmgy0tvpynqxp" path="res://scritps/jugador_interaccion.gd" id="3_sx3nn"]
+[ext_resource type="PackedScene" uid="uid://m88srmk5g8w5" path="res://jugador/Ch31_nonPBR.fbx" id="4_a407c"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_im34r"]
+radius = 0.2
+height = 1.66
+
+[node name="Jugador" type="CharacterBody3D" unique_id=459916517 groups=["jugador"]]
+script = ExtResource("1_feffl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=558247350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83, 0)
+shape = SubResource("CapsuleShape3D_im34r")
+
+[node name="Cabeza" type="Node3D" parent="." unique_id=1806555265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Cabeza" unique_id=1726565832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+fov = 65.0
+
+[node name="RayCast3D" type="RayCast3D" parent="Cabeza" unique_id=1072499919]
+target_position = Vector3(0, 0, -2)
+script = ExtResource("3_sx3nn")
+
+[node name="Sketchfab_Scene" parent="." unique_id=1580278161 instance=ExtResource("3_im34r")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Ch31_nonPBR" parent="." unique_id=477989954 instance=ExtResource("4_a407c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47229528, 0, 0.5852144)
+visible = false
+
+[node name="AudioPasos" type="AudioStreamPlayer" parent="." unique_id=2023974450]
+volume_db = -80.0
