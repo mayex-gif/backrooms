@@ -5,7 +5,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_ejk20"]
 
-[node name="Techo3x3" type="Node3D" unique_id=431011227]
+[node name="Techo3x3_1" type="Node3D" unique_id=431011227]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2021756490]
 transform = Transform3D(0.94, 0, 0, 0, 0.05, 0, 0, 0, 0.94, 1, 0, 0)

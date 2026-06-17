@@ -1,25 +1,28 @@
-extends SpotLight3D
+extends Node3D
 
 @export var parpadear: bool = false
 @export var malla_placa_techo: MeshInstance3D
+@export var activa := true
 
-@onready var energia_normal: float = light_energy
-@onready var audio_zumbido: AudioStreamPlayer3D = $"../AudioStreamPlayer3D"
+@onready var spotlight: SpotLight3D = $SpotLight3D
+@onready var audio_zumbido: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var raycast: RayCast3D = $RayCast3D
+
+@onready var energia_normal: float = spotlight.light_energy
 
 # --- Variables de Oclusión Acústica ---
-@onready var raycast: RayCast3D = $"../RayCast3D"
 var jugador: CharacterBody3D = null
 var tiempo_desde_ultimo_calculo: float = 0.0
-const INTERVALO_CALCULO_AUDIO: float = 0.15 # Se ejecuta ~7 veces por segundo (Optimizado)
+const INTERVALO_CALCULO_AUDIO: float = 0.15 # ~7 veces por segundo (Optimizado)
 
 var material_emisor: StandardMaterial3D
 var emision_energia_base: float = 1.0
-var volumen_base_db: float = -12.0 # Ajustado al estándar de fondo de antes
+var volumen_base_db: float = -12.0 
 
 func _ready():
-	# 1. Configurar Señal de Visibilidad (Punto 1)
+	# 1. Automatización de Rendimiento: Conectamos la visibilidad del árbol
 	visibility_changed.connect(_on_visibility_changed)
-
+	
 	# 2. Inicializar Material
 	if malla_placa_techo:
 		var mat_original = malla_placa_techo.get_active_material(0)
@@ -28,81 +31,91 @@ func _ready():
 			malla_placa_techo.material_override = material_emisor
 			emision_energia_base = material_emisor.emission_energy_multiplier
 
-	# 3. Buscar al jugador en la escena usando su grupo
-	# Asegurate de agregar la palabra "jugador" en la pestaña Nodos -> Grupos de tu script de jugador
+	# 3. Registrar Jugador
 	jugador = get_tree().get_first_node_in_group("jugador") as CharacterBody3D
 
-	# 4. Configuración inicial del RayCast
+	# 4. Configuración del RayCast
 	if raycast:
-		raycast.enabled = true
 		raycast.exclude_parent = true
-		# IMPORTANTE: Configurá la máscara de colisión del raycast para que SOLO choque con el mapa (Paredes)
 		raycast.collision_mask = 0
-		raycast.set_collision_mask_value(4, true)
+		raycast.set_collision_mask_value(4, true) # Capa de paredes
 
-	# 5. Iniciar ciclo eléctrico si es visible
+	# 5. Estado inicial del módulo
+	if activa and is_visible_in_tree():
+		activar()
+	else:
+		desactivar()
+
+# Control Manual o por Script
+func activar():
+	activa = true
 	if is_visible_in_tree():
 		_inicializar_luz()
 
-func _inicializar_luz():
-	if parpadear:
-		flash()
-	else:
-		_cambiar_estado_luz(true)
+func desactivar():
+	activa = false
+	_cambiar_estado_luz(false)
+	if raycast:
+		raycast.enabled = false
 
-# RESPUESTA AL PUNTO 1: Si ocultamos la luz en el editor o por mapa, matamos el audio y el raycast
+# Control Automático por Oclusión (Performance del Motor)
 func _on_visibility_changed():
 	if not is_visible_in_tree():
-		parpadear = false # Detiene el bucle recursivo del flash
+		# Si el motor oculta el módulo, apagamos todo el procesamiento de inmediato
 		_cambiar_estado_luz(false)
-		
-		# OPTIMIZACIÓN Y LIMPIEZA VISUAL:
 		if raycast:
-			raycast.visible = false
-			raycast.enabled = false 
-		if audio_zumbido:
-			audio_zumbido.visible = false # Oculta el ícono del parlante
+			raycast.enabled = false
 	else:
-		# Restauramos todo
-		if raycast:
-			raycast.visible = true
-			raycast.enabled = true
-		if audio_zumbido:
-			audio_zumbido.visible = true
-			
-		_inicializar_luz()
+		# Si vuelve a ser visible y el módulo está activo, reanudamos
+		if activa:
+			_inicializar_luz()
+
+func _inicializar_luz():
+	if raycast and activa:
+		raycast.enabled = true
+		
+	if parpadear and activa:
+		flash()
+	else:
+		_cambiar_estado_luz(activa)
 
 func flash():
-	if not parpadear or not is_visible_in_tree():
-		_cambiar_estado_luz(is_visible_in_tree())
+	# Condición de salida limpia
+	if not parpadear or not activa or not is_visible_in_tree():
+		_cambiar_estado_luz(activa and is_visible_in_tree())
 		return
 		
+	# Cambiamos el estado de forma binaria
 	var estado_aleatorio = randf() > 0.5
 	_cambiar_estado_luz(estado_aleatorio)
 	
-	await get_tree().create_timer(randf_range(0.05, 0.15)).timeout
+	# El temporizador controla el flujo de forma segura (sin colgar el hilo)
+	await get_tree().create_timer(randf_range(0.0, 0.25)).timeout
 	
-	if parpadear and is_visible_in_tree():
+	# Siguiente ciclo
+	if parpadear and activa and is_visible_in_tree():
 		flash()
 
 func _cambiar_estado_luz(encendido: bool):
 	if encendido:
-		light_energy = energia_normal
+		# spotlight.visible = true  <--- ELIMINAR ESTA LÍNEA
+		spotlight.light_energy = energia_normal
 		if material_emisor:
 			material_emisor.emission_enabled = true
 			material_emisor.emission_energy_multiplier = emision_energia_base
 		if audio_zumbido and not audio_zumbido.playing and is_visible_in_tree():
 			audio_zumbido.play()
 	else:
-		light_energy = 0.0
+		# spotlight.visible = false <--- ELIMINAR ESTA LÍNEA
+		spotlight.light_energy = 0.0
 		if material_emisor:
 			material_emisor.emission_enabled = false
 		if audio_zumbido and audio_zumbido.playing:
 			audio_zumbido.stop()
 
-# RESPUESTA AL PUNTO 2: Lógica de Oclusión Acústica por física de Rayos
 func _physics_process(delta: float) -> void:
-	if not is_visible_in_tree() or not audio_zumbido or not audio_zumbido.playing or not jugador:
+	# Si el módulo está inactivo o el motor lo ocultó, no gastamos ni un ciclo de CPU
+	if not activa or not is_visible_in_tree() or not audio_zumbido or not audio_zumbido.playing or not jugador:
 		return
 
 	tiempo_desde_ultimo_calculo += delta
@@ -111,29 +124,16 @@ func _physics_process(delta: float) -> void:
 		_calcular_occlusion_acustica()
 
 func _calcular_occlusion_acustica():
-	# Convertimos la posición global del jugador al espacio local de nuestra lámpara
-	# Apuntamos a la cabeza del jugador (aproximadamente a la altura de sus ojos)
-	var posicion_objetivo = raycast.to_local(
-		jugador.global_position + Vector3(0,1.55,0)
-	)
-
+	var posicion_objetivo = raycast.to_local(jugador.global_position + Vector3(0, 1.55, 0))
 	raycast.target_position = posicion_objetivo
-	# Forzamos la actualización inmediata del cálculo físico del rayo
 	raycast.force_raycast_update()
 
 	if raycast.is_colliding():
 		# ¡Hay una pared en el medio! Aplicamos el filtro de volumen amortiguado (Oclusión)
 		# Atenuamos considerablemente el volumen restando decibelios
 		var obj = raycast.get_collider()
-		print(
-			"Nombre:", obj.name,
-			" Tipo:", obj.get_class(),
-			" Capa:", obj.collision_layer
-		)
+		# print( "Nombre:", obj.name," Tipo:", obj.get_class()," Capa:", obj.collision_layer)
 		audio_zumbido.volume_db = volumen_base_db - 20
-		
 	else:
-		# Línea de visión directa y limpia. Sonido nítido original.
-		print("SIN COLISION")
-
+		# print("SIN COLISION")
 		audio_zumbido.volume_db = volumen_base_db

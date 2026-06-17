@@ -61,6 +61,13 @@ agachar={
 3d_render/layer_5="Sonido"
 3d_render/layer_6="Luz"
 3d_render/layer_7="Decoración"
+3d_physics/layer_1="Jugador"
+3d_physics/layer_2="Enemigos"
+3d_physics/layer_3="Interactuables"
+3d_physics/layer_4="Paredes"
+3d_physics/layer_5="Sonido"
+3d_physics/layer_6="Luz"
+3d_physics/layer_7="Decoración"
 
 [physics]
 

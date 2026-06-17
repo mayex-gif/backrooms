@@ -41,7 +41,7 @@ volumetric_fog_density = 0.01
 [node name="Main" type="Node3D" unique_id=956734948]
 
 [node name="Jugador" parent="." unique_id=459916517 instance=ExtResource("2_jumxm")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -48.66672, -1.5, -48.121223)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -50.74055, -1.5, -33.078766)
 
 [node name="SOL" type="DirectionalLight3D" parent="." unique_id=1009781631]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 25, 0)
