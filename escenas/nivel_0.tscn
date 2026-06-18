@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c2vs0yy04ojmd"]
 
-[ext_resource type="Script" uid="uid://bboucctnbeje0" path="res://escenas/room_manager.gd" id="1_0lchf"]
-[ext_resource type="PackedScene" uid="uid://co18bfyrd3eml" path="res://escenas/habitaciones/5x5/habitacion5x5.tscn" id="2_hicp8"]
+[ext_resource type="Script" uid="uid://bboucctnbeje0" path="res://scritps/room_manager.gd" id="1_0lchf"]
+[ext_resource type="PackedScene" uid="uid://co18bfyrd3eml" path="res://escenas/habitaciones/5x5/habitacion5x5_1.tscn" id="2_hicp8"]
 [ext_resource type="PackedScene" uid="uid://b6nga035sjjhu" path="res://escenas/habitaciones/15x10/habitacion_15x_10_2.tscn" id="3_feib7"]
 [ext_resource type="PackedScene" uid="uid://ussvhnm83qjp" path="res://escenas/habitaciones/15x10/habitacion_15x_10_1.tscn" id="3_hicp8"]
 [ext_resource type="PackedScene" uid="uid://dg7a7x7w2mq4f" path="res://escenas/habitaciones/5x5/habitacion5x5_2.tscn" id="4_feib7"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://dls8atcpgecuh" path="res://escenas/habitaciones/15x10/habitacion15x10_4.tscn" id="9_tyy0m"]
 [ext_resource type="PackedScene" uid="uid://840ebd88ovwm" path="res://escenas/habitaciones/15x10/habitacion15x10_3_2.tscn" id="10_gudbu"]
 [ext_resource type="PackedScene" uid="uid://dyjp3ufb5m73e" path="res://escenas/habitaciones/7.5x10/habitacion7.5x10L.tscn" id="11_v3hyu"]
+[ext_resource type="PackedScene" uid="uid://bcyx24nio3vxa" path="res://escenas/habitaciones/5x10/habitacion5x10_1.tscn" id="13_1a0a1"]
+[ext_resource type="PackedScene" uid="uid://boy1elbsumiwh" path="res://escenas/habitaciones/5x15/habitacion5x15_1.tscn" id="14_gp4ke"]
+[ext_resource type="PackedScene" uid="uid://ceqnm5n2le0g0" path="res://escenas/habitaciones/10x10/habitacion10x10_1.tscn" id="15_ii0a0"]
 
 [node name="Nivel0" type="Node3D" unique_id=826973286]
 
@@ -20,7 +23,7 @@ script = ExtResource("1_0lchf")
 
 [node name="Habitaciones" type="Node3D" parent="." unique_id=198969919]
 
-[node name="Habitacion" parent="Habitaciones" unique_id=1555080646 groups=["habitacion"] instance=ExtResource("2_hicp8")]
+[node name="habitacion5x5_1" parent="Habitaciones" unique_id=1555080646 groups=["habitacion"] instance=ExtResource("2_hicp8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.5, 0, -47.5)
 
 [node name="habitacion15x10-1" parent="Habitaciones" unique_id=281708555 groups=["habitacion"] instance=ExtResource("3_hicp8")]
@@ -55,3 +58,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5, 0, 0)
 
 [node name="Habitacion7_5x10L" parent="Habitaciones" unique_id=1716704074 groups=["habitacion"] instance=ExtResource("11_v3hyu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -46.25)
+
+[node name="Habitacion5x10_1" parent="Habitaciones" unique_id=845474717 groups=["habitacion"] instance=ExtResource("13_1a0a1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -22.5, 0, -50)
+
+[node name="Habitacion5x15_1" parent="Habitaciones" unique_id=1880328988 groups=["habitacion"] instance=ExtResource("14_gp4ke")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -22.5, 0, -62.5)
+
+[node name="Habitacion10x10_1" parent="Habitaciones" unique_id=693796431 groups=["habitacion"] instance=ExtResource("15_ii0a0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -15, 0, -62)

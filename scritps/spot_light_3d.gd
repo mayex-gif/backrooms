@@ -17,9 +17,11 @@ const INTERVALO_CALCULO_AUDIO: float = 0.15 # ~7 veces por segundo (Optimizado)
 
 var material_emisor: StandardMaterial3D
 var emision_energia_base: float = 1.0
-var volumen_base_db: float = -12.0 
+var volumen_base_db: float = -15.0 
 
 func _ready():
+	audio_zumbido.pitch_scale = randf_range(0.5, 1.3)
+	
 	# 1. Automatización de Rendimiento: Conectamos la visibilidad del árbol
 	visibility_changed.connect(_on_visibility_changed)
 	
@@ -90,7 +92,7 @@ func flash():
 	_cambiar_estado_luz(estado_aleatorio)
 	
 	# El temporizador controla el flujo de forma segura (sin colgar el hilo)
-	await get_tree().create_timer(randf_range(0.0, 0.25)).timeout
+	await get_tree().create_timer(randf_range(0.0, 0.15)).timeout
 	
 	# Siguiente ciclo
 	if parpadear and activa and is_visible_in_tree():
@@ -133,7 +135,7 @@ func _calcular_occlusion_acustica():
 		# Atenuamos considerablemente el volumen restando decibelios
 		var obj = raycast.get_collider()
 		# print( "Nombre:", obj.name," Tipo:", obj.get_class()," Capa:", obj.collision_layer)
-		audio_zumbido.volume_db = volumen_base_db - 20
+		audio_zumbido.volume_db = volumen_base_db - 30
 	else:
 		# print("SIN COLISION")
 		audio_zumbido.volume_db = volumen_base_db

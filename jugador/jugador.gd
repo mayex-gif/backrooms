@@ -2,15 +2,15 @@ extends CharacterBody3D
 
 # --- Variables de Movimiento ---
 var velocidad_actual = 2.0
-const VELOCIDAD_CAMINAR = 4.0 #1.0
-const VELOCIDAD_CORRER = 5.5 #1.5 # Aumentada un poco para notar más la diferencia de ritmo
+const VELOCIDAD_CAMINAR = 6.0 #1.0
+const VELOCIDAD_CORRER = 10.0 #2.0 # Aumentada un poco para notar más la diferencia de ritmo
 const VELOCIDAD_AGACHAR = 0.75
 
 # --- Parámetros de Head Bobbing (Ajustables desde el Inspector) ---
-@export var BOB_FRECUENCIA_CAMINAR = 5
-@export var BOB_AMPLITUD_CAMINAR = 0.075
-@export var BOB_FRECUENCIA_CORRER = 4.0
-@export var BOB_AMPLITUD_CORRER = 0.08
+@export var BOB_FRECUENCIA_CAMINAR = 7.5
+@export var BOB_AMPLITUD_CAMINAR = 0.03
+@export var BOB_FRECUENCIA_CORRER = 7.5
+@export var BOB_AMPLITUD_CORRER = 0.06
 @export var BOB_FRECUENCIA_AGACHAR = 1.5
 @export var BOB_AMPLITUD_AGACHAR = 0.02
 
@@ -51,7 +51,6 @@ func _process(delta: float) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 	if Input.is_action_just_pressed("agachar"):
 		agachar = !agachar
 
@@ -67,52 +66,40 @@ func _physics_process(delta: float) -> void:
 			velocidad_actual = VELOCIDAD_CORRER
 		else:
 			velocidad_actual = VELOCIDAD_CAMINAR
-			
 		altura_ojos_base = 1.55
 		colision.shape.height = lerp(colision.shape.height, 1.66, 10.0 * delta)
 		colision.position.y = lerp(colision.position.y, 0.83, 10.0 * delta)
-		
-
 	# 2. Aplicar Gravedad
 	if not is_on_floor():
 		velocity.y -= gravedad * delta
-
 	# 3. Procesar Movimiento WASD
 	var input_dir := Input.get_vector("izquierda", "derecha", "adelante", "atras")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
 	if direction:
 		velocity.x = direction.x * velocidad_actual
 		velocity.z = direction.z * velocidad_actual
 	else:
 		velocity.x = move_toward(velocity.x, 0, velocidad_actual)
 		velocity.z = move_toward(velocity.z, 0, velocidad_actual)
-
 	move_and_slide()
-
 	# 4. Cálculo del Head Bobbing (Solo si está en el suelo y moviéndose)
 	var velocidad_plana = Vector3(velocity.x, 0, velocity.z).length()
-	
 	if is_on_floor() and velocidad_plana > 0.1:
 		# Elegimos la frecuencia y amplitud según el estado actual
 		var freq = BOB_FRECUENCIA_CAMINAR
 		var amp = BOB_AMPLITUD_CAMINAR
-		
 		if agachar:
 			freq = BOB_FRECUENCIA_AGACHAR
 			amp = BOB_AMPLITUD_AGACHAR
 		elif velocidad_actual == VELOCIDAD_CORRER:
 			freq = BOB_FRECUENCIA_CORRER
 			amp = BOB_AMPLITUD_CORRER
-			
 		# Avanzamos el tiempo del bob de acuerdo al movimiento real
 		bob_tiempo += delta * velocidad_plana * freq
-		
 		# Calculamos el desfase del bobbing
 		var transformacion_bob = Vector3.ZERO
 		transformacion_bob.y = sin(bob_tiempo) * amp
 		transformacion_bob.x = cos(bob_tiempo / 2) * amp # El eje X va a la mitad de velocidad para hacer el '8'
-		
 		# Aplicamos el movimiento sumándolo de forma fluida a la altura base actual
 		cabeza.position.y = lerp(cabeza.position.y, altura_ojos_base + transformacion_bob.y, 15.0 * delta)
 		cabeza.position.x = lerp(cabeza.position.x, transformacion_bob.x, 15.0 * delta)
@@ -121,21 +108,17 @@ func _physics_process(delta: float) -> void:
 		bob_tiempo = 0.0
 		cabeza.position.y = lerp(cabeza.position.y, altura_ojos_base, 15.0 * delta)
 		cabeza.position.x = lerp(cabeza.position.x, 0.0, 15.0 * delta)
-		
 	# --- MAGIA DE AUDIO: Sincronizar pasos con el piso ---
 	# Usamos la misma condición de velocidad para no hacer ruido si se mueve un milímetro
 	if is_on_floor() and velocidad_plana > 0.01:
-		
 		# CORRECCIÓN: Leemos exactamente la misma fase de la onda que usa la cabeza
 		var onda_paso = sin(bob_tiempo) 
-		
 		# Cuando la onda baja a su punto mínimo (la cabeza baja), el pie pisa fuerte
 		if onda_paso < -0.8 and not paso_reproducido:
 			# Variar el tono para que suene orgánico y no repetitivo
 			audio_pasos.pitch_scale = randf_range(0.85, 1.15)
 			audio_pasos.play()
 			paso_reproducido = true
-			
 		# Cuando la onda sube y pasa el centro, "recargamos" el paso para el otro pie
 		elif onda_paso > 0.0:
 			paso_reproducido = false

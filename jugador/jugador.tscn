@@ -1,13 +1,36 @@
 [gd_scene format=3 uid="uid://dmsaf5uxlvkdh"]
 
 [ext_resource type="Script" uid="uid://ber4aeqowenyd" path="res://jugador/jugador.gd" id="1_feffl"]
-[ext_resource type="PackedScene" uid="uid://cbw3of0gqedg" path="res://jugador/ready_player_me_male_avatar__vrchatgame_ready.glb" id="3_im34r"]
+[ext_resource type="PackedScene" uid="uid://dh7fr07n6w5vy" path="res://modelos/personaje.glb" id="2_a407c"]
 [ext_resource type="Script" uid="uid://cmgy0tvpynqxp" path="res://scritps/jugador_interaccion.gd" id="3_sx3nn"]
-[ext_resource type="PackedScene" uid="uid://m88srmk5g8w5" path="res://jugador/Ch31_nonPBR.fbx" id="4_a407c"]
+[ext_resource type="AudioStream" uid="uid://dxuhfkofnglxq" path="res://jugador/Audios/384637__morganpurkis__carpet-footstep-2.wav" id="5_vu2ya"]
+[ext_resource type="Animation" uid="uid://it0sbfr73tub" path="res://modelos/animaciones/male-idle.res" id="5_yl2o6"]
+[ext_resource type="Animation" uid="uid://cvnoe0jg21yri" path="res://modelos/animaciones/male-walk-2loop.res" id="6_uo3ig"]
+[ext_resource type="Animation" uid="uid://bilem7asm1n1y" path="res://modelos/animaciones/male-walk-3end.res" id="7_xmq2a"]
+[ext_resource type="Animation" uid="uid://xxc67wtuptff" path="res://modelos/animaciones/male-walk_1start.res" id="8_frsvm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_im34r"]
 radius = 0.2
 height = 1.66
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yl2o6"]
+animation = &"Global/male-idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uo3ig"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xmq2a"]
+states/Global_male-idle/node = SubResource("AnimationNodeAnimation_yl2o6")
+states/Global_male-idle/position = Vector2(390, 50)
+transitions = ["Start", "Global_male-idle", SubResource("AnimationNodeStateMachineTransition_uo3ig")]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_frsvm"]
+_data = {
+&"male-idle": ExtResource("5_yl2o6"),
+&"male-walk-2loop": ExtResource("6_uo3ig"),
+&"male-walk-3end": ExtResource("7_xmq2a"),
+&"male-walk_1start": ExtResource("8_frsvm")
+}
 
 [node name="Jugador" type="CharacterBody3D" unique_id=459916517 groups=["jugador"]]
 collision_mask = 79
@@ -17,23 +40,49 @@ script = ExtResource("1_feffl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83, 0)
 shape = SubResource("CapsuleShape3D_im34r")
 
+[node name="personaje" parent="." unique_id=1425852272 instance=ExtResource("2_a407c")]
+transform = Transform3D(-0.9, 0, -7.86805e-08, 0, 0.9, 0, 7.86805e-08, 0, -0.9, 0, 0, 0)
+
+[node name="Cabeza" parent="personaje/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1425852272, 1903473371) index="0" unique_id=2408301]
+cast_shadow = 3
+
+[node name="Cesar_D_LaTorre_Jacket_001" parent="personaje/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1425852272, 1903473371) index="2" unique_id=130825883]
+visible = false
+
+[node name="Cesar_D_LaTorre_Jacket_002" parent="personaje/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1425852272, 1903473371) index="3" unique_id=1619791906]
+visible = false
+
+[node name="Cesar_D_LaTorre_Jacket_003" parent="personaje/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1425852272, 1903473371) index="4" unique_id=1662812902]
+visible = false
+
+[node name="Cesar_D_LaTorre_Jacket_004" parent="personaje/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1425852272, 1903473371) index="5" unique_id=1812607386]
+visible = false
+
+[node name="Cesar_D_LaTorre_Jacket_005" parent="personaje/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1425852272, 1903473371) index="6" unique_id=2070431232]
+visible = false
+
 [node name="Cabeza" type="Node3D" parent="." unique_id=1806555265]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, -0.15)
 
 [node name="Camera3D" type="Camera3D" parent="Cabeza" unique_id=1726565832]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 fov = 65.0
+near = 0.01
 
 [node name="RayCast3D" type="RayCast3D" parent="Cabeza" unique_id=1072499919]
 target_position = Vector3(0, 0, -2)
 script = ExtResource("3_sx3nn")
 
-[node name="Sketchfab_Scene" parent="." unique_id=1580278161 instance=ExtResource("3_im34r")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-
-[node name="Ch31_nonPBR" parent="." unique_id=477989954 instance=ExtResource("4_a407c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47229528, 0, 0.5852144)
-visible = false
-
 [node name="AudioPasos" type="AudioStreamPlayer" parent="." unique_id=2023974450]
-volume_db = -80.0
+stream = ExtResource("5_vu2ya")
+volume_db = -40.0
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1078604196]
+root_node = NodePath("../personaje/AnimationPlayer")
+tree_root = SubResource("AnimationNodeStateMachine_xmq2a")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=451050227]
+root_node = NodePath("../personaje/AnimationPlayer")
+libraries/Global = SubResource("AnimationLibrary_frsvm")
+
+[editable path="personaje"]
