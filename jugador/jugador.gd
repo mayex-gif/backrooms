@@ -2,8 +2,8 @@ extends CharacterBody3D
 
 # --- Variables de Movimiento ---
 var velocidad_actual = 2.0
-const VELOCIDAD_CAMINAR = 6.0 #1.0
-const VELOCIDAD_CORRER = 10.0 #2.0 # Aumentada un poco para notar más la diferencia de ritmo
+const VELOCIDAD_CAMINAR = 1#6.0 #1.0
+const VELOCIDAD_CORRER = 2#10.0 #2.0 # Aumentada un poco para notar más la diferencia de ritmo
 const VELOCIDAD_AGACHAR = 0.75
 
 # --- Parámetros de Head Bobbing (Ajustables desde el Inspector) ---

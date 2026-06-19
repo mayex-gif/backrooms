@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://ce70ekwfshld4" path="res://escenas/basico/pared.tscn" id="3_bjhen"]
 [ext_resource type="PackedScene" uid="uid://cpmkbwbafpb8" path="res://escenas/basico/techo/3x3_luz/PlacaTecho.tscn" id="4_fy3p7"]
 [ext_resource type="PackedScene" uid="uid://cacvcefefk8wh" path="res://escenas/basico/techo/3x1/techo3x1_1.tscn" id="5_locfi"]
-[ext_resource type="PackedScene" uid="uid://bxb6sluijmqnu" path="res://escenas/generador_nivel/GeneradorTrigger.tscn" id="6_yo0ql"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7ojq5"]
 
@@ -223,7 +222,7 @@ collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorEspacio" unique_id=733515842]
-transform = Transform3D(9.8, 0, 0, 0, 3, 0, 0, 0, 6.8, 0, 0, 0)
+transform = Transform3D(9.5, 0, 0, 0, 3, 0, 0, 0, 6.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_7ojq5")
 
 [node name="Conexiones" type="Node3D" parent="." unique_id=1053982728]
@@ -236,20 +235,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -1.5, 3.5)
 
 [node name="5_1" type="Marker3D" parent="Conexiones" unique_id=1734158064]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1.5, -3.5)
-
-[node name="Triggers" type="Node3D" parent="." unique_id=1388299759]
-
-[node name="GeneradorTrigger" parent="Triggers" unique_id=363288285 node_paths=PackedStringArray("marker_asociado") instance=ExtResource("6_yo0ql")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.5, 5, 0, -1.5)
-marker_asociado = NodePath("../../Conexiones/2_5")
-
-[node name="GeneradorTrigger2" parent="Triggers" unique_id=1729988265 node_paths=PackedStringArray("marker_asociado") instance=ExtResource("6_yo0ql")]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 3.5)
-marker_asociado = NodePath("../../Conexiones/5")
-
-[node name="GeneradorTrigger3" parent="Triggers" unique_id=885599843 node_paths=PackedStringArray("marker_asociado") instance=ExtResource("6_yo0ql")]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5)
-marker_asociado = NodePath("../../Conexiones/5_1")
 
 [editable path="Techo/PlacaTecho2"]
 [editable path="Techo/PlacaTecho3"]

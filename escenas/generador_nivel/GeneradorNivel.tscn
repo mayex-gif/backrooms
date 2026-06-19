@@ -49,10 +49,10 @@ escena = ExtResource("8_cdurp")
 nombre_debug = "Habitacion7x10_1"
 metadata/_custom_type_script = "uid://b13x5uww7fpxq"
 
-[sub_resource type="Resource" id="Resource_tw74u"]
+[sub_resource type="Resource" id="Resource_cdurp"]
 script = ExtResource("2_hxoxn")
 escena = ExtResource("9_cdurp")
-nombre_debug = "Habitacion10x15"
+nombre_debug = "Habitacion10x15_1"
 metadata/_custom_type_script = "uid://b13x5uww7fpxq"
 
 [sub_resource type="Resource" id="Resource_l7326"]
@@ -63,5 +63,5 @@ metadata/_custom_type_script = "uid://b13x5uww7fpxq"
 
 [node name="GeneradorNivel" type="Node3D" unique_id=277419312 groups=["generadores"]]
 script = ExtResource("1_touio")
-habitacion_inicial_prefab = ExtResource("3_0rg4b")
-pool_habitaciones = Array[ExtResource("2_hxoxn")]([SubResource("Resource_aldcv"), SubResource("Resource_211io"), SubResource("Resource_bjhen"), SubResource("Resource_fy3p7"), SubResource("Resource_locfi"), SubResource("Resource_yo0ql"), SubResource("Resource_tw74u"), null, SubResource("Resource_l7326")])
+habitacion_inicial_prefab = ExtResource("8_s28e4")
+pool_habitaciones = Array[ExtResource("2_hxoxn")]([SubResource("Resource_aldcv"), SubResource("Resource_211io"), SubResource("Resource_bjhen"), SubResource("Resource_fy3p7"), SubResource("Resource_locfi"), SubResource("Resource_yo0ql"), SubResource("Resource_cdurp"), null, SubResource("Resource_l7326")])

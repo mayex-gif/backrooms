@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://cpmkbwbafpb8" path="res://escenas/basico/techo/3x3_luz/PlacaTecho.tscn" id="3_pesjw"]
 [ext_resource type="PackedScene" uid="uid://ddc37rlopgk1" path="res://escenas/basico/extras/columna.tscn" id="4_e5h3d"]
 [ext_resource type="PackedScene" uid="uid://cacvcefefk8wh" path="res://escenas/basico/techo/3x1/techo3x1_1.tscn" id="5_pesjw"]
-[ext_resource type="PackedScene" uid="uid://bxb6sluijmqnu" path="res://escenas/generador_nivel/GeneradorTrigger.tscn" id="6_ie160"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ie160"]
 
@@ -81,12 +80,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, -1)
 
 [node name="5" type="Marker3D" parent="Conexiones" unique_id=1076972166]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 2.5)
-
-[node name="Triggers" type="Node3D" parent="." unique_id=471339741]
-
-[node name="GeneradorTrigger" parent="Triggers" unique_id=363288285 node_paths=PackedStringArray("marker_asociado") instance=ExtResource("6_ie160")]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
-marker_asociado = NodePath("../../Conexiones/5")
 
 [node name="DetectorEspacio" type="Area3D" parent="." unique_id=2075392738]
 collision_layer = 128

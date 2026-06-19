@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://ce70ekwfshld4" path="res://escenas/basico/pared.tscn" id="3_qcjeu"]
 [ext_resource type="PackedScene" uid="uid://cacvcefefk8wh" path="res://escenas/basico/techo/3x1/techo3x1_1.tscn" id="5_6cmvj"]
 [ext_resource type="PackedScene" uid="uid://c1bdgdfljy8ox" path="res://escenas/basico/techo/3x3/techo3x3_1.tscn" id="6_6cmvj"]
-[ext_resource type="PackedScene" uid="uid://bxb6sluijmqnu" path="res://escenas/generador_nivel/GeneradorTrigger.tscn" id="7_2vh40"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6cmvj"]
 
@@ -305,16 +304,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, -
 
 [node name="5" type="Marker3D" parent="Conexiones" unique_id=1883416428]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -1.5, 3.75)
-
-[node name="Triggers" type="Node3D" parent="." unique_id=584354581]
-
-[node name="GeneradorTrigger" parent="Triggers" unique_id=363288285 node_paths=PackedStringArray("marker_asociado") instance=ExtResource("7_2vh40")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.5, 5, 0, -1.25)
-marker_asociado = NodePath("../../Conexiones/2_5")
-
-[node name="GeneradorTrigger2" parent="Triggers" unique_id=2074681618 node_paths=PackedStringArray("marker_asociado") instance=ExtResource("7_2vh40")]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 3.75)
-marker_asociado = NodePath("../../Conexiones/5")
 
 [editable path="Techo/PlacaTecho2"]
 [editable path="Techo/PlacaTecho3"]

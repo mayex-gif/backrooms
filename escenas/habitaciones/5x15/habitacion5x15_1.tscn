@@ -3,7 +3,6 @@
 [ext_resource type="Material" uid="uid://dwg5smhyiqw0p" path="res://materials/knitted_fleece_2k/knitted_fleece_2k.tres" id="1_jhko7"]
 [ext_resource type="PackedScene" uid="uid://ce70ekwfshld4" path="res://escenas/basico/pared.tscn" id="3_2k1ay"]
 [ext_resource type="PackedScene" uid="uid://c1bdgdfljy8ox" path="res://escenas/basico/techo/3x3/techo3x3_1.tscn" id="3_fw25k"]
-[ext_resource type="PackedScene" uid="uid://bxb6sluijmqnu" path="res://escenas/generador_nivel/GeneradorTrigger.tscn" id="4_s3p8l"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_f0r7y"]
 
@@ -97,12 +96,3 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.5
 
 [node name="5" type="Marker3D" parent="Conexiones" unique_id=1013274251]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1.5, -7.5)
-
-[node name="Triggers" type="Node3D" parent="." unique_id=1344128099]
-
-[node name="GeneradorTrigger" parent="Triggers" unique_id=363288285 instance=ExtResource("4_s3p8l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.5, -2.5, 0, 1.25)
-
-[node name="GeneradorTrigger2" parent="Triggers" unique_id=1727695809 node_paths=PackedStringArray("marker_asociado") instance=ExtResource("4_s3p8l")]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.5)
-marker_asociado = NodePath("../../Conexiones/5")
