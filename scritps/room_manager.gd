@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 @export var radio_carga: float = 50.0 # Metros de radio alrededor del jugador
 const INTERVALO_ESCANEO: float = 0.5 # Revisamos 2 veces por segundo (súper optimizado)

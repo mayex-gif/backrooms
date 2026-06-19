@@ -6,12 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://cpmkbwbafpb8" path="res://escenas/basico/techo/3x3_luz/PlacaTecho.tscn" id="4_6xs3m"]
 [ext_resource type="PackedScene" uid="uid://c1bdgdfljy8ox" path="res://escenas/basico/techo/3x3/techo3x3_1.tscn" id="5_0gwau"]
 [ext_resource type="PackedScene" uid="uid://cacvcefefk8wh" path="res://escenas/basico/techo/3x1/techo3x1_1.tscn" id="6_bl5d7"]
+[ext_resource type="PackedScene" uid="uid://bxb6sluijmqnu" path="res://escenas/generador_nivel/GeneradorTrigger.tscn" id="7_6xs3m"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6u8bj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j82lo"]
 
-[node name="Habitacion30x15_1" type="Node3D" unique_id=79309243]
+[sub_resource type="BoxShape3D" id="BoxShape3D_6u8bj"]
+
+[node name="Habitacion30x15_1" type="Node3D" unique_id=79309243 groups=["habitacion"]]
 
 [node name="Suelo" type="StaticBody3D" parent="." unique_id=647133102]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
@@ -83,12 +86,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, 0)
 [node name="Paredes" type="Node3D" parent="." unique_id=28133830]
 
 [node name="Pared" parent="Paredes" unique_id=1841138531 instance=ExtResource("2_0gwau")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.8, 0, -6)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, -6)
 largo = 3.0
 excedente_zocalo = 0.1
 
 [node name="Pared2" parent="Paredes" unique_id=1346459331 instance=ExtResource("2_0gwau")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.8, 0, 2.6)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, 2.5)
 largo = 10.0
 excedente_zocalo = 0.1
 
@@ -103,7 +106,7 @@ largo = 3.0
 excedente_zocalo = 0.1
 
 [node name="Pared5" parent="Paredes" unique_id=1977415196 instance=ExtResource("2_0gwau")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7, 0, 10)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.1, 0, 10)
 largo = 5.0
 excedente_zocalo = 0.1
 
@@ -113,7 +116,7 @@ largo = 3.0
 excedente_zocalo = 0.1
 
 [node name="Pared7" parent="Paredes" unique_id=1606062834 instance=ExtResource("2_0gwau")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.501, 0, 12.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 12.5)
 largo = 5.0
 excedente_zocalo = 0.1
 
@@ -124,6 +127,26 @@ excedente_zocalo = 0.1
 
 [node name="Pared9" parent="Paredes" unique_id=1962213912 instance=ExtResource("2_0gwau")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 0, 9.991)
+largo = 5.0
+excedente_zocalo = 0.1
+
+[node name="Pared10" parent="Paredes" unique_id=1117167913 instance=ExtResource("2_0gwau")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, -4.9)
+largo = 5.1
+excedente_zocalo = 0.1
+
+[node name="Pared11" parent="Paredes" unique_id=1035900269 instance=ExtResource("2_0gwau")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, 4.9)
+largo = 5.1
+excedente_zocalo = 0.1
+
+[node name="Pared12" parent="Paredes" unique_id=1044472088 instance=ExtResource("2_0gwau")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65, 0, -7.5)
+largo = 12.6
+excedente_zocalo = 0.1
+
+[node name="Pared13" parent="Paredes" unique_id=1199610727 instance=ExtResource("2_0gwau")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 7.5)
 largo = 5.0
 excedente_zocalo = 0.1
 
@@ -688,11 +711,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.5, 5)
 [node name="Techo3x3_11" parent="Techo" unique_id=1567630731 instance=ExtResource("5_0gwau")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.5, -7)
 
-[node name="Techo3x1" parent="Techo" unique_id=798763188 instance=ExtResource("6_bl5d7")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8, 1.5, 7)
-
 [node name="Techo3x1_2" parent="Techo" unique_id=1248922504 instance=ExtResource("6_bl5d7")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.5, 7)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 1.5, 7)
 
 [node name="Techo3x1_3" parent="Techo" unique_id=1717809342 instance=ExtResource("6_bl5d7")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 1.5, 7)
@@ -708,6 +728,49 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7, 1
 
 [node name="Techo3x1_7" parent="Techo" unique_id=1003749592 instance=ExtResource("6_bl5d7")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, 1.5, 7)
+
+[node name="DetectorEspacio" type="Area3D" parent="." unique_id=1690570650]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorEspacio" unique_id=1728167917]
+transform = Transform3D(14.8, 0, 0, 0, 3, 0, 0, 0, 19.8, 2.5, 0, 2.5)
+shape = SubResource("BoxShape3D_6u8bj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="DetectorEspacio" unique_id=1302364056]
+transform = Transform3D(4.8, 0, 0, 0, 3, 0, 0, 0, 14.8, -7.5, 0, 0)
+shape = SubResource("BoxShape3D_6u8bj")
+
+[node name="Conexiones" type="Node3D" parent="." unique_id=39009033]
+
+[node name="7_5" type="Marker3D" parent="Conexiones" unique_id=1628348891]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.25, -1.5, -7.5)
+
+[node name="7" type="Marker3D" parent="Conexiones" unique_id=2113338411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -1.5, 12.5)
+
+[node name="2" type="Marker3D" parent="Conexiones" unique_id=1014869324]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10, -1.5, -3.5)
+
+[node name="5" type="Marker3D" parent="Conexiones" unique_id=642410200]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, -1.5, 0)
+
+[node name="Triggers" type="Node3D" parent="." unique_id=533632793]
+
+[node name="GeneradorTrigger" parent="Triggers" unique_id=363288285 node_paths=PackedStringArray("marker_asociado") instance=ExtResource("7_6xs3m")]
+transform = Transform3D(-4.371139e-08, 0, 7.5, 0, 1, 0, -1, 0, -3.278354e-07, 6.25, 0, -7.5)
+marker_asociado = NodePath("../../Conexiones/7_5")
+
+[node name="GeneradorTrigger2" parent="Triggers" unique_id=1336516311 node_paths=PackedStringArray("marker_asociado") instance=ExtResource("7_6xs3m")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 12.5)
+marker_asociado = NodePath("../../Conexiones/7")
+
+[node name="GeneradorTrigger3" parent="Triggers" unique_id=1897107791 node_paths=PackedStringArray("marker_asociado") instance=ExtResource("7_6xs3m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, -10, 0, -3.5)
+marker_asociado = NodePath("../../Conexiones/2")
+
+[node name="GeneradorTrigger4" parent="Triggers" unique_id=1094969230 instance=ExtResource("7_6xs3m")]
+transform = Transform3D(-2.1855695e-07, 0, 1, 0, 1, 0, -5, 0, -4.371139e-08, 10, 0, 0)
 
 [editable path="Techo2/PlacaTecho"]
 [editable path="Techo/PlacaTecho2"]

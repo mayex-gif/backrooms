@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cf7wcpcejtsar"]
 
-[ext_resource type="PackedScene" uid="uid://c2vs0yy04ojmd" path="res://escenas/nivel_0.tscn" id="1_d7u15"]
-[ext_resource type="PackedScene" uid="uid://dmsaf5uxlvkdh" path="res://jugador/jugador.tscn" id="2_jumxm"]
+[ext_resource type="PackedScene" uid="uid://dbi0lkwcx4wlx" path="res://escenas/nivel_0_2.tscn" id="1_d7u15"]
 
 [sub_resource type="Environment" id="Environment_0kxa1"]
 background_mode = 1
@@ -40,9 +39,6 @@ volumetric_fog_density = 0.0125
 
 [node name="Main" type="Node3D" unique_id=956734948]
 
-[node name="Jugador" parent="." unique_id=459916517 instance=ExtResource("2_jumxm")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -47.5, -1.5, -49)
-
 [node name="SOL" type="DirectionalLight3D" parent="." unique_id=1009781631]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 25, 0)
 light_color = Color(0, 0, 0, 1)
@@ -52,10 +48,6 @@ sky_mode = 2
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=970501917]
 environment = SubResource("Environment_0kxa1")
 
-[node name="Nivel0" parent="." unique_id=826973286 instance=ExtResource("1_d7u15")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025764465, 0, 0.0012359619)
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=739182541]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -47.5, 0, -48.024)
-
 [node name="Node3D" type="Node3D" parent="." unique_id=1157011706]
+
+[node name="Nivel02" parent="Node3D" unique_id=1086323544 instance=ExtResource("1_d7u15")]

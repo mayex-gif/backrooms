@@ -38,7 +38,6 @@ excedente_zocalo = 0.1
 
 [node name="Pared4" parent="Paredes" unique_id=2097376914 instance=ExtResource("2_jjgea")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, -5)
-visible = false
 largo = 10.0
 excedente_zocalo = 0.1
 
@@ -49,7 +48,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -6.0752106)
 
 [node name="Techo" type="Node3D" parent="." unique_id=924952838]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.5, 0, 0)
-visible = false
 
 [node name="PlacaTecho2" parent="Techo" unique_id=472328615 instance=ExtResource("4_hbqvc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 2)

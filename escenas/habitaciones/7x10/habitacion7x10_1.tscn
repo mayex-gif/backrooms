@@ -1,45 +1,79 @@
 [gd_scene format=3 uid="uid://dmvwq7tfoum2g"]
 
-[ext_resource type="Material" uid="uid://dwg5smhyiqw0p" path="res://materials/knitted_fleece_2k/knitted_fleece_2k.tres" id="1_xcksc"]
-[ext_resource type="PackedScene" uid="uid://ddc37rlopgk1" path="res://escenas/basico/extras/columna.tscn" id="2_pxkbl"]
-[ext_resource type="PackedScene" uid="uid://cpmkbwbafpb8" path="res://escenas/basico/techo/3x3_luz/PlacaTecho.tscn" id="3_pxkbl"]
-[ext_resource type="PackedScene" uid="uid://cacvcefefk8wh" path="res://escenas/basico/techo/3x1/techo3x1_1.tscn" id="4_dwdwg"]
+[ext_resource type="Material" uid="uid://dwg5smhyiqw0p" path="res://materials/knitted_fleece_2k/knitted_fleece_2k.tres" id="1_aldcv"]
+[ext_resource type="PackedScene" uid="uid://ddc37rlopgk1" path="res://escenas/basico/extras/columna.tscn" id="2_211io"]
+[ext_resource type="PackedScene" uid="uid://ce70ekwfshld4" path="res://escenas/basico/pared.tscn" id="3_bjhen"]
+[ext_resource type="PackedScene" uid="uid://cpmkbwbafpb8" path="res://escenas/basico/techo/3x3_luz/PlacaTecho.tscn" id="4_fy3p7"]
+[ext_resource type="PackedScene" uid="uid://cacvcefefk8wh" path="res://escenas/basico/techo/3x1/techo3x1_1.tscn" id="5_locfi"]
+[ext_resource type="PackedScene" uid="uid://bxb6sluijmqnu" path="res://escenas/generador_nivel/GeneradorTrigger.tscn" id="6_yo0ql"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7ojq5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lkipe"]
 
-[node name="Habitacion7_5x10_1" type="Node3D" unique_id=306499210]
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ojq5"]
+
+[node name="Habitacion7x10_1" type="Node3D" unique_id=306499210 groups=["habitacion"]]
 
 [node name="Suelo" type="StaticBody3D" parent="." unique_id=739846621]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo" unique_id=1885227691]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 7.5, 0, 0, 0)
-material_override = ExtResource("1_xcksc")
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 7, 0, 0, 0)
+material_override = ExtResource("1_aldcv")
 mesh = SubResource("BoxMesh_7ojq5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo" unique_id=1985504198]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 7.5, 0, 0, 0)
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 7, 0, 0, 0)
 shape = SubResource("BoxShape3D_lkipe")
 
 [node name="Columnas" type="Node3D" parent="." unique_id=1953788606]
 
-[node name="Columna" parent="Columnas" unique_id=1088065819 instance=ExtResource("2_pxkbl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0)
+[node name="Columna" parent="Columnas" unique_id=1088065819 instance=ExtResource("2_211io")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0.25)
 
 [node name="Paredes" type="Node3D" parent="." unique_id=1514644375]
 
-[node name="Techo" type="Node3D" parent="." unique_id=1071334828]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.5, 0, 2.25)
+[node name="Pared" parent="Paredes" unique_id=2120901367 instance=ExtResource("3_bjhen")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 0, -3.125)
+largo = 0.75
+excedente_zocalo = 0.1
 
-[node name="PlacaTecho2" parent="Techo" unique_id=472328615 instance=ExtResource("3_pxkbl")]
+[node name="Pared2" parent="Paredes" unique_id=398574537 instance=ExtResource("3_bjhen")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 0, -3.5)
+largo = 2.5
+excedente_zocalo = 0.1
+
+[node name="Pared3" parent="Paredes" unique_id=852029176 instance=ExtResource("3_bjhen")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75, 0, -3.5)
+largo = 2.5
+excedente_zocalo = 0.1
+
+[node name="Pared4" parent="Paredes" unique_id=441850457 instance=ExtResource("3_bjhen")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 0, 2.125)
+largo = 2.75
+excedente_zocalo = 0.1
+
+[node name="Pared5" parent="Paredes" unique_id=2013041622 instance=ExtResource("3_bjhen")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 0, 0)
+largo = 7.0
+excedente_zocalo = 0.1
+
+[node name="Pared6" parent="Paredes" unique_id=143507068 instance=ExtResource("3_bjhen")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 3.5)
+largo = 5.0
+excedente_zocalo = 0.1
+
+[node name="Techo" type="Node3D" parent="." unique_id=1071334828]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.5, 0, -2)
+
+[node name="PlacaTecho2" parent="Techo" unique_id=472328615 instance=ExtResource("4_fy3p7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 2)
 
-[node name="PlacaTecho3" parent="Techo" unique_id=1404929317 instance=ExtResource("3_pxkbl")]
+[node name="PlacaTecho3" parent="Techo" unique_id=1404929317 instance=ExtResource("4_fy3p7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, 2)
 
-[node name="PlacaTecho5" parent="Techo" unique_id=1822988370 instance=ExtResource("3_pxkbl")]
+[node name="PlacaTecho5" parent="Techo" unique_id=1822988370 instance=ExtResource("4_fy3p7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
 
 [node name="MeshInstance3D5" parent="Techo/PlacaTecho5" index="2" unique_id=1187159523]
@@ -81,13 +115,13 @@ visible = false
 [node name="MeshInstance3D21" parent="Techo/PlacaTecho5" index="28" unique_id=1368375140]
 visible = false
 
-[node name="PlacaTecho6" parent="Techo" unique_id=2094517045 instance=ExtResource("3_pxkbl")]
+[node name="PlacaTecho6" parent="Techo" unique_id=2094517045 instance=ExtResource("4_fy3p7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, -1)
 
 [node name="MeshInstance3D12" parent="Techo/PlacaTecho6" index="4" unique_id=2087632283]
 visible = false
 
-[node name="PlacaTecho8" parent="Techo" unique_id=999815200 instance=ExtResource("3_pxkbl")]
+[node name="PlacaTecho8" parent="Techo" unique_id=999815200 instance=ExtResource("4_fy3p7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, 0)
 
 [node name="MeshInstance3D13" parent="Techo/PlacaTecho8" index="5" unique_id=1777927543]
@@ -126,13 +160,13 @@ visible = false
 [node name="MeshInstance3D32" parent="Techo/PlacaTecho8" index="29" unique_id=1526658370]
 visible = false
 
-[node name="PlacaTecho13" parent="Techo" unique_id=108850302 instance=ExtResource("3_pxkbl")]
+[node name="PlacaTecho13" parent="Techo" unique_id=108850302 instance=ExtResource("4_fy3p7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
 
-[node name="PlacaTecho14" parent="Techo" unique_id=886464659 instance=ExtResource("3_pxkbl")]
+[node name="PlacaTecho14" parent="Techo" unique_id=886464659 instance=ExtResource("4_fy3p7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, 5)
 
-[node name="PlacaTecho26" parent="Techo" unique_id=1973782438 instance=ExtResource("3_pxkbl")]
+[node name="PlacaTecho26" parent="Techo" unique_id=1973782438 instance=ExtResource("4_fy3p7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="MeshInstance3D13" parent="Techo/PlacaTecho26" index="5" unique_id=1777927543]
@@ -166,23 +200,56 @@ visible = false
 [node name="MeshInstance3D32" parent="Techo/PlacaTecho26" index="29" unique_id=1526658370]
 visible = false
 
-[node name="Techo3x1_1" parent="Techo" unique_id=1312039049 instance=ExtResource("4_dwdwg")]
+[node name="Techo3x1_1" parent="Techo" unique_id=1312039049 instance=ExtResource("5_locfi")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.5, -3)
 
-[node name="Techo3x1_2" parent="Techo" unique_id=782940274 instance=ExtResource("4_dwdwg")]
+[node name="Techo3x1_2" parent="Techo" unique_id=782940274 instance=ExtResource("5_locfi")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 1.5, -3)
 
-[node name="Techo3x1_3" parent="Techo" unique_id=2120064583 instance=ExtResource("4_dwdwg")]
+[node name="Techo3x1_3" parent="Techo" unique_id=2120064583 instance=ExtResource("5_locfi")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -5, 1.5, 5)
 
-[node name="Techo3x1_4" parent="Techo" unique_id=457011776 instance=ExtResource("4_dwdwg")]
+[node name="Techo3x1_4" parent="Techo" unique_id=457011776 instance=ExtResource("5_locfi")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -5, 1.5, 2)
 
-[node name="Techo3x1_5" parent="Techo" unique_id=302084629 instance=ExtResource("4_dwdwg")]
+[node name="Techo3x1_5" parent="Techo" unique_id=302084629 instance=ExtResource("5_locfi")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -5, 1.5, 1)
 
-[node name="Techo3x1_6" parent="Techo" unique_id=1607715979 instance=ExtResource("4_dwdwg")]
+[node name="Techo3x1_6" parent="Techo" unique_id=1607715979 instance=ExtResource("5_locfi")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -5, 1.5, -2)
+
+[node name="DetectorEspacio" type="Area3D" parent="." unique_id=826965417]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorEspacio" unique_id=733515842]
+transform = Transform3D(9.8, 0, 0, 0, 3, 0, 0, 0, 6.8, 0, 0, 0)
+shape = SubResource("BoxShape3D_7ojq5")
+
+[node name="Conexiones" type="Node3D" parent="." unique_id=1053982728]
+
+[node name="2_5" type="Marker3D" parent="Conexiones" unique_id=343463687]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, -1.5, -1.5)
+
+[node name="5" type="Marker3D" parent="Conexiones" unique_id=910249655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -1.5, 3.5)
+
+[node name="5_1" type="Marker3D" parent="Conexiones" unique_id=1734158064]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1.5, -3.5)
+
+[node name="Triggers" type="Node3D" parent="." unique_id=1388299759]
+
+[node name="GeneradorTrigger" parent="Triggers" unique_id=363288285 node_paths=PackedStringArray("marker_asociado") instance=ExtResource("6_yo0ql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.5, 5, 0, -1.5)
+marker_asociado = NodePath("../../Conexiones/2_5")
+
+[node name="GeneradorTrigger2" parent="Triggers" unique_id=1729988265 node_paths=PackedStringArray("marker_asociado") instance=ExtResource("6_yo0ql")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 3.5)
+marker_asociado = NodePath("../../Conexiones/5")
+
+[node name="GeneradorTrigger3" parent="Triggers" unique_id=885599843 node_paths=PackedStringArray("marker_asociado") instance=ExtResource("6_yo0ql")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5)
+marker_asociado = NodePath("../../Conexiones/5_1")
 
 [editable path="Techo/PlacaTecho2"]
 [editable path="Techo/PlacaTecho3"]

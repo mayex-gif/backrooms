@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cwyv6knrqt4u0"]
+
+[ext_resource type="Script" uid="uid://bb4f323u67tyr" path="res://scritps/generador_nivel.gd" id="1_touio"]
+[ext_resource type="Script" uid="uid://b13x5uww7fpxq" path="res://scritps/config_habitacion.gd" id="2_hxoxn"]
+[ext_resource type="PackedScene" uid="uid://co18bfyrd3eml" path="res://escenas/habitaciones/5x5/habitacion5x5_1.tscn" id="3_0rg4b"]
+[ext_resource type="PackedScene" uid="uid://dg7a7x7w2mq4f" path="res://escenas/habitaciones/5x5/habitacion5x5_2.tscn" id="5_m004o"]
+[ext_resource type="PackedScene" uid="uid://bcyx24nio3vxa" path="res://escenas/habitaciones/5x10/habitacion5x10_1.tscn" id="6_m004o"]
+[ext_resource type="PackedScene" uid="uid://boy1elbsumiwh" path="res://escenas/habitaciones/5x15/habitacion5x15_1.tscn" id="7_57yii"]
+[ext_resource type="PackedScene" uid="uid://dyjp3ufb5m73e" path="res://escenas/habitaciones/7.5x10/habitacion7_5x10L.tscn" id="7_yf5qd"]
+[ext_resource type="PackedScene" uid="uid://dmvwq7tfoum2g" path="res://escenas/habitaciones/7x10/habitacion7x10_1.tscn" id="8_cdurp"]
+[ext_resource type="PackedScene" uid="uid://cpkp21frunbt6" path="res://escenas/habitaciones/30x15/habitacion30x15_1.tscn" id="8_s28e4"]
+[ext_resource type="PackedScene" uid="uid://c3wox0puhbiw5" path="res://escenas/habitaciones/10x15/habitacion10x15_1.tscn" id="9_cdurp"]
+
+[sub_resource type="Resource" id="Resource_aldcv"]
+script = ExtResource("2_hxoxn")
+escena = ExtResource("3_0rg4b")
+nombre_debug = "Habitacion5x5_1"
+peso_probabilidad = 5.0
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+
+[sub_resource type="Resource" id="Resource_211io"]
+script = ExtResource("2_hxoxn")
+escena = ExtResource("5_m004o")
+nombre_debug = "Habitacion5x5_2"
+peso_probabilidad = 10.0
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+
+[sub_resource type="Resource" id="Resource_bjhen"]
+script = ExtResource("2_hxoxn")
+escena = ExtResource("6_m004o")
+nombre_debug = "Habitacion5x10_1"
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+
+[sub_resource type="Resource" id="Resource_fy3p7"]
+script = ExtResource("2_hxoxn")
+escena = ExtResource("7_57yii")
+nombre_debug = "Habitacion5x15_1"
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+
+[sub_resource type="Resource" id="Resource_locfi"]
+script = ExtResource("2_hxoxn")
+escena = ExtResource("7_yf5qd")
+nombre_debug = "Habitacion7_5x10_L"
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+
+[sub_resource type="Resource" id="Resource_yo0ql"]
+script = ExtResource("2_hxoxn")
+escena = ExtResource("8_cdurp")
+nombre_debug = "Habitacion7x10_1"
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+
+[sub_resource type="Resource" id="Resource_tw74u"]
+script = ExtResource("2_hxoxn")
+escena = ExtResource("9_cdurp")
+nombre_debug = "Habitacion10x15"
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+
+[sub_resource type="Resource" id="Resource_l7326"]
+script = ExtResource("2_hxoxn")
+escena = ExtResource("8_s28e4")
+nombre_debug = "Habitacion30x15_1"
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+
+[node name="GeneradorNivel" type="Node3D" unique_id=277419312 groups=["generadores"]]
+script = ExtResource("1_touio")
+habitacion_inicial_prefab = ExtResource("3_0rg4b")
+pool_habitaciones = Array[ExtResource("2_hxoxn")]([SubResource("Resource_aldcv"), SubResource("Resource_211io"), SubResource("Resource_bjhen"), SubResource("Resource_fy3p7"), SubResource("Resource_locfi"), SubResource("Resource_yo0ql"), SubResource("Resource_tw74u"), null, SubResource("Resource_l7326")])

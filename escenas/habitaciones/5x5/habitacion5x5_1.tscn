@@ -1,15 +1,26 @@
 [gd_scene format=3 uid="uid://co18bfyrd3eml"]
 
 [ext_resource type="Material" uid="uid://dwg5smhyiqw0p" path="res://materials/knitted_fleece_2k/knitted_fleece_2k.tres" id="1_3ywgw"]
+[ext_resource type="PackedScene" uid="uid://bxb6sluijmqnu" path="res://escenas/generador_nivel/GeneradorTrigger.tscn" id="1_htgha"]
 [ext_resource type="PackedScene" uid="uid://ce70ekwfshld4" path="res://escenas/basico/pared.tscn" id="2_v83mm"]
 [ext_resource type="PackedScene" uid="uid://cpmkbwbafpb8" path="res://escenas/basico/techo/3x3_luz/PlacaTecho.tscn" id="3_y1abf"]
 [ext_resource type="PackedScene" uid="uid://cacvcefefk8wh" path="res://escenas/basico/techo/3x1/techo3x1_1.tscn" id="4_gg1bj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2jove"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q1y8f"]
 
-[node name="habitacion5x5_1" type="Node3D" unique_id=1555080646]
+[node name="habitacion5x5_1" type="Node3D" unique_id=1555080646 groups=["habitacion"]]
+
+[node name="DetectorEspacio" type="Area3D" parent="." unique_id=366068112]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorEspacio" unique_id=1907096520]
+transform = Transform3D(4.8, 0, 0, 0, 3, 0, 0, 0, 4.8, 0, 0, 0)
+shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="Suelo" type="StaticBody3D" parent="." unique_id=612070559]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
@@ -76,5 +87,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, -1)
 
 [node name="Techo3x1_7" parent="Techo" unique_id=88745067 instance=ExtResource("4_gg1bj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -1)
+
+[node name="Conexiones" type="Node3D" parent="." unique_id=1718629673]
+
+[node name="1" type="Marker3D" parent="Conexiones" unique_id=1669119239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 2.5)
+
+[node name="Triggers" type="Node3D" parent="." unique_id=1447444052]
+
+[node name="GeneradorTrigger" parent="Triggers" unique_id=363288285 node_paths=PackedStringArray("marker_asociado") instance=ExtResource("1_htgha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+marker_asociado = NodePath("../../Conexiones/1")
 
 [editable path="Techo/PlacaTecho"]
