@@ -13,6 +13,7 @@
 [node name="5x5-1" type="Node3D" unique_id=721197622]
 
 [node name="DetectorEspacio" type="Area3D" parent="." unique_id=743863249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, 1.25)
 collision_layer = 128
 collision_mask = 128
 
@@ -21,7 +22,7 @@ transform = Transform3D(4.8, 0, 0, 0, 3, 0, 0, 0, 4.8, 0, 0, 0)
 shape = SubResource("BoxShape3D_0mptw")
 
 [node name="Suelo" type="StaticBody3D" parent="." unique_id=370458163]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, -2, 1.25)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo" unique_id=699452997]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
@@ -33,6 +34,7 @@ transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 shape = SubResource("BoxShape3D_d3u55")
 
 [node name="Paredes" type="Node3D" parent="." unique_id=1587410520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, 1.25)
 
 [node name="Pared" parent="Paredes" unique_id=2120901367 instance=ExtResource("2_5mjfi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
@@ -40,36 +42,37 @@ largo = 5.0
 excedente_zocalo = 0.1
 
 [node name="Pared2" parent="Paredes" unique_id=75687619 instance=ExtResource("2_5mjfi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 2.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.625, 0, 2.5)
 largo = 1.75
 excedente_zocalo = 0.1
 
 [node name="Pared3" parent="Paredes" unique_id=1221163050 instance=ExtResource("2_5mjfi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.625, 0, 2.5)
 largo = 1.75
 excedente_zocalo = 0.1
 
 [node name="Pared4" parent="Paredes" unique_id=2129252043 instance=ExtResource("2_5mjfi")]
-transform = Transform3D(0.00051029125, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 0.00051029125, -2.5, 0, 1.5)
+transform = Transform3D(0.00051029125, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 0.00051029125, -2.5, 0, 1.625)
 largo = 1.75
 excedente_zocalo = 0.1
 
 [node name="Pared5" parent="Paredes" unique_id=1462226250 instance=ExtResource("2_5mjfi")]
-transform = Transform3D(0.00051029125, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 0.00051029125, -2.5, 0, -1.5)
+transform = Transform3D(0.00051029125, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 0.00051029125, -2.5, 0, -1.625)
 largo = 1.75
 excedente_zocalo = 0.1
 
 [node name="Pared6" parent="Paredes" unique_id=1235736559 instance=ExtResource("2_5mjfi")]
-transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.5, 0, 1.5)
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.5, 0, 1.625)
 largo = 1.75
 excedente_zocalo = 0.1
 
 [node name="Pared7" parent="Paredes" unique_id=262230294 instance=ExtResource("2_5mjfi")]
-transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.5, 0, -1.5)
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 2.5, 0, -1.625)
 largo = 1.75
 excedente_zocalo = 0.1
 
 [node name="Techo" type="Node3D" parent="." unique_id=1902193777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, 1.25)
 
 [node name="PlacaTecho" parent="Techo" unique_id=472328615 instance=ExtResource("3_yogbg")]
 transform = Transform3D(0.833, 0, 0, 0, 0.833, 0, 0, 0, 0.833, -1.25, 1.5, -1.25)
@@ -96,14 +99,15 @@ transform = Transform3D(0.833, 0, 0, 0, 0.833, 0, 0, 0, 0.833, 1.25, 1.5, 1.25)
 malla_placa_techo = NodePath("Luz")
 
 [node name="Conexiones" type="Node3D" parent="." unique_id=398151906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, 1.25)
 
-[node name="2_5" type="Marker3D" parent="Conexiones" unique_id=1941563748]
+[node name="1_5" type="Marker3D" parent="Conexiones" unique_id=1941563748]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 2.5)
 
-[node name="2_5_1" type="Marker3D" parent="Conexiones" unique_id=1932224907]
+[node name="1_5_1" type="Marker3D" parent="Conexiones" unique_id=1932224907]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.5, -1.5, 0)
 
-[node name="2_5_2" type="Marker3D" parent="Conexiones" unique_id=531220208]
+[node name="1_5_2" type="Marker3D" parent="Conexiones" unique_id=531220208]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, -1.5, 0)
 
 [editable path="Techo/PlacaTecho"]

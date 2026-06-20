@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bgcsp13gxq6xf"]
 
-[ext_resource type="Material" uid="uid://dwg5smhyiqw0p" path="res://materials/knitted_fleece_2k/knitted_fleece_2k.tres" id="1_o2ptg"]
-[ext_resource type="PackedScene" uid="uid://cpmkbwbafpb8" path="res://escenas/basico/techo/3x3_luz/PlacaTecho.tscn" id="2_ygha6"]
+[ext_resource type="Material" uid="uid://dwg5smhyiqw0p" path="res://materials/knitted_fleece_2k/knitted_fleece_2k.tres" id="1_ho34h"]
+[ext_resource type="PackedScene" uid="uid://cpmkbwbafpb8" path="res://escenas/basico/techo/3x3_luz/PlacaTecho.tscn" id="2_qlklo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5tqnh"]
 
@@ -24,7 +24,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo" unique_id=2118574259]
 transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 2.5, 0, 0, 0)
-material_override = ExtResource("1_o2ptg")
+material_override = ExtResource("1_ho34h")
 mesh = SubResource("BoxMesh_34tt8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo" unique_id=787129706]
@@ -35,7 +35,7 @@ shape = SubResource("BoxShape3D_c46r4")
 
 [node name="Techo" type="Node3D" parent="." unique_id=695775779]
 
-[node name="PlacaTecho" parent="Techo" unique_id=472328615 instance=ExtResource("2_ygha6")]
+[node name="PlacaTecho" parent="Techo" unique_id=472328615 instance=ExtResource("2_qlklo")]
 transform = Transform3D(0.833, 0, 0, 0, 0.833, 0, 0, 0, 0.833, 0, 1.5, 0)
 
 [node name="Modulo_LuzTecho" parent="Techo/PlacaTecho" index="0" unique_id=1688122384 node_paths=PackedStringArray("malla_placa_techo")]

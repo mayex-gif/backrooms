@@ -13,6 +13,7 @@
 [node name="2_5x5-1" type="Node3D" unique_id=1694755613]
 
 [node name="DetectorEspacio" type="Area3D" parent="." unique_id=1402681607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, 0)
 collision_layer = 128
 collision_mask = 128
 
@@ -21,7 +22,7 @@ transform = Transform3D(4.8, 0, 0, 0, 3, 0, 0, 0, 2.3, 0, 0, 0)
 shape = SubResource("BoxShape3D_lublp")
 
 [node name="Suelo" type="StaticBody3D" parent="." unique_id=1635467139]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, -2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo" unique_id=1889151921]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 2.5, 0, 0, 0)
@@ -33,6 +34,7 @@ transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 2.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_1u8r0")
 
 [node name="Paredes" type="Node3D" parent="." unique_id=131995241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, 0)
 
 [node name="Pared" parent="Paredes" unique_id=2120901367 instance=ExtResource("2_eo0e8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.25)
@@ -45,6 +47,7 @@ largo = 5.0
 excedente_zocalo = 0.1
 
 [node name="Techo" type="Node3D" parent="." unique_id=818153103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, 0)
 
 [node name="PlacaTecho" parent="Techo" unique_id=472328615 instance=ExtResource("3_ye8qu")]
 transform = Transform3D(0.833, 0, 0, 0, 0.833, 0, 0, 0, 0.833, -1.25, 1.5, 0)
@@ -59,6 +62,7 @@ transform = Transform3D(0.833, 0, 0, 0, 0.833, 0, 0, 0, 0.833, 1.25, 1.5, 0)
 malla_placa_techo = NodePath("Luz")
 
 [node name="Conexiones" type="Node3D" parent="." unique_id=2067105611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, 0)
 
 [node name="2_5" type="Marker3D" parent="Conexiones" unique_id=1114253288]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.5, -1.5, 0)

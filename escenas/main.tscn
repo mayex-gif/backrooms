@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cf7wcpcejtsar"]
 
-[ext_resource type="PackedScene" uid="uid://c5vf2uh46l6xs" path="res://escenas/nivel0-3.tscn" id="1_d7u15"]
+[ext_resource type="PackedScene" uid="uid://c5vf2uh46l6xs" path="res://escenas/nivel0.tscn" id="1_d7u15"]
 
 [sub_resource type="Environment" id="Environment_0kxa1"]
 background_mode = 1
@@ -50,4 +50,4 @@ environment = SubResource("Environment_0kxa1")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1157011706]
 
-[node name="Nivel0-3" parent="Node3D" unique_id=304455837 instance=ExtResource("1_d7u15")]
+[node name="Nivel0" parent="Node3D" unique_id=304455837 instance=ExtResource("1_d7u15")]

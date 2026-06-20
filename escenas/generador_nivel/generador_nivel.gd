@@ -21,11 +21,9 @@ class PuertaPendiente:
 # --- MAPA MENTAL Y CONTROL ---
 var mapa_mental: Dictionary = {}
 var cola_puertas: Array[PuertaPendiente] = []
-var esta_generando: bool = false # DECLARADA
-var registro_generadas: Dictionary = {} # Para la ruleta
-
-var total_habitaciones_generadas = 0
-var limite_generacion = 200
+var esta_generando: bool = false 
+var registro_generadas: Dictionary = {} 
+var total_habitaciones_generadas: int = 0
 
 # Constantes de dirección
 const NORTE = Vector3i(0, 0, -1)
@@ -46,12 +44,14 @@ func inicializar_mapa():
 	nodo_inicial.global_position = Vector3.ZERO
 	
 	mapa_mental[Vector3i(0, 0, 0)] = "Spawn_Inicial"
-	anotar_puertas_en_cola(Vector3i(0, 0, 0), nodo_inicial)
+	anotar_puertas_en_cola(nodo_inicial)
 	print("Mapa mental iniciado. Puertas en cola para procesar: ", cola_puertas.size())
 
-func anotar_puertas_en_cola(celda_actual: Vector3i, instancia_habitacion: Node3D):
+func anotar_puertas_en_cola(instancia_habitacion: Node3D):
 	var nodo_conexiones = instancia_habitacion.get_node_or_null("Conexiones")
 	if not nodo_conexiones: return
+	
+	var celda_centro_habitacion = mundo_a_grilla(instancia_habitacion.global_position)
 	
 	for marker in nodo_conexiones.get_children():
 		var m3d = marker as Marker3D
@@ -60,8 +60,18 @@ func anotar_puertas_en_cola(celda_actual: Vector3i, instancia_habitacion: Node3D
 		var dir_grilla = calcular_direccion_cardinal(m3d.global_transform.basis.z)
 		var tamano_puerta = obtener_tamano_por_nombre(m3d.name)
 		
-		# Le pasamos el m3d a la clase para guardarlo
-		var nueva_puerta = PuertaPendiente.new(celda_actual, dir_grilla, tamano_puerta, m3d)
+		# SEGURO ANTI-DESFASE: Retrocedemos un pelito hacia adentro para no caer en el limbo del 0.5
+		var punto_seguro_interior = m3d.global_position - (Vector3(dir_grilla) * 0.2)
+		var vector_relativo = punto_seguro_interior - instancia_habitacion.global_position
+		
+		var celda_relativa = Vector3i(
+			round(vector_relativo.x / 2.5),
+			round(vector_relativo.y / altura_piso_metros),
+			round(vector_relativo.z / 2.5)
+		)
+		
+		var celda_exacta = celda_centro_habitacion + celda_relativa
+		var nueva_puerta = PuertaPendiente.new(celda_exacta, dir_grilla, tamano_puerta, m3d)
 		cola_puertas.append(nueva_puerta)
 
 func calcular_direccion_cardinal(forward_vector: Vector3) -> Vector3i:
@@ -71,12 +81,11 @@ func calcular_direccion_cardinal(forward_vector: Vector3) -> Vector3i:
 		return SUR if forward_vector.z > 0 else NORTE
 
 func obtener_tamano_por_nombre(nombre_nodo: String) -> String:
-	#var lista_tamanos = ["7_5", "7", "5", "2_5", "1"]
 	var lista_tamanos = ["7_5", "7", "5", "2_5", "1_5", "1"]
 	for t in lista_tamanos:
 		if nombre_nodo.begins_with(t):
 			return t
-	return "2_5" 
+	return "1_5" 
 
 func grilla_a_mundo(coordenada_grilla: Vector3i) -> Vector3:
 	return Vector3(
@@ -85,18 +94,35 @@ func grilla_a_mundo(coordenada_grilla: Vector3i) -> Vector3:
 		coordenada_grilla.z * 2.5
 	)
 
+func mundo_a_grilla(pos_global: Vector3) -> Vector3i:
+	return Vector3i(
+		round(pos_global.x / 2.5),
+		round(pos_global.y / altura_piso_metros),
+		round(pos_global.z / 2.5)
+	)
+
+func rotar_celda_local(celda_local: Vector3i, angulo_y_rad: float) -> Vector3i:
+	var cos_a = cos(angulo_y_rad)
+	var sin_a = sin(angulo_y_rad)
+	var x_rotado = celda_local.x * cos_a + celda_local.z * sin_a
+	var z_rotado = -celda_local.x * sin_a + celda_local.z * cos_a
+	return Vector3i(round(x_rotado), celda_local.y, round(z_rotado))
+
 func _process(delta):
-	# Agregamos el límite a la condición
-	if not esta_generando and cola_puertas.size() > 0 and total_habitaciones_generadas < limite_generacion:
+	if not esta_generando and cola_puertas.size() > 0 and total_habitaciones_generadas < 100:
 		procesar_siguiente_puerta()
-	elif total_habitaciones_generadas >= limite_generacion:
-		# Apagamos el _process para que deje de consumir recursos
+	elif total_habitaciones_generadas >= 100:
 		set_process(false)
-		print("--- LÍMITE DE", limite_generacion, " HABITACIONES ALCANZADO ---")
+		print("--- LÍMITE DE 100 HABITACIONES ALCANZADO ---")
 
 func procesar_siguiente_puerta():
 	esta_generando = true
 	var puerta_actual = cola_puertas.pop_front()
+	
+	if not is_instance_valid(puerta_actual.marker_nodo):
+		esta_generando = false
+		return
+		
 	var celda_destino = puerta_actual.celda_origen + puerta_actual.direccion
 	
 	if mapa_mental.has(celda_destino):
@@ -108,10 +134,7 @@ func procesar_siguiente_puerta():
 	await get_tree().physics_frame
 	esta_generando = false
 
-# --- LA RULETA (Adaptada para filtrar por tamaño) ---
 func elegir_siguiente_habitacion(tamano_requerido: String) -> ConfigHabitacion:
-	# Acá deberíamos filtrar por tamaño, pero por ahora devolvemos una aleatoria válida
-	# para no complejizar en este paso. (Lo puliremos cuando rotemos la pieza).
 	var opciones_validas: Array[ConfigHabitacion] = []
 	var suma_pesos: float = 0.0
 	
@@ -136,10 +159,10 @@ func generar_nueva_habitacion_en_celda(puerta_origen: PuertaPendiente, celda_des
 	var habitacion_nueva = null
 	var marker_entrada_final = null
 	var config_exitosa = null
+	var celdas_finales_a_ocupar = []
 	
-	# BUCLE DE REINTENTOS: Intenta 10 veces buscar una pieza del tamaño correcto
 	for intento in range(10):
-		var config = elegir_siguiente_habitacion("") # Sacamos una carta al azar
+		var config = elegir_siguiente_habitacion(puerta_origen.tamano)
 		if not config: continue
 			
 		var prueba = config.escena.instantiate()
@@ -149,7 +172,6 @@ func generar_nueva_habitacion_en_celda(puerta_origen: PuertaPendiente, celda_des
 			prueba.queue_free()
 			continue
 			
-		# FILTRO: Buscamos si esta pieza tiene un enchufe del mismo tamaño que nuestra puerta
 		var enchufes_compatibles = []
 		for marker in nodo_conexiones.get_children():
 			if obtener_tamano_por_nombre(marker.name) == puerta_origen.tamano:
@@ -157,49 +179,61 @@ func generar_nueva_habitacion_en_celda(puerta_origen: PuertaPendiente, celda_des
 				
 		if enchufes_compatibles.is_empty():
 			prueba.queue_free()
-			continue # No nos sirve, probamos con otra
+			continue 
 			
-		# ¡Encontramos una que encaja!
+		var marker_entrada = enchufes_compatibles.pick_random() as Marker3D
+		add_child(prueba)
+		
+		if is_instance_valid(puerta_origen.marker_nodo):
+			var rotacion_objetivo = puerta_origen.marker_nodo.global_rotation.y + PI
+			prueba.global_rotation.y += (rotacion_objetivo - marker_entrada.global_rotation.y)
+			
+			var offset = puerta_origen.marker_nodo.global_position - marker_entrada.global_position
+			prueba.global_position += offset
+			
+		var celda_pivote_real = mundo_a_grilla(prueba.global_position)
+		var choco = false
+		var celdas_a_ocupar_temporal = []
+		
+		for celda_local in config.huella_celdas:
+			var celda_rotada = rotar_celda_local(celda_local, prueba.global_rotation.y)
+			var celda_global = celda_pivote_real + celda_rotada
+			
+			if mapa_mental.has(celda_global):
+				choco = true
+				break
+			celdas_a_ocupar_temporal.append(celda_global)
+			
+		if choco:
+			prueba.queue_free()
+			continue 
+			
 		habitacion_nueva = prueba
-		marker_entrada_final = enchufes_compatibles.pick_random() as Marker3D
+		marker_entrada_final = marker_entrada
 		config_exitosa = config
-		break # Cortamos el bucle
+		celdas_finales_a_ocupar = celdas_a_ocupar_temporal
+		break 
 
-	# Si después de 10 intentos no encontró nada, abandonamos la rama
 	if not habitacion_nueva:
 		if is_instance_valid(puerta_origen.marker_nodo):
 			puerta_origen.marker_nodo.queue_free()
 		return
 
-	# La agregamos al mundo
-	add_child(habitacion_nueva)
-	
-	# 1. LA UBICAMOS EN LA GRILLA
-	habitacion_nueva.global_position = grilla_a_mundo(celda_destino)
-	
-	# 2. LA ROTAMOS MATEMÁTICAMENTE
-	# Calculamos el ángulo para que mire exactamente hacia la puerta de origen
-	if is_instance_valid(puerta_origen.marker_nodo):
-		var rotacion_objetivo = puerta_origen.marker_nodo.global_rotation.y + PI
-		habitacion_nueva.global_rotation.y += (rotacion_objetivo - marker_entrada_final.global_rotation.y)
-	
-	# Actualizamos registros
-	mapa_mental[celda_destino] = config_exitosa.nombre_debug
-	
-	# Borramos los enchufes usados para que queden abiertos los pasillos
+	for celda_ocupada in celdas_finales_a_ocupar:
+		mapa_mental[celda_ocupada] = config_exitosa.nombre_debug
+
+	registro_generadas[config_exitosa.nombre_debug] = registro_generadas.get(config_exitosa.nombre_debug, 0) + 1
+
 	if is_instance_valid(puerta_origen.marker_nodo):
 		puerta_origen.marker_nodo.queue_free()
 	marker_entrada_final.queue_free()
 	
-	# Sumamos las nuevas puertas a la cola
-	anotar_puertas_en_cola(celda_destino, habitacion_nueva)
+	anotar_puertas_en_cola(habitacion_nueva)
 	
 	total_habitaciones_generadas += 1
-	print("Generada: ", config_exitosa.nombre_debug, " en ", celda_destino, " | Total: ", total_habitaciones_generadas)
-
+	print("Generada: ", config_exitosa.nombre_debug, " (Ocupa ", celdas_finales_a_ocupar.size(), " celdas) | Total: ", total_habitaciones_generadas)
 
 func intentar_conectar_habitaciones(puerta_origen: PuertaPendiente, celda_ocupada: Vector3i):
 	print("¡Intento de bucle detectado en la celda ", celda_ocupada, "!")
-	# Si no se puede conectar, borramos el marker de origen para cerrar la pared
 	if is_instance_valid(puerta_origen.marker_nodo):
 		puerta_origen.marker_nodo.queue_free()
