@@ -25,7 +25,7 @@ var cola_puertas: Array[PuertaPendiente] = []
 var esta_generando: bool = false 
 var registro_generadas: Dictionary = {} 
 var total_habitaciones_generadas: int = 0
-var limite_generacion = 50
+var limite_generacion = 200
 
 # Constantes de dirección
 const NORTE = Vector3i(0, 0, -1)
@@ -55,6 +55,12 @@ func inicializar_mapa():
 	
 	mapa_mental[Vector3i(0, 0, 0)] = "Spawn_Inicial"
 	anotar_puertas_en_cola(nodo_inicial)
+	
+	# --- NUEVO: REGISTRAR EL SPAWN EN EL ROOM MANAGER ---
+	var room_manager = get_tree().get_first_node_in_group("room_manager")
+	if room_manager:
+		room_manager.registrar_habitacion(nodo_inicial)
+		
 	print("Mapa mental iniciado. Puertas en cola para procesar: ", cola_puertas.size())
 
 func anotar_puertas_en_cola(instancia_habitacion: Node3D):
@@ -240,6 +246,11 @@ func generar_nueva_habitacion_en_celda(puerta_origen: PuertaPendiente, celda_des
 	
 	anotar_puertas_en_cola(habitacion_nueva)
 	
+	# --- NUEVO: REGISTRAR LA HABITACIÓN NUEVA EN EL ROOM MANAGER ---
+	var room_manager = get_tree().get_first_node_in_group("room_manager")
+	if room_manager:
+		room_manager.registrar_habitacion(habitacion_nueva)
+	
 	total_habitaciones_generadas += 1
 	print("Generada: ", config_exitosa.nombre_debug, " (Ocupa ", celdas_finales_a_ocupar.size(), " celdas) | Total: ", total_habitaciones_generadas)
 
@@ -292,10 +303,11 @@ func calcular_huella_dinamica(config: ConfigHabitacion, tamano_cella: float):
 					var box = cs3d.shape as BoxShape3D
 					var semi_extension = box.size / 2.0
 					
-					# Reducimos un 1% el tamaño de la caja matemática para evitar 
-					# que atrape celdas vecinas por errores de redondeo flotante
-					if abs(punto_relativo.x) <= (semi_extension.x * 1) and \
-					   abs(punto_relativo.z) <= (semi_extension.z * 1):
+					# Retraemos el escáner 10 centímetros hacia adentro.
+					# Garantiza que el Array solo guarde el interior de la sala
+					# y deje los bordes libres para que las puertas no colisionen.
+					if abs(punto_relativo.x) <= (semi_extension.x - 0.1) and \
+					   abs(punto_relativo.z) <= (semi_extension.z - 0.1):
 						var celda = Vector3i(x, 0, z)
 						if not celdas_detectadas.has(celda):
 							celdas_detectadas.append(celda)

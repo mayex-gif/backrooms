@@ -27,6 +27,7 @@ window/size/viewport_height=1080
 
 habitacion=""
 generadores=""
+room_manager=""
 
 [input]
 

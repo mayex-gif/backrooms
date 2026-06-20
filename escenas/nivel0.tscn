@@ -1,17 +1,87 @@
 [gd_scene format=3 uid="uid://c5vf2uh46l6xs"]
 
+[ext_resource type="Script" uid="uid://bboucctnbeje0" path="res://scritps/room_manager.gd" id="1_dordf"]
 [ext_resource type="PackedScene" uid="uid://dmsaf5uxlvkdh" path="res://jugador/jugador.tscn" id="1_t0fhy"]
 [ext_resource type="PackedScene" uid="uid://dn33xwqaaso5o" path="res://escenas/generador_nivel/GeneradorNivel.tscn" id="2_0dsxy"]
+[ext_resource type="Script" uid="uid://b13x5uww7fpxq" path="res://scritps/config_habitacion.gd" id="3_dordf"]
+[ext_resource type="PackedScene" uid="uid://bgcsp13gxq6xf" path="res://escenas/habitaciones/2.5x2.5/2_5x2_5-0.tscn" id="5_drsv8"]
+[ext_resource type="PackedScene" uid="uid://cnm4gxn8l8rd7" path="res://escenas/habitaciones/2.5x2.5/2_5x2_5-1.tscn" id="6_p4gld"]
+[ext_resource type="PackedScene" uid="uid://colq0vra28plv" path="res://escenas/habitaciones/2.5x2.5/2_5x2_5-2.tscn" id="7_vrujp"]
+[ext_resource type="PackedScene" uid="uid://was0twfefj7i" path="res://escenas/habitaciones/2.5x2.5/2_5x2_5-3.tscn" id="8_v1mym"]
+[ext_resource type="PackedScene" uid="uid://dn358cc8oylwy" path="res://escenas/habitaciones/2.5x5/2_5x5-1.tscn" id="9_eiowb"]
+[ext_resource type="PackedScene" uid="uid://dvs2c26bjvoj8" path="res://escenas/habitaciones/5x5/5x5-0.tscn" id="10_hj7wo"]
+[ext_resource type="PackedScene" uid="uid://ba3nt81gw0dyy" path="res://escenas/habitaciones/5x5/5x5-1.tscn" id="11_1stud"]
+[ext_resource type="PackedScene" uid="uid://vv31oxb6le2p" path="res://escenas/habitaciones/5x5/5x5-2.tscn" id="12_svov5"]
+[ext_resource type="PackedScene" uid="uid://tgq716ec0cap" path="res://escenas/habitaciones/5x5/5x5-3.tscn" id="13_hl5oq"]
+
+[sub_resource type="Resource" id="Resource_1yfjd"]
+script = ExtResource("3_dordf")
+escena = ExtResource("5_drsv8")
+nombre_debug = "Habitacion2.5x2.5-0"
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+
+[sub_resource type="Resource" id="Resource_p4gld"]
+script = ExtResource("3_dordf")
+escena = ExtResource("6_p4gld")
+nombre_debug = "Habitacion2.5x2.5-1"
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+
+[sub_resource type="Resource" id="Resource_v1mym"]
+script = ExtResource("3_dordf")
+escena = ExtResource("7_vrujp")
+nombre_debug = "Habitacion2.5x2.5-2"
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+
+[sub_resource type="Resource" id="Resource_eiowb"]
+script = ExtResource("3_dordf")
+escena = ExtResource("8_v1mym")
+nombre_debug = "Habitacion2.5x2.5-3"
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+
+[sub_resource type="Resource" id="Resource_hj7wo"]
+script = ExtResource("3_dordf")
+escena = ExtResource("9_eiowb")
+nombre_debug = "Habitacion2.5x5-1"
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+
+[sub_resource type="Resource" id="Resource_1stud"]
+script = ExtResource("3_dordf")
+escena = ExtResource("10_hj7wo")
+nombre_debug = "Habitacion5x5-0"
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+
+[sub_resource type="Resource" id="Resource_svov5"]
+script = ExtResource("3_dordf")
+escena = ExtResource("11_1stud")
+nombre_debug = "Habitacion5x5-1"
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+
+[sub_resource type="Resource" id="Resource_hl5oq"]
+script = ExtResource("3_dordf")
+escena = ExtResource("12_svov5")
+nombre_debug = "Habitacion5x5-2"
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+
+[sub_resource type="Resource" id="Resource_adxbo"]
+script = ExtResource("3_dordf")
+escena = ExtResource("13_hl5oq")
+nombre_debug = "Habitacion5x5-3"
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 
 [node name="Nivel0" type="Node3D" unique_id=304455837]
 
+[node name="RoomManager" type="Node3D" parent="." unique_id=1483483031 groups=["room_manager"]]
+script = ExtResource("1_dordf")
+radio_carga = 50.0
+
 [node name="Jugador" parent="." unique_id=459916517 instance=ExtResource("1_t0fhy")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 40, 0)
-visible = false
 
 [node name="GeneradorNivel" parent="." unique_id=1706986058 instance=ExtResource("2_0dsxy")]
+pool_habitaciones = Array[ExtResource("3_dordf")]([SubResource("Resource_1yfjd"), SubResource("Resource_p4gld"), SubResource("Resource_v1mym"), SubResource("Resource_eiowb"), SubResource("Resource_hj7wo"), SubResource("Resource_1stud"), SubResource("Resource_svov5"), SubResource("Resource_hl5oq"), SubResource("Resource_adxbo")])
+altura_piso_metros = 4.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1931198077]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40, 0)

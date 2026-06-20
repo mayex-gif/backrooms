@@ -2,31 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dkwwanfoojbi4" path="res://escenas/generador_nivel/generador_nivel.gd" id="1_emtd4"]
 [ext_resource type="PackedScene" uid="uid://bgcsp13gxq6xf" path="res://escenas/habitaciones/2.5x2.5/2_5x2_5-0.tscn" id="2_4yd3e"]
-[ext_resource type="PackedScene" uid="uid://ba3nt81gw0dyy" path="res://escenas/habitaciones/5x5/5x5-1.tscn" id="2_h6vhv"]
 [ext_resource type="Script" uid="uid://b13x5uww7fpxq" path="res://scritps/config_habitacion.gd" id="3_4yd3e"]
-[ext_resource type="PackedScene" uid="uid://was0twfefj7i" path="res://escenas/habitaciones/2.5x2.5/2_5x2_5-3.tscn" id="6_g5krc"]
-[ext_resource type="PackedScene" uid="uid://vv31oxb6le2p" path="res://escenas/habitaciones/5x5/5x5-2.tscn" id="10_mv2l7"]
+[ext_resource type="PackedScene" uid="uid://dvs2c26bjvoj8" path="res://escenas/habitaciones/5x5/5x5-0.tscn" id="5_s28e4"]
 
-[sub_resource type="Resource" id="Resource_m004o"]
+[sub_resource type="Resource" id="Resource_hxoxn"]
 script = ExtResource("3_4yd3e")
-escena = ExtResource("6_g5krc")
-nombre_debug = "Habitacion2.5x2.5-3"
-metadata/_custom_type_script = "uid://b13x5uww7fpxq"
-
-[sub_resource type="Resource" id="Resource_0rg4b"]
-script = ExtResource("3_4yd3e")
-escena = ExtResource("2_h6vhv")
-nombre_debug = "Habitacion5x5-1"
-peso_probabilidad = 0.0
-metadata/_custom_type_script = "uid://b13x5uww7fpxq"
-
-[sub_resource type="Resource" id="Resource_3y50x"]
-script = ExtResource("3_4yd3e")
-escena = ExtResource("10_mv2l7")
-nombre_debug = "Habitacion5x5-2"
+escena = ExtResource("2_4yd3e")
+nombre_debug = "Habitacion2.5x2.5-0"
 metadata/_custom_type_script = "uid://b13x5uww7fpxq"
 
 [node name="GeneradorNivel" type="Node3D" unique_id=1706986058]
 script = ExtResource("1_emtd4")
-habitacion_inicial_prefab = ExtResource("2_4yd3e")
-pool_habitaciones = Array[ExtResource("3_4yd3e")]([SubResource("Resource_m004o"), SubResource("Resource_0rg4b"), SubResource("Resource_3y50x")])
+habitacion_inicial_prefab = ExtResource("5_s28e4")
+pool_habitaciones = Array[ExtResource("3_4yd3e")]([SubResource("Resource_hxoxn")])
