@@ -5,10 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://cpmkbwbafpb8" path="res://escenas/basico/techo/3x3_luz/PlacaTecho.tscn" id="3_71cxp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kb4vw"]
+size = Vector3(2.3, 3, 2.3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_m85gy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_afwxa"]
+size = Vector3(2.5, 1, 2.5)
 
 [node name="2_5x2_5-1" type="Node3D" unique_id=1685063514]
 
@@ -17,7 +19,6 @@ collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorEspacio" unique_id=1977827353]
-transform = Transform3D(2.3, 0, 0, 0, 3, 0, 0, 0, 2.3, 0, 0, 0)
 shape = SubResource("BoxShape3D_kb4vw")
 
 [node name="Suelo" type="StaticBody3D" parent="." unique_id=1956169504]
@@ -29,7 +30,6 @@ material_override = ExtResource("1_dr1hh")
 mesh = SubResource("BoxMesh_m85gy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo" unique_id=715392905]
-transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 2.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_afwxa")
 
 [node name="Paredes" type="Node3D" parent="." unique_id=275888998]

@@ -5,24 +5,24 @@
 [ext_resource type="PackedScene" uid="uid://cpmkbwbafpb8" path="res://escenas/basico/techo/3x3_luz/PlacaTecho.tscn" id="3_kug1f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_78cur"]
+size = Vector3(4.8, 3, 4.8)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ff0vf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tiv5m"]
+size = Vector3(5, 1, 5)
 
 [node name="5x5-2" type="Node3D" unique_id=1443168526]
 
 [node name="DetectorEspacio" type="Area3D" parent="." unique_id=1520410128]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, 1.25)
 collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorEspacio" unique_id=2089516407]
-transform = Transform3D(4.8, 0, 0, 0, 3, 0, 0, 0, 4.8, 0, 0, 0)
 shape = SubResource("BoxShape3D_78cur")
 
 [node name="Suelo" type="StaticBody3D" parent="." unique_id=1484227653]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, -2, 1.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo" unique_id=1754380426]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
@@ -30,11 +30,9 @@ material_override = ExtResource("1_f3ru7")
 mesh = SubResource("BoxMesh_ff0vf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo" unique_id=1659240146]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 shape = SubResource("BoxShape3D_tiv5m")
 
 [node name="Paredes" type="Node3D" parent="." unique_id=597246832]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, 1.25)
 
 [node name="Pared" parent="Paredes" unique_id=2120901367 instance=ExtResource("2_63bs7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
@@ -72,7 +70,6 @@ largo = 1.75
 excedente_zocalo = 0.1
 
 [node name="Techo" type="Node3D" parent="." unique_id=1642944322]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, 1.25)
 
 [node name="PlacaTecho" parent="Techo" unique_id=472328615 instance=ExtResource("3_kug1f")]
 transform = Transform3D(0.833, 0, 0, 0, 0.833, 0, 0, 0, 0.833, -1.25, 1.5, -1.25)
@@ -99,7 +96,6 @@ transform = Transform3D(0.833, 0, 0, 0, 0.833, 0, 0, 0, 0.833, 1.25, 1.5, 1.25)
 malla_placa_techo = NodePath("Luz")
 
 [node name="Conexiones" type="Node3D" parent="." unique_id=738631075]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, 1.25)
 
 [node name="2_5" type="Marker3D" parent="Conexiones" unique_id=1756811662]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 2.5)

@@ -16,7 +16,8 @@ class PuertaPendiente:
 # --- VARIABLES CONFIGURABLES ---
 @export var habitacion_inicial_prefab: PackedScene
 @export var pool_habitaciones: Array[ConfigHabitacion] 
-@export var altura_piso_metros: float = 4.0            
+@export var altura_piso_metros: float = 4.0
+@export var tamano_celda: float = 0.5
 
 # --- MAPA MENTAL Y CONTROL ---
 var mapa_mental: Dictionary = {}
@@ -24,6 +25,7 @@ var cola_puertas: Array[PuertaPendiente] = []
 var esta_generando: bool = false 
 var registro_generadas: Dictionary = {} 
 var total_habitaciones_generadas: int = 0
+var limite_generacion = 50
 
 # Constantes de dirección
 const NORTE = Vector3i(0, 0, -1)
@@ -33,6 +35,14 @@ const OESTE = Vector3i(-1, 0, 0)
 
 func _ready():
 	randomize()
+	
+	# --- NUEVO: ESCANEO AUTOMÁTICO DE TODO EL POOL EN LA CARGA ---
+	print("--- Iniciando escaneo automático del Pool de Habitaciones (RAM) ---")
+	for config in pool_habitaciones:
+		if config:
+			calcular_huella_dinamica(config, tamano_celda)
+	print("--- Escaneo del Pool completado de forma transparente ---")
+	
 	if habitacion_inicial_prefab:
 		inicializar_mapa()
 	else:
@@ -65,9 +75,9 @@ func anotar_puertas_en_cola(instancia_habitacion: Node3D):
 		var vector_relativo = punto_seguro_interior - instancia_habitacion.global_position
 		
 		var celda_relativa = Vector3i(
-			round(vector_relativo.x / 2.5),
+			round(vector_relativo.x / tamano_celda),
 			round(vector_relativo.y / altura_piso_metros),
-			round(vector_relativo.z / 2.5)
+			round(vector_relativo.z / tamano_celda)
 		)
 		
 		var celda_exacta = celda_centro_habitacion + celda_relativa
@@ -89,16 +99,16 @@ func obtener_tamano_por_nombre(nombre_nodo: String) -> String:
 
 func grilla_a_mundo(coordenada_grilla: Vector3i) -> Vector3:
 	return Vector3(
-		coordenada_grilla.x * 2.5,
+		coordenada_grilla.x * tamano_celda,
 		coordenada_grilla.y * altura_piso_metros,
-		coordenada_grilla.z * 2.5
+		coordenada_grilla.z * tamano_celda
 	)
 
 func mundo_a_grilla(pos_global: Vector3) -> Vector3i:
 	return Vector3i(
-		round(pos_global.x / 2.5),
+		round(pos_global.x / tamano_celda),
 		round(pos_global.y / altura_piso_metros),
-		round(pos_global.z / 2.5)
+		round(pos_global.z / tamano_celda)
 	)
 
 func rotar_celda_local(celda_local: Vector3i, angulo_y_rad: float) -> Vector3i:
@@ -109,11 +119,11 @@ func rotar_celda_local(celda_local: Vector3i, angulo_y_rad: float) -> Vector3i:
 	return Vector3i(round(x_rotado), celda_local.y, round(z_rotado))
 
 func _process(delta):
-	if not esta_generando and cola_puertas.size() > 0 and total_habitaciones_generadas < 100:
+	if not esta_generando and cola_puertas.size() > 0 and total_habitaciones_generadas < limite_generacion:
 		procesar_siguiente_puerta()
-	elif total_habitaciones_generadas >= 100:
+	elif total_habitaciones_generadas >= limite_generacion:
 		set_process(false)
-		print("--- LÍMITE DE 100 HABITACIONES ALCANZADO ---")
+		print("--- LÍMITE DE ", limite_generacion, " HABITACIONES ALCANZADO ---")
 
 func procesar_siguiente_puerta():
 	esta_generando = true
@@ -237,3 +247,59 @@ func intentar_conectar_habitaciones(puerta_origen: PuertaPendiente, celda_ocupad
 	print("¡Intento de bucle detectado en la celda ", celda_ocupada, "!")
 	if is_instance_valid(puerta_origen.marker_nodo):
 		puerta_origen.marker_nodo.queue_free()
+
+
+
+# ================================
+
+# Escanea una habitación de forma dinámica en tiempo de ejecución (RAM) y le asigna su huella
+func calcular_huella_dinamica(config: ConfigHabitacion, tamano_cella: float):
+	if not config.escena: return
+	
+	var prueba = config.escena.instantiate() as Node3D
+	add_child(prueba)
+	prueba.global_position = Vector3.ZERO
+	
+	var celdas_detectadas: Array[Vector3i] = []
+	
+	# Buscamos SOLO los colisionadores que pertenezcan al suelo
+	var colisionadores: Array[CollisionShape3D] = []
+	var buscar_shapes = func de_forma_recursiva(nodo: Node, funcion_interna):
+		if nodo is CollisionShape3D:
+			var nom_nodo = nodo.name.to_lower()
+			var nom_padre = nodo.get_parent().name.to_lower() if nodo.get_parent() else ""
+			
+			# Filtro: Solo agrega la colisión si el nodo o su padre se llaman "suelo"
+			if "suelo" in nom_nodo or "suelo" in nom_padre:
+				colisionadores.append(nodo)
+				
+		for hijo in nodo.get_children():
+			funcion_interna.call(hijo, funcion_interna)
+			
+	buscar_shapes.call(prueba, buscar_shapes)
+	
+	var rango_busqueda = 15 
+	
+	for x in range(-rango_busqueda, rango_busqueda + 1):
+		for z in range(-rango_busqueda, rango_busqueda + 1):
+			var punto_local = Vector3(x * tamano_cella, 0.0, z * tamano_cella)
+			
+			for cs3d in colisionadores:
+				if not cs3d.shape or not cs3d.visible: continue
+				
+				var punto_relativo = cs3d.transform.inverse() * punto_local
+				if cs3d.shape is BoxShape3D:
+					var box = cs3d.shape as BoxShape3D
+					var semi_extension = box.size / 2.0
+					
+					# Reducimos un 1% el tamaño de la caja matemática para evitar 
+					# que atrape celdas vecinas por errores de redondeo flotante
+					if abs(punto_relativo.x) <= (semi_extension.x * 1) and \
+					   abs(punto_relativo.z) <= (semi_extension.z * 1):
+						var celda = Vector3i(x, 0, z)
+						if not celdas_detectadas.has(celda):
+							celdas_detectadas.append(celda)
+						break
+						
+	config.huella_celdas = celdas_detectadas
+	prueba.queue_free()
