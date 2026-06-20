@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://colq0vra28plv"]
+
+[ext_resource type="Material" uid="uid://dwg5smhyiqw0p" path="res://materials/knitted_fleece_2k/knitted_fleece_2k.tres" id="1_mti22"]
+[ext_resource type="PackedScene" uid="uid://ce70ekwfshld4" path="res://escenas/basico/pared.tscn" id="2_v5nui"]
+[ext_resource type="PackedScene" uid="uid://cpmkbwbafpb8" path="res://escenas/basico/techo/3x3_luz/PlacaTecho.tscn" id="3_4deis"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mti22"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v5nui"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4deis"]
+
+[node name="2_5x2_5-2" type="Node3D" unique_id=864811515]
+
+[node name="DetectorEspacio" type="Area3D" parent="." unique_id=75307962]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorEspacio" unique_id=972812295]
+transform = Transform3D(2.3, 0, 0, 0, 3, 0, 0, 0, 2.3, 0, 0, 0)
+shape = SubResource("BoxShape3D_mti22")
+
+[node name="Suelo" type="StaticBody3D" parent="." unique_id=1119295550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo" unique_id=653548874]
+transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 2.5, 0, 0, 0)
+material_override = ExtResource("1_mti22")
+mesh = SubResource("BoxMesh_v5nui")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo" unique_id=985776457]
+transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 2.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_4deis")
+
+[node name="Paredes" type="Node3D" parent="." unique_id=1373645197]
+
+[node name="Pared" parent="Paredes" unique_id=2120901367 instance=ExtResource("2_v5nui")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.25, 0, 0)
+largo = 2.5
+excedente_zocalo = 0.1
+
+[node name="Pared2" parent="Paredes" unique_id=888941998 instance=ExtResource("2_v5nui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25)
+largo = 2.5
+excedente_zocalo = 0.1
+
+[node name="Techo" type="Node3D" parent="." unique_id=1059439582]
+
+[node name="PlacaTecho" parent="Techo" unique_id=472328615 instance=ExtResource("3_4deis")]
+transform = Transform3D(0.833, 0, 0, 0, 0.833, 0, 0, 0, 0.833, 0, 1.5, 0)
+
+[node name="Modulo_LuzTecho" parent="Techo/PlacaTecho" index="0" unique_id=1688122384 node_paths=PackedStringArray("malla_placa_techo")]
+malla_placa_techo = NodePath("Luz")
+
+[node name="Conexiones" type="Node3D" parent="." unique_id=2106035784]
+
+[node name="2_5_1" type="Marker3D" parent="Conexiones" unique_id=1375900369]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.25, -1.5, 0)
+
+[node name="2_5" type="Marker3D" parent="Conexiones" unique_id=991242987]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1.5, -1.25)
+
+[editable path="Techo/PlacaTecho"]

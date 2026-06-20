@@ -1,15 +1,6 @@
 [gd_scene format=3 uid="uid://cf7wcpcejtsar"]
 
-[ext_resource type="PackedScene" uid="uid://dbi0lkwcx4wlx" path="res://escenas/nivel_0_2.tscn" id="1_d7u15"]
-[ext_resource type="Script" uid="uid://b13x5uww7fpxq" path="res://scritps/config_habitacion.gd" id="2_dg7ii"]
-[ext_resource type="PackedScene" uid="uid://co18bfyrd3eml" path="res://escenas/habitaciones/5x5/habitacion5x5_1.tscn" id="3_woaio"]
-[ext_resource type="PackedScene" uid="uid://dg7a7x7w2mq4f" path="res://escenas/habitaciones/5x5/habitacion5x5_2.tscn" id="4_7an46"]
-[ext_resource type="PackedScene" uid="uid://bcyx24nio3vxa" path="res://escenas/habitaciones/5x10/habitacion5x10_1.tscn" id="5_acisx"]
-[ext_resource type="PackedScene" uid="uid://boy1elbsumiwh" path="res://escenas/habitaciones/5x15/habitacion5x15_1.tscn" id="6_a5wrc"]
-[ext_resource type="PackedScene" uid="uid://dyjp3ufb5m73e" path="res://escenas/habitaciones/7.5x10/habitacion7_5x10L.tscn" id="7_ueiap"]
-[ext_resource type="PackedScene" uid="uid://dmvwq7tfoum2g" path="res://escenas/habitaciones/7x10/habitacion7x10_1.tscn" id="8_ymkly"]
-[ext_resource type="PackedScene" uid="uid://c3wox0puhbiw5" path="res://escenas/habitaciones/10x15/habitacion10x15_1.tscn" id="9_jwie6"]
-[ext_resource type="PackedScene" uid="uid://cpkp21frunbt6" path="res://escenas/habitaciones/30x15/habitacion30x15_1.tscn" id="10_s4hgp"]
+[ext_resource type="PackedScene" uid="uid://c5vf2uh46l6xs" path="res://escenas/nivel0-3.tscn" id="1_d7u15"]
 
 [sub_resource type="Environment" id="Environment_0kxa1"]
 background_mode = 1
@@ -46,56 +37,6 @@ fog_light_energy = 0.03
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0125
 
-[sub_resource type="Resource" id="Resource_aldcv"]
-script = ExtResource("2_dg7ii")
-escena = ExtResource("3_woaio")
-nombre_debug = "Habitacion5x5_1"
-peso_probabilidad = 5.0
-metadata/_custom_type_script = "uid://b13x5uww7fpxq"
-
-[sub_resource type="Resource" id="Resource_211io"]
-script = ExtResource("2_dg7ii")
-escena = ExtResource("4_7an46")
-nombre_debug = "Habitacion5x5_2"
-peso_probabilidad = 10.0
-metadata/_custom_type_script = "uid://b13x5uww7fpxq"
-
-[sub_resource type="Resource" id="Resource_bjhen"]
-script = ExtResource("2_dg7ii")
-escena = ExtResource("5_acisx")
-nombre_debug = "Habitacion5x10_1"
-metadata/_custom_type_script = "uid://b13x5uww7fpxq"
-
-[sub_resource type="Resource" id="Resource_fy3p7"]
-script = ExtResource("2_dg7ii")
-escena = ExtResource("6_a5wrc")
-nombre_debug = "Habitacion5x15_1"
-metadata/_custom_type_script = "uid://b13x5uww7fpxq"
-
-[sub_resource type="Resource" id="Resource_locfi"]
-script = ExtResource("2_dg7ii")
-escena = ExtResource("7_ueiap")
-nombre_debug = "Habitacion7_5x10_L"
-metadata/_custom_type_script = "uid://b13x5uww7fpxq"
-
-[sub_resource type="Resource" id="Resource_yo0ql"]
-script = ExtResource("2_dg7ii")
-escena = ExtResource("8_ymkly")
-nombre_debug = "Habitacion7x10_1"
-metadata/_custom_type_script = "uid://b13x5uww7fpxq"
-
-[sub_resource type="Resource" id="Resource_tw74u"]
-script = ExtResource("2_dg7ii")
-escena = ExtResource("9_jwie6")
-nombre_debug = "Habitacion10x15"
-metadata/_custom_type_script = "uid://b13x5uww7fpxq"
-
-[sub_resource type="Resource" id="Resource_l7326"]
-script = ExtResource("2_dg7ii")
-escena = ExtResource("10_s4hgp")
-nombre_debug = "Habitacion30x15_1"
-metadata/_custom_type_script = "uid://b13x5uww7fpxq"
-
 [node name="Main" type="Node3D" unique_id=956734948]
 
 [node name="SOL" type="DirectionalLight3D" parent="." unique_id=1009781631]
@@ -109,11 +50,4 @@ environment = SubResource("Environment_0kxa1")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1157011706]
 
-[node name="Nivel02" parent="Node3D" unique_id=1086323544 instance=ExtResource("1_d7u15")]
-
-[node name="GeneradorNivel" parent="Node3D/Nivel02" index="0" unique_id=277419312 node_paths=PackedStringArray("jugador")]
-pool_habitaciones = Array[ExtResource("2_dg7ii")]([SubResource("Resource_aldcv"), SubResource("Resource_211io"), SubResource("Resource_bjhen"), SubResource("Resource_fy3p7"), SubResource("Resource_locfi"), SubResource("Resource_yo0ql"), SubResource("Resource_tw74u"), SubResource("Resource_l7326")])
-jugador = NodePath("../Jugador")
-distancia_generacion = 55.0
-
-[editable path="Node3D/Nivel02"]
+[node name="Nivel0-3" parent="Node3D" unique_id=304455837 instance=ExtResource("1_d7u15")]
