@@ -18,6 +18,10 @@ class PuertaPendiente:
 @export var pool_habitaciones: Array[ConfigHabitacion] 
 @export var altura_piso_metros: float = 4.0
 @export var tamano_celda: float = 0.5
+@export var semilla: int = 12345  
+
+# El objeto que va a manejar el azar controlado
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 # --- MAPA MENTAL Y CONTROL ---
 var mapa_mental: Dictionary = {}
@@ -25,7 +29,10 @@ var cola_puertas: Array[PuertaPendiente] = []
 var esta_generando: bool = false 
 var registro_generadas: Dictionary = {} 
 var total_habitaciones_generadas: int = 0
-var limite_generacion = 200
+var limite_generacion = 10000
+@export var radio_generacion: float = 50.0
+
+var jugador: CharacterBody3D = null
 
 # Constantes de dirección
 const NORTE = Vector3i(0, 0, -1)
@@ -34,6 +41,13 @@ const ESTE = Vector3i(1, 0, 0)
 const OESTE = Vector3i(-1, 0, 0)
 
 func _ready():
+	
+	# Le asignamos tu semilla al generador de azar
+	rng.seed = semilla  
+	
+	# OPCIONAL: Si querés que sea totalmente aleatorio como antes si la semilla es 0
+	if semilla == 0:
+		rng.randomize() # Genera una semilla basada en el tiempo
 	randomize()
 	
 	# --- NUEVO: ESCANEO AUTOMÁTICO DE TODO EL POOL EN LA CARGA ---
@@ -53,10 +67,11 @@ func inicializar_mapa():
 	add_child(nodo_inicial)
 	nodo_inicial.global_position = Vector3.ZERO
 	
-	mapa_mental[Vector3i(0, 0, 0)] = "Spawn_Inicial"
+	# --- NUEVO: ESCANEO Y REGISTRO COMPLETO DEL SPAWN ---
+	registrar_huella_instancia(nodo_inicial, "Spawn_Inicial")
+	
 	anotar_puertas_en_cola(nodo_inicial)
 	
-	# --- NUEVO: REGISTRAR EL SPAWN EN EL ROOM MANAGER ---
 	var room_manager = get_tree().get_first_node_in_group("room_manager")
 	if room_manager:
 		room_manager.registrar_habitacion(nodo_inicial)
@@ -101,7 +116,7 @@ func obtener_tamano_por_nombre(nombre_nodo: String) -> String:
 	for t in lista_tamanos:
 		if nombre_nodo.begins_with(t):
 			return t
-	return "1_5" 
+	return "2_5" 
 
 func grilla_a_mundo(coordenada_grilla: Vector3i) -> Vector3:
 	return Vector3(
@@ -125,15 +140,51 @@ func rotar_celda_local(celda_local: Vector3i, angulo_y_rad: float) -> Vector3i:
 	return Vector3i(round(x_rotado), celda_local.y, round(z_rotado))
 
 func _process(delta):
-	if not esta_generando and cola_puertas.size() > 0 and total_habitaciones_generadas < limite_generacion:
-		procesar_siguiente_puerta()
-	elif total_habitaciones_generadas >= limite_generacion:
-		set_process(false)
-		print("--- LÍMITE DE ", limite_generacion, " HABITACIONES ALCANZADO ---")
+	if esta_generando or cola_puertas.is_empty() or total_habitaciones_generadas >= limite_generacion:
+		return
+		
+	if not jugador:
+		jugador = get_tree().get_first_node_in_group("jugador") as CharacterBody3D
+		return
 
-func procesar_siguiente_puerta():
+	# Obtenemos el vector hacia donde apunta la cámara/jugador (su frente)
+	var forward_camara = -jugador.global_transform.basis.z.normalized()
+
+	var mejor_indice = -1
+	var mejor_puntaje = -1000.0
+	
+	for i in range(cola_puertas.size()):
+		var puerta = cola_puertas[i]
+		if not is_instance_valid(puerta.marker_nodo):
+			cola_puertas.remove_at(i)
+			return 
+			
+		var vector_hacia_puerta = puerta.marker_nodo.global_position - jugador.global_position
+		var distancia = vector_hacia_puerta.length()
+		
+		if distancia <= radio_generacion:
+			var direccion_normalizada = vector_hacia_puerta.normalized()
+			# Producto punto: Positivo (de frente), Negativo (a la espalda)
+			var alineacion = forward_camara.dot(direccion_normalizada) 
+			
+			# Ahora prioriza fuertemente a las que están cerca (distancia penaliza más),
+			# pero usa la alineación solo como un pequeño desempate para mirar hacia adelante en un abanico amplio (180 grados).
+			var puntaje = (alineacion * 0.5) - (distancia / radio_generacion * 2.0)
+			
+			if puntaje > mejor_puntaje:
+				mejor_puntaje = puntaje
+				mejor_indice = i
+
+	if mejor_indice != -1:
+		procesar_puerta_especifica(mejor_indice)
+
+# Cambiale el nombre y agregale el parámetro 'indice'
+func procesar_puerta_especifica(indice: int):
 	esta_generando = true
-	var puerta_actual = cola_puertas.pop_front()
+	
+	# Agarramos la puerta específica y la sacamos de la cola
+	var puerta_actual = cola_puertas[indice]
+	cola_puertas.remove_at(indice)
 	
 	if not is_instance_valid(puerta_actual.marker_nodo):
 		esta_generando = false
@@ -148,6 +199,10 @@ func procesar_siguiente_puerta():
 		
 	await get_tree().physics_frame
 	await get_tree().physics_frame
+	
+	# NUEVO: Le damos un respiro obligatorio a la CPU para que dibuje frames
+	await get_tree().create_timer(0.05).timeout
+	
 	esta_generando = false
 
 func elegir_siguiente_habitacion(tamano_requerido: String) -> ConfigHabitacion:
@@ -162,7 +217,7 @@ func elegir_siguiente_habitacion(tamano_requerido: String) -> ConfigHabitacion:
 			
 	if opciones_validas.is_empty(): return null
 		
-	var tirada = randf_range(0.0, suma_pesos)
+	var tirada = rng.randf_range(0.0, suma_pesos)
 	var peso_acumulado: float = 0.0
 	
 	for config in opciones_validas:
@@ -197,7 +252,10 @@ func generar_nueva_habitacion_en_celda(puerta_origen: PuertaPendiente, celda_des
 			prueba.queue_free()
 			continue 
 			
-		var marker_entrada = enchufes_compatibles.pick_random() as Marker3D
+		# Elegimos un índice al azar usando tu semilla, y sacamos ese marcador
+		var indice_azar = rng.randi() % enchufes_compatibles.size()
+		var marker_entrada = enchufes_compatibles[indice_azar] as Marker3D
+		
 		add_child(prueba)
 		
 		if is_instance_valid(puerta_origen.marker_nodo):
@@ -313,5 +371,58 @@ func calcular_huella_dinamica(config: ConfigHabitacion, tamano_cella: float):
 							celdas_detectadas.append(celda)
 						break
 						
+	# Asignamos la huella al recurso directamente en la memoria RAM
 	config.huella_celdas = celdas_detectadas
+	
+	# --- NUEVO: Log inmediato del resultado del escáner ---
+	print(" - Escaneada: ", config.nombre_debug, " | Ocupa: ", celdas_detectadas.size(), " celdas")
+	
+	# Limpiamos la habitación de prueba inmediatamente
 	prueba.queue_free()
+	
+	# --- NUEVO ESCÁNER PARA HABITACIONES YA INSTANCIADAS (SPAWN) ---
+func registrar_huella_instancia(instancia: Node3D, nombre_registro: String):
+	var colisionadores: Array[CollisionShape3D] = []
+	
+	# Misma lógica de búsqueda de suelos
+	var buscar_shapes = func de_forma_recursiva(nodo: Node, funcion_interna):
+		if nodo is CollisionShape3D:
+			var nom_nodo = nodo.name.to_lower()
+			var nom_padre = nodo.get_parent().name.to_lower() if nodo.get_parent() else ""
+			if "suelo" in nom_nodo or "suelo" in nom_padre or "piso" in nom_nodo or "piso" in nom_padre:
+				colisionadores.append(nodo)
+		for hijo in nodo.get_children():
+			funcion_interna.call(hijo, funcion_interna)
+			
+	buscar_shapes.call(instancia, buscar_shapes)
+
+	# Rango 40 cubre piezas gigantes (hasta 40 metros desde el centro). 
+	# Sobra para la sala inicial de 15x25m.
+	var rango_busqueda = 40 
+	var celdas_ocupadas = 0
+	var celda_pivote = mundo_a_grilla(instancia.global_position)
+
+	for x in range(-rango_busqueda, rango_busqueda + 1):
+		for z in range(-rango_busqueda, rango_busqueda + 1):
+			var punto_local = Vector3(x * tamano_celda, 0.0, z * tamano_celda)
+			
+			for cs3d in colisionadores:
+				if not cs3d.shape or not cs3d.visible: continue
+				
+				# Usamos la transformación global para no perder el rastro de la malla real
+				var punto_global_testeo = instancia.global_transform * punto_local
+				var punto_relativo = cs3d.global_transform.affine_inverse() * punto_global_testeo
+				
+				if cs3d.shape is BoxShape3D:
+					var box = cs3d.shape as BoxShape3D
+					var semi_extension = box.size / 2.0
+					
+					# Retraemos 10cm para solo tomar el interior
+					if abs(punto_relativo.x) <= (semi_extension.x - 0.1) and \
+					   abs(punto_relativo.z) <= (semi_extension.z - 0.1):
+						var celda = celda_pivote + Vector3i(x, 0, z)
+						mapa_mental[celda] = nombre_registro
+						celdas_ocupadas += 1
+						break
+						
+	print("Huella de [", nombre_registro, "] registrada. Ocupa ", celdas_ocupadas, " celdas.")

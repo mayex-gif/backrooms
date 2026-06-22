@@ -1,17 +1,23 @@
 [gd_scene format=3 uid="uid://dn33xwqaaso5o"]
 
 [ext_resource type="Script" uid="uid://dkwwanfoojbi4" path="res://escenas/generador_nivel/generador_nivel.gd" id="1_emtd4"]
-[ext_resource type="PackedScene" uid="uid://bgcsp13gxq6xf" path="res://escenas/habitaciones/2.5x2.5/2_5x2_5-0.tscn" id="2_4yd3e"]
+[ext_resource type="PackedScene" uid="uid://bobyarlvqb1yl" path="res://escenas/habitaciones/Inicial.tscn" id="2_xk0hi"]
 [ext_resource type="Script" uid="uid://b13x5uww7fpxq" path="res://scritps/config_habitacion.gd" id="3_4yd3e"]
-[ext_resource type="PackedScene" uid="uid://dvs2c26bjvoj8" path="res://escenas/habitaciones/5x5/5x5-0.tscn" id="5_s28e4"]
-
-[sub_resource type="Resource" id="Resource_hxoxn"]
-script = ExtResource("3_4yd3e")
-escena = ExtResource("2_4yd3e")
-nombre_debug = "Habitacion2.5x2.5-0"
-metadata/_custom_type_script = "uid://b13x5uww7fpxq"
+[ext_resource type="Resource" uid="uid://d0do0dcilfuy2" path="res://recursos/Habitacion2.5x2.5-0.tres" id="4_mv2l7"]
+[ext_resource type="Resource" uid="uid://crysqdcn3pltm" path="res://recursos/Habitacion2.5x2.5-1.tres" id="5_xk0hi"]
+[ext_resource type="Resource" uid="uid://etqb60tfj2cc" path="res://recursos/Habitacion2.5x2.5-2.tres" id="6_xm0ci"]
+[ext_resource type="Resource" uid="uid://bhsmcqeipcykl" path="res://recursos/Habitacion2.5x2.5-3.tres" id="7_w2f7g"]
+[ext_resource type="Resource" uid="uid://c4icjuc55t4bx" path="res://recursos/Habitacion2.5x5-1.tres" id="8_xk0hi"]
+[ext_resource type="Resource" uid="uid://dytq5012odjjh" path="res://recursos/Habitacion5x5-0.tres" id="9_xm0ci"]
+[ext_resource type="Resource" uid="uid://d3md5jhqk5x1m" path="res://recursos/Habitacion5x5-1.tres" id="10_xk0hi"]
+[ext_resource type="Resource" uid="uid://bsah6oxim0g82" path="res://recursos/Habitacion5x5-2.tres" id="11_xm0ci"]
+[ext_resource type="Resource" uid="uid://cn4lt5ddh4a6k" path="res://recursos/Habitacion5x5-3.tres" id="12_w2f7g"]
+[ext_resource type="Resource" uid="uid://dnwxp6f5yl2vv" path="res://recursos/Habitacion11_5x15_5-1.tres" id="13_w2f7g"]
+[ext_resource type="Resource" uid="uid://dpcsg2rlfnw4l" path="res://recursos/Habitacion15_5x7_5-1.tres" id="14_w2f7g"]
+[ext_resource type="Resource" uid="uid://6wi4qxk2exc0" path="res://recursos/Habitacion15_5x7_5-2.tres" id="15_1oxtr"]
 
 [node name="GeneradorNivel" type="Node3D" unique_id=1706986058]
 script = ExtResource("1_emtd4")
-habitacion_inicial_prefab = ExtResource("5_s28e4")
-pool_habitaciones = Array[ExtResource("3_4yd3e")]([SubResource("Resource_hxoxn")])
+habitacion_inicial_prefab = ExtResource("2_xk0hi")
+pool_habitaciones = Array[ExtResource("3_4yd3e")]([ExtResource("4_mv2l7"), ExtResource("5_xk0hi"), ExtResource("6_xm0ci"), ExtResource("7_w2f7g"), ExtResource("8_xk0hi"), ExtResource("9_xm0ci"), ExtResource("10_xk0hi"), ExtResource("11_xm0ci"), ExtResource("12_w2f7g"), ExtResource("13_w2f7g"), ExtResource("14_w2f7g"), ExtResource("15_1oxtr")])
+semilla = 0

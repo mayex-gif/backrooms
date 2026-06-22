@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ConfigHabitacion" format=3 uid="uid://crysqdcn3pltm"]
+
+[ext_resource type="PackedScene" uid="uid://cnm4gxn8l8rd7" path="res://escenas/habitaciones/2.5x2.5/2_5x2_5-1.tscn" id="1_5syss"]
+[ext_resource type="Script" uid="uid://b13x5uww7fpxq" path="res://scritps/config_habitacion.gd" id="2_rybeu"]
+
+[resource]
+script = ExtResource("2_rybeu")
+escena = ExtResource("1_5syss")
+nombre_debug = "Habitacion2.5x2.5-1"
+peso_probabilidad = 50.0
+metadata/_custom_type_script = "uid://b13x5uww7fpxq"

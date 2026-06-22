@@ -4,7 +4,7 @@
 
 [sub_resource type="Environment" id="Environment_0kxa1"]
 background_mode = 1
-background_color = Color(0.09372812, 0.11029311, 0.08047294, 1)
+background_color = Color(0.061347768, 0.07362104, 0.052141063, 1)
 background_energy_multiplier = 0.25
 tonemap_mode = 3
 tonemap_exposure = 0.75

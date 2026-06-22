@@ -11,7 +11,7 @@ extends Node3D
 		ejecutar_escaneo = false
 
 ## Tamaño de la celda del sistema (Tu resolución de grilla)
-@export var tamano_celda: float = 2.5
+@export var tamano_celda: float = 0.5
 
 func comenzar_escaneo():
 	if not recurso_config:

@@ -29,7 +29,7 @@ transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 2.5, 0, 0, 0)
 material_override = ExtResource("1_mti22")
 mesh = SubResource("BoxMesh_v5nui")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo" unique_id=985776457]
+[node name="Suelo" type="CollisionShape3D" parent="Suelo" unique_id=985776457]
 shape = SubResource("BoxShape3D_4deis")
 
 [node name="Paredes" type="Node3D" parent="." unique_id=1373645197]

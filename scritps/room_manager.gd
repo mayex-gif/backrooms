@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var radio_carga: float = 30.0 # Reducido a 30m para optimizar más (ajustar a gusto)
+@export var radio_carga: float = 100.0 # Reducido a 30m para optimizar más (ajustar a gusto)
 const INTERVALO_ESCANEO: float = 0.5 
 
 var jugador: CharacterBody3D = null
