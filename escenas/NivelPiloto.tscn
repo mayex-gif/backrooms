@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://fshjn8vl3kwc"]
+
+[ext_resource type="Script" uid="uid://oovenwjojrhx" path="res://scritps/CicloDiaNoche.gd" id="1_c2lou"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oksq5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c2lou"]
+size = Vector3(30, 1, 15)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oxaan"]
+size = Vector2(1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oxaan"]
+size = Vector3(250, 1, 250)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_yf5fn"]
+
+[sub_resource type="Sky" id="Sky_g4v7s"]
+sky_material = SubResource("PhysicalSkyMaterial_yf5fn")
+process_mode = 3
+
+[sub_resource type="Environment" id="Environment_g4v7s"]
+background_mode = 2
+sky = SubResource("Sky_g4v7s")
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.65
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 0.8
+glow_bloom = 0.05
+
+[node name="NivelPiloto" type="Node3D" unique_id=2038305481]
+
+[node name="Casas" type="Node3D" parent="." unique_id=237309699]
+
+[node name="CasaPrincipal" type="Node3D" parent="Casas" unique_id=642280223]
+
+[node name="Suelo" type="StaticBody3D" parent="Casas/CasaPrincipal" unique_id=944659134]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Casas/CasaPrincipal/Suelo" unique_id=2089033564]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 15, 0, 0, 0)
+mesh = SubResource("BoxMesh_oksq5")
+
+[node name="Suelo" type="CollisionShape3D" parent="Casas/CasaPrincipal/Suelo" unique_id=1043386135]
+shape = SubResource("BoxShape3D_c2lou")
+
+[node name="Suelo" type="StaticBody3D" parent="." unique_id=636779370]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo" unique_id=1874891835]
+transform = Transform3D(250, 0, 0, 0, 1, 0, 0, 0, 250, 0, 0, 0)
+mesh = SubResource("PlaneMesh_oxaan")
+
+[node name="Suelo" type="CollisionShape3D" parent="Suelo" unique_id=120804560]
+shape = SubResource("BoxShape3D_oxaan")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=704826562]
+environment = SubResource("Environment_g4v7s")
+
+[node name="EjeCelestial" type="Node3D" parent="." unique_id=1362264686]
+script = ExtResource("1_c2lou")
+
+[node name="Sol" type="DirectionalLight3D" parent="EjeCelestial" unique_id=64145951]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shadow_enabled = true
+shadow_blur = 1.5
+
+[node name="Luna" type="DirectionalLight3D" parent="EjeCelestial" unique_id=906851156]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+light_color = Color(0, 0, 0.078431375, 1)
+light_energy = 0.15
+
+[node name="SpawnPoint" type="Marker3D" parent="." unique_id=720165118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

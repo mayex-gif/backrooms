@@ -1,53 +1,64 @@
 [gd_scene format=3 uid="uid://cf7wcpcejtsar"]
 
-[ext_resource type="PackedScene" uid="uid://c5vf2uh46l6xs" path="res://escenas/nivel0.tscn" id="1_d7u15"]
-
-[sub_resource type="Environment" id="Environment_0kxa1"]
-background_mode = 1
-background_color = Color(0.061347768, 0.07362104, 0.052141063, 1)
-background_energy_multiplier = 0.25
-tonemap_mode = 3
-tonemap_exposure = 0.75
-ssao_enabled = true
-ssao_radius = 2.0
-ssao_intensity = 2.5
-ssao_power = 2.5
-ssao_light_affect = 1.0
-ssil_enabled = true
-ssil_radius = 0.25
-ssil_intensity = 0.25
-ssil_sharpness = 0.0
-sdfgi_enabled = true
-sdfgi_cascades = 8
-sdfgi_min_cell_size = 3.90625
-sdfgi_energy = 0.5
-glow_enabled = true
-glow_levels/1 = 1.0
-glow_levels/2 = 1.0
-glow_levels/3 = 1.0
-glow_levels/4 = 1.0
-glow_levels/5 = 1.0
-glow_levels/6 = 1.0
-glow_levels/7 = 1.0
-glow_normalized = true
-glow_intensity = 2.5
-glow_strength = 0.5
-glow_blend_mode = 0
-fog_light_energy = 0.03
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.0125
+[ext_resource type="Script" uid="uid://5uvty0nhryjc" path="res://scritps/main.gd" id="1_jumxm"]
+[ext_resource type="Script" uid="uid://bl2qtxdgh135n" path="res://scritps/contador_fps.gd" id="2_0kxa1"]
+[ext_resource type="PackedScene" uid="uid://dmsaf5uxlvkdh" path="res://jugador/jugador.tscn" id="2_26pgj"]
 
 [node name="Main" type="Node3D" unique_id=956734948]
+script = ExtResource("1_jumxm")
 
-[node name="SOL" type="DirectionalLight3D" parent="." unique_id=1009781631]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 25, 0)
-light_color = Color(0, 0, 0, 1)
-shadow_enabled = true
-sky_mode = 2
+[node name="Jugador" parent="." unique_id=459916517 instance=ExtResource("2_26pgj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 12)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=970501917]
-environment = SubResource("Environment_0kxa1")
+[node name="HUB" type="Node3D" parent="." unique_id=1485893378]
 
-[node name="Node3D" type="Node3D" parent="." unique_id=1157011706]
+[node name="CapaHUB" type="CanvasLayer" parent="HUB" unique_id=645013618]
 
-[node name="Nivel0" parent="Node3D" unique_id=304455837 instance=ExtResource("1_d7u15")]
+[node name="ContadorFPS" type="Label" parent="HUB/CapaHUB" unique_id=1961644469]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0.91625834, 0.16144869, 1)
+script = ExtResource("2_0kxa1")
+
+[node name="CapaMenu" type="CanvasLayer" parent="HUB" unique_id=1868471053]
+
+[node name="BotonInciar" type="Button" parent="HUB/CapaMenu" unique_id=1529442494]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.5
+offset_top = -88.5
+offset_right = 110.5
+offset_bottom = 88.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Jugar"
+
+[node name="BotonNivelPiloto" type="Button" parent="HUB/CapaMenu" unique_id=364071738]
+offset_left = 680.0
+offset_top = 704.0
+offset_right = 832.0
+offset_bottom = 767.0
+text = "Jugar Prólogo"
+
+[node name="BotonNivel0" type="Button" parent="HUB/CapaMenu" unique_id=472910782]
+offset_left = 1088.0
+offset_top = 704.0
+offset_right = 1312.0
+offset_bottom = 767.0
+text = "Nivel 0: Las Backrooms"
+
+[node name="CamaraDron" type="Camera3D" parent="." unique_id=91944223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40, 7.5)
+current = true
+fov = 65.0
+near = 0.01
+
+[node name="Niveles" type="Node3D" parent="." unique_id=1231096927]
+
+[connection signal="pressed" from="HUB/CapaMenu/BotonInciar" to="." method="_on_boton_iniciar_pressed"]
+
+[editable path="Jugador"]
+[editable path="Jugador/personaje"]

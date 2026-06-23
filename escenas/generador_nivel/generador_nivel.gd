@@ -147,36 +147,23 @@ func _process(delta):
 		jugador = get_tree().get_first_node_in_group("jugador") as CharacterBody3D
 		return
 
-	# Obtenemos el vector hacia donde apunta la cámara/jugador (su frente)
-	var forward_camara = -jugador.global_transform.basis.z.normalized()
-
-	var mejor_indice = -1
-	var mejor_puntaje = -1000.0
+	var indice_puerta_cercana = -1
 	
 	for i in range(cola_puertas.size()):
 		var puerta = cola_puertas[i]
+		
 		if not is_instance_valid(puerta.marker_nodo):
 			cola_puertas.remove_at(i)
 			return 
 			
-		var vector_hacia_puerta = puerta.marker_nodo.global_position - jugador.global_position
-		var distancia = vector_hacia_puerta.length()
+		var distancia = jugador.global_position.distance_to(puerta.marker_nodo.global_position)
 		
 		if distancia <= radio_generacion:
-			var direccion_normalizada = vector_hacia_puerta.normalized()
-			# Producto punto: Positivo (de frente), Negativo (a la espalda)
-			var alineacion = forward_camara.dot(direccion_normalizada) 
-			
-			# Ahora prioriza fuertemente a las que están cerca (distancia penaliza más),
-			# pero usa la alineación solo como un pequeño desempate para mirar hacia adelante en un abanico amplio (180 grados).
-			var puntaje = (alineacion * 0.5) - (distancia / radio_generacion * 2.0)
-			
-			if puntaje > mejor_puntaje:
-				mejor_puntaje = puntaje
-				mejor_indice = i
+			indice_puerta_cercana = i
+			break 
 
-	if mejor_indice != -1:
-		procesar_puerta_especifica(mejor_indice)
+	if indice_puerta_cercana != -1:
+		procesar_puerta_especifica(indice_puerta_cercana)
 
 # Cambiale el nombre y agregale el parámetro 'indice'
 func procesar_puerta_especifica(indice: int):

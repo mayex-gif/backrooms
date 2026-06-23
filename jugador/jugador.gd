@@ -5,6 +5,7 @@ var velocidad_actual = 2.0
 const VELOCIDAD_CAMINAR = 1#6.0 #1.0
 const VELOCIDAD_CORRER = 2#10.0 #2.0 # Aumentada un poco para notar más la diferencia de ritmo
 const VELOCIDAD_AGACHAR = 0.75
+var puede_moverse: bool = false
 
 # --- Parámetros de Head Bobbing (Ajustables desde el Inspector) ---
 @export var BOB_FRECUENCIA_CAMINAR = 7.5
@@ -40,6 +41,10 @@ func _ready() -> void:
 	cabeza.position.y = altura_ojos_base
 
 func _input(event: InputEvent) -> void:
+	# Si no puede moverse, no aplicamos físicas ni leemos las teclas
+	if not puede_moverse:
+		return
+		
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
 		cabeza.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
@@ -53,8 +58,15 @@ func _process(delta: float) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if Input.is_action_just_pressed("agachar"):
 		agachar = !agachar
+	
+	if Input.is_action_just_pressed("linterna"): # Acordate de mapear "linterna" (ej: tecla F) en el Mapa de Entrada
+		$Cabeza/Camera3D/Linterna/SpotLight3D.visible = not $Cabeza/Camera3D/Linterna/SpotLight3D.visible
 
 func _physics_process(delta: float) -> void:
+	# Si no puede moverse, no aplicamos físicas ni leemos las teclas
+	if not puede_moverse:
+		return
+		
 	# 1. Sistema de Físicas de Agachado y definición de Altura Base
 	if agachar:
 		velocidad_actual = VELOCIDAD_AGACHAR
